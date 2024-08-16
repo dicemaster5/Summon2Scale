@@ -1,19 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=8 format=3 uid="uid://dqjwfb7v30oht"]
 
+[ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
 [ext_resource type="PackedScene" uid="uid://k3xhnojhg2vg" path="res://scenes/player.tscn" id="1_ucno6"]
+[ext_resource type="PackedScene" uid="uid://cgmhxvijem8h5" path="res://assets/blocks/deafault_block/block.tscn" id="3_1miv3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1ew2j"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p1rrr"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_dqi4m"]
+[sub_resource type="Gradient" id="Gradient_y16qk"]
+colors = PackedColorArray(0.308519, 0.192436, 0.143938, 1, 0.31391, 0.267502, 0.21126, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kcpit"]
+gradient = SubResource("Gradient_y16qk")
+fill_to = Vector2(0, 1)
 
 [node name="Main" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
 zoom = Vector2(2, 2)
+script = ExtResource("1_k2bgo")
+follow_target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_ucno6")]
+position = Vector2(0, 107)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 132)
@@ -22,8 +32,22 @@ position = Vector2(0, 132)
 shape = SubResource("WorldBoundaryShape2D_1ew2j")
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor"]
-modulate = Color(0.450648, 0.450648, 0.450648, 1)
 material = SubResource("CanvasItemMaterial_p1rrr")
-position = Vector2(1.43051e-06, 286.75)
-scale = Vector2(3154, 574.5)
-texture = SubResource("CanvasTexture_dqi4m")
+position = Vector2(0, 333)
+scale = Vector2(3515.77, 10.375)
+texture = SubResource("GradientTexture2D_kcpit")
+
+[node name="Block" parent="." instance=ExtResource("3_1miv3")]
+position = Vector2(122, 80)
+
+[node name="Block2" parent="." instance=ExtResource("3_1miv3")]
+position = Vector2(205, 21)
+
+[node name="Block3" parent="." instance=ExtResource("3_1miv3")]
+position = Vector2(296, -47)
+
+[node name="Block4" parent="." instance=ExtResource("3_1miv3")]
+position = Vector2(159, -100)
+
+[node name="Block5" parent="." instance=ExtResource("3_1miv3")]
+position = Vector2(43, -156)
