@@ -61,6 +61,8 @@ func _ready() -> void:
 	score_label.text = score_text_filled
 
 	share_text_button.pressed.connect(self._share_text)
+	
+	share_image_button.pressed.connect(self._share_image)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -84,3 +86,15 @@ func _share_text():
 	share_text_confirmation.modulate.a = 1
 	await get_tree().create_timer(FADE_WAIT).timeout
 	fading = 1
+
+func _share_image():
+	await RenderingServer.frame_post_draw
+	var image = $Camera2D.get_viewport().get_texture().get_image()
+	#.save_png("user://Screenshot.png")
+	
+	if OS.get_name() != "HTML5" or !OS.has_feature('JavaScript'):
+		return
+	
+	image.clear_mipmaps()
+	var buffer = image.save_png_to_buffer()
+	JavaScriptBridge.download_buffer(buffer, "pic.png")
