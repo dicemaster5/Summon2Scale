@@ -24,6 +24,6 @@ shape = SubResource("WorldBoundaryShape2D_1ew2j")
 [node name="Sprite2D" type="Sprite2D" parent="Floor"]
 modulate = Color(0.450648, 0.450648, 0.450648, 1)
 material = SubResource("CanvasItemMaterial_p1rrr")
-position = Vector2(1.43051e-06, 29.25)
-scale = Vector2(308, 59.5)
+position = Vector2(1.43051e-06, 286.75)
+scale = Vector2(3154, 574.5)
 texture = SubResource("CanvasTexture_dqi4m")
