@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=12 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
 [ext_resource type="PackedScene" uid="uid://k3xhnojhg2vg" path="res://scenes/player.tscn" id="1_ucno6"]
 [ext_resource type="PackedScene" uid="uid://cgmhxvijem8h5" path="res://assets/blocks/deafault_block/block.tscn" id="3_1miv3"]
+[ext_resource type="Texture2D" uid="uid://dxi2g8qel7o4i" path="res://icon.svg" id="3_6yly4"]
+[ext_resource type="Script" path="res://systems/win_area.gd" id="4_2l6c1"]
+[ext_resource type="PackedScene" uid="uid://g1d5rta1lbgl" path="res://scenes/winscreen.tscn" id="5_yanaa"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1ew2j"]
 
@@ -15,10 +18,11 @@ colors = PackedColorArray(0.308519, 0.192436, 0.143938, 1, 0.31391, 0.267502, 0.
 gradient = SubResource("Gradient_y16qk")
 fill_to = Vector2(0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pidno"]
+
 [node name="Main" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
-zoom = Vector2(2, 2)
 script = ExtResource("1_k2bgo")
 follow_target = NodePath("../Player")
 
@@ -51,3 +55,17 @@ position = Vector2(159, -100)
 
 [node name="Block5" parent="." instance=ExtResource("3_1miv3")]
 position = Vector2(43, -156)
+
+[node name="WinArea" type="Area2D" parent="."]
+position = Vector2(-289, 120)
+script = ExtResource("4_2l6c1")
+win_screen_scene = ExtResource("5_yanaa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
+shape = SubResource("RectangleShape2D_pidno")
+
+[node name="Sprite2D" type="Sprite2D" parent="WinArea"]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("3_6yly4")
+
+[connection signal="body_entered" from="WinArea" to="WinArea" method="_on_body_entered"]

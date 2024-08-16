@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdujdabohmcqy"
-path="res://.godot/imported/Briefcase.png-83dbdede5fa7e86b4ace61c78c2c03bc.ctex"
+uid="uid://t7n06kvbmr7n"
+path="res://.godot/imported/main_character_blob.png-7ec3d9e85801dd7b9d72935357cc6002.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Briefcase.png"
-dest_files=["res://.godot/imported/Briefcase.png-83dbdede5fa7e86b4ace61c78c2c03bc.ctex"]
+source_file="res://assets/wizard_witch/main_character_blob.png"
+dest_files=["res://.godot/imported/main_character_blob.png-7ec3d9e85801dd7b9d72935357cc6002.ctex"]
 
 [params]
 

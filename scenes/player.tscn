@@ -1,9 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://k3xhnojhg2vg"]
+[gd_scene load_steps=11 format=3 uid="uid://k3xhnojhg2vg"]
 
-[ext_resource type="Texture2D" uid="uid://dxi2g8qel7o4i" path="res://icon.svg" id="1_u7ycv"]
 [ext_resource type="Script" path="res://systems/player.gd" id="1_ydmqw"]
+[ext_resource type="Texture2D" uid="uid://cgld6j4x52bus" path="res://assets/Blue Witch/Blue_witch/B_witch_idle.png" id="2_28c2l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gy50o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqdxi"]
+atlas = ExtResource("2_28c2l")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfqr3"]
+atlas = ExtResource("2_28c2l")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doeg7"]
+atlas = ExtResource("2_28c2l")
+region = Rect2(0, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbsvy"]
+atlas = ExtResource("2_28c2l")
+region = Rect2(0, 144, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaxrg"]
+atlas = ExtResource("2_28c2l")
+region = Rect2(0, 192, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6qw0"]
+atlas = ExtResource("2_28c2l")
+region = Rect2(0, 240, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vku5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqdxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfqr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doeg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbsvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaxrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6qw0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ydmqw")
@@ -11,6 +61,6 @@ script = ExtResource("1_ydmqw")
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_gy50o")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.171875, 0.234375)
-texture = ExtResource("1_u7ycv")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vku5n")
+frame_progress = 0.0635903

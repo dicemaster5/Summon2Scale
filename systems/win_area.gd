@@ -1,20 +1,24 @@
-extends Camera2D
+extends Area2D
 
-@export var follow_target: Node2D
-@export var follow_speed: float = 2
+@export var win_screen_scene: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position = lerp(position, follow_target.global_position, follow_speed * delta)
+	pass
 
 
-func _on_win_area_area_entered(area: Area2D) -> void:
+
+func _on_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.
 
 
-func _on_win_area_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		var win_screen: Control = win_screen_scene.instantiate()
+		add_sibling(win_screen)
 	pass # Replace with function body.
