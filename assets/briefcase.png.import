@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://luwyb6375y0n"
-path="res://.godot/imported/HeightScale.png-bdcd418b1e980f14c5c168981407f6a3.ctex"
+uid="uid://bdujdabohmcqy"
+path="res://.godot/imported/briefcase.png-96ac2b0aa4e0166ebdfe8fec1a182f04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/HeightScale.png"
-dest_files=["res://.godot/imported/HeightScale.png-bdcd418b1e980f14c5c168981407f6a3.ctex"]
+source_file="res://assets/briefcase.png"
+dest_files=["res://.godot/imported/briefcase.png-96ac2b0aa4e0166ebdfe8fec1a182f04.ctex"]
 
 [params]
 

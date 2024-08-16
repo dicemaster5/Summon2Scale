@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs4hl4bjnw0jp"
-valid=false
+uid="uid://byk38udkjs5bi"
+path="res://.godot/imported/height_scale.png-b96828a756a8efeee13316f0e0dc4085.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/Briefcase.png"
+source_file="res://assets/height_scale.png"
+dest_files=["res://.godot/imported/height_scale.png-b96828a756a8efeee13316f0e0dc4085.ctex"]
 
 [params]
 
