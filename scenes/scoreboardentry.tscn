@@ -10,9 +10,9 @@ score_label = NodePath("score")
 [node name="name" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 2
-text = "somebody909"
+text = "loading..."
 
 [node name="score" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 10
-text = "142 m"
+text = "loading..."
