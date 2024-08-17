@@ -12,6 +12,12 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if held:
 		global_position = get_global_mouse_position()
+		if Globals.mouse_in_tower_area:
+			modulate.a = 1.0
+		elif not Globals.mouse_in_tower_area:
+			modulate.a = 0.5
+	else:
+		modulate.a = 1.0
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
