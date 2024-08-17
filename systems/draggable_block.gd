@@ -7,7 +7,7 @@ var initial_position: int
 # rotate when in block selector
 var rotate_direction = 1
 const ROTATE_JIGGLE = 0.1
-const ROTATE_SPEED = 0.1
+var ROTATE_SPEED = 0.1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,7 +15,7 @@ func _ready() -> void:
 	global_rotation = offset_rotation
 	if offset_rotation > 0:
 		rotate_direction = -1
-	pass # Replace with function body.
+	ROTATE_SPEED += randf_range(-0.02, 0.02)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
