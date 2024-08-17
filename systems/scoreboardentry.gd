@@ -1,5 +1,4 @@
-@tool
-extends HBoxContainer
+class_name ScoreboardEntry extends HBoxContainer
 
 @export var username: String = "loading..."
 @export var username_label: Label

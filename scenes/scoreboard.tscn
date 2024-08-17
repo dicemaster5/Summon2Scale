@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctsy6kgah056y"]
+
+[ext_resource type="Script" path="res://systems/scoreboard.gd" id="1_f72r6"]
+[ext_resource type="PackedScene" uid="uid://dodmau47rvpud" path="res://scenes/scoreboardentry.tscn" id="1_pvbib"]
+
+[node name="VBoxContainer2" type="VBoxContainer" node_paths=PackedStringArray("scoreboardentry_vbox", "http_request_scores", "status_label", "button_time_daily", "button_time_weekly", "button_time_alltime")]
+script = ExtResource("1_f72r6")
+scoreboardentry_scene = ExtResource("1_pvbib")
+scoreboardentry_vbox = NodePath("scores")
+http_request_scores = NodePath("HTTPRequest")
+status_label = NodePath("status label")
+button_time_daily = NodePath("HBoxContainer/button time daily")
+button_time_weekly = NodePath("HBoxContainer/button time weekly")
+button_time_alltime = NodePath("HBoxContainer/button time alltime")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "LEADERBOARD"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="button time daily" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "DAILY"
+
+[node name="button time weekly" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "WEEKLY"
+
+[node name="button time alltime" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "ALL  TIME"
+
+[node name="status label" type="Label" parent="."]
+layout_mode = 2
+
+[node name="scores" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
