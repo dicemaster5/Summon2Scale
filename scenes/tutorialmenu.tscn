@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3tiwo8ub427f"]
+
+[ext_resource type="Script" path="res://systems/tutorialmenu.gd" id="1_0mbsy"]
+
+[node name="tutorial menu" type="Control" node_paths=PackedStringArray("timer", "time_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0mbsy")
+timer = NodePath("Timer")
+time_label = NodePath("CenterContainer/HBoxContainer/countdown vbox/Label2")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="howto build vbox" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="countdown vbox" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/countdown vbox"]
+layout_mode = 2
+text = "STARTING IN"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/HBoxContainer/countdown vbox"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer/countdown vbox"]
+layout_mode = 2
+text = "START NOW (or click anywhere)"
+
+[node name="how to climb vbox" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 11.0
+one_shot = true
