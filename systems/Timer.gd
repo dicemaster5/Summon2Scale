@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	var seconds = int(timer.time_left-(minutes*60))
 	var centiseconds = 100*timer.time_left-((minutes*60)*100)-(seconds*100)
 	
-	if minutes < 2:
+	if minutes < 1:
 		label.add_theme_color_override("font_color", Color(1,0,0))
 	
 	label.text = "%02d:%02d:%02d" % [minutes, seconds, centiseconds] 
