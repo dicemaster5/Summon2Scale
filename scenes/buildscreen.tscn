@@ -39,8 +39,9 @@ position = Vector2(-50, 50)
 [node name="Position 4" type="Node2D" parent="BlockContainerArea"]
 position = Vector2(50, 50)
 
-[node name="Cursor" type="Node2D" parent="."]
+[node name="Cursor" type="Node2D" parent="." node_paths=PackedStringArray("block_container_area")]
 script = ExtResource("4_5liyy")
+block_container_area = NodePath("../BlockContainerArea")
 
 [node name="Sprite2D" type="Sprite2D" parent="Cursor"]
 visible = false
@@ -61,5 +62,3 @@ shape = SubResource("RectangleShape2D_vdiri")
 [connection signal="body_exited" from="BlockContainerArea" to="BlockContainerArea" method="_on_body_exited"]
 [connection signal="body_entered" from="Cursor/CursorArea" to="Cursor" method="_on_cursor_area_body_entered"]
 [connection signal="body_exited" from="Cursor/CursorArea" to="Cursor" method="_on_cursor_area_body_exited"]
-[connection signal="mouse_entered" from="TowerArea" to="TowerArea" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="TowerArea" to="TowerArea" method="_on_mouse_exited"]
