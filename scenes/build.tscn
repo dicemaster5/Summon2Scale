@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddrm3svibam8g"]
+
+[ext_resource type="PackedScene" uid="uid://cgmhxvijem8h5" path="res://assets/blocks/deafault_block/block.tscn" id="1_j7got"]
+[ext_resource type="Script" path="res://systems/spawn_block.gd" id="2_fbdqc"]
+[ext_resource type="Texture2D" uid="uid://bdujdabohmcqy" path="res://assets/briefcase.png" id="2_golr5"]
+
+[node name="Build" type="Node2D"]
+
+[node name="Block" parent="." instance=ExtResource("1_j7got")]
+position = Vector2(166, 33)
+
+[node name="Button" type="Button" parent="." node_paths=PackedStringArray("briefcase")]
+offset_left = 264.0
+offset_top = 77.0
+offset_right = 445.0
+offset_bottom = 146.0
+text = "Spawn Platform"
+script = ExtResource("2_fbdqc")
+block_scene = ExtResource("1_j7got")
+briefcase = NodePath("../Briefcase")
+
+[node name="Briefcase" type="Sprite2D" parent="."]
+position = Vector2(138, 107)
+scale = Vector2(0.0263021, 0.0257813)
+texture = ExtResource("2_golr5")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

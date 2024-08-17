@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdujdabohmcqy"
-path="res://.godot/imported/Briefcase.png-83dbdede5fa7e86b4ace61c78c2c03bc.ctex"
+path="res://.godot/imported/briefcase.png-96ac2b0aa4e0166ebdfe8fec1a182f04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Briefcase.png"
-dest_files=["res://.godot/imported/Briefcase.png-83dbdede5fa7e86b4ace61c78c2c03bc.ctex"]
+source_file="res://assets/briefcase.png"
+dest_files=["res://.godot/imported/briefcase.png-96ac2b0aa4e0166ebdfe8fec1a182f04.ctex"]
 
 [params]
 
