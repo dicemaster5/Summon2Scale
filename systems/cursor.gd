@@ -14,12 +14,17 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass	
 
+# drop block (let go of click)
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.is_action("left_click"):
 		if Globals.mouse_in_tower_area and held_block and !event.pressed:
 			held_block.drop()
-			held_block = null
+			held_block.reparent(placed_block_container)
+			held_block.global_position = get_viewport().get_canvas_transform().affine_inverse() * held_block.global_position
 			
+			held_block = null
+
+# pick up block (click on block)
 func on_clicked_block(body: DraggableBlock) -> void:
 	if held_block:
 		return
@@ -27,7 +32,6 @@ func on_clicked_block(body: DraggableBlock) -> void:
 	if body.movable:
 		held_block = body
 		held_block.pick_up()
-		held_block.reparent(placed_block_container)
-		
+
 		await get_tree().create_timer(0.5).timeout
 		block_container_area.spawn_shape_in_position(body.initial_position)
