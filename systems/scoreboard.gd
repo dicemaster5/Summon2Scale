@@ -24,7 +24,7 @@ func _fetch_things():
 	status_label.visible = true
 	http_request_scores.request_completed.connect(_fetch_completed)
 	
-	var error = http_request_scores.request("http://server.alifeee.co.uk:9043/scores.json")
+	var error = http_request_scores.request("http://summon2scale.alifeee.co.uk/scoreboard/top?total=10&timeframe=daily")
 	if error != OK:
 		status_label.text = "oh no"
 
