@@ -48,6 +48,7 @@ func _input_event(viewport, event, shape_idx):
 func pick_up():
 	held = true
 	movable = false
+	global_rotation = 0
 	
 func drop():
 	held = false
