@@ -7,6 +7,8 @@ extends CharacterBody2D
 
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var jump_timer: Timer = $JumpTimer
+
 
 var move_speed: float
 var jumped: bool
@@ -43,29 +45,33 @@ func _physics_process(delta: float) -> void:
 				move_speed = walk_speed
 				animator.play("walk")
 		else:
-			animator.play("Idle") 
+			animator.play("Idle")
+	else: # Falling.
+		if velocity.y > 0:
+			animator.play("falling")
+		elif velocity.y < 0:
+			animator.play("jump")
+			print("playing jump")
 
+	# Start coyote time.
 	if !is_on_floor() and last_floor and !jumped:
 		coyote = true
 		coyote_timer.start()
-		print("Timer Started")
 
+	# Jump
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or coyote):
 		velocity.y = -max_jump_velocity
 		jumped = true
 		coyote = false
 		coyote_timer.stop()
-		print("JUMPED!!!")
 
 	if direction:
 		velocity.x = direction * move_speed
-		
 		# Flip character 
 		if velocity.x > 0:
 			animator.flip_h = false
 		elif velocity.x < 0:
 			animator.flip_h = true
-
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 	
