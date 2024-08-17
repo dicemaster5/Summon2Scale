@@ -8,6 +8,7 @@ extends Control
 @export var share_text_button: Button
 @export var share_text_confirmation: Panel
 @export var share_image_button: Button
+@export var file_dialog: FileDialog
 
 var max_height = 124.14451
 var time_summon = 74.112
@@ -92,9 +93,18 @@ func _share_image():
 	var image = $Camera2D.get_viewport().get_texture().get_image()
 	#.save_png("user://Screenshot.png")
 	
-	if OS.get_name() != "HTML5" or !OS.has_feature('JavaScript'):
-		return
-	
 	image.clear_mipmaps()
-	var buffer = image.save_png_to_buffer()
-	JavaScriptBridge.download_buffer(buffer, "pic.png")
+	if OS.get_name() == "HTML5" or OS.has_feature('JavaScript'):
+		var buffer = image.save_png_to_buffer()
+		JavaScriptBridge.download_buffer(buffer, "pic.png")
+	elif OS.get_name() in ["Linux", "Windows", "macOS"]:
+		file_dialog.use_native_dialog = true
+		file_dialog.mode = 4
+		file_dialog.connect("file_selected", _save_image_func(image))
+		file_dialog.current_file = "screenshot.png"
+		file_dialog.show()
+
+func _save_image_func(image: Image):
+	var _save_image = func _save_image(to: String):
+		image.save_png(to)
+	return _save_image

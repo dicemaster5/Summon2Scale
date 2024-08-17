@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://g1d5rta1lbgl"]
+[gd_scene load_steps=3 format=3 uid="uid://b2qeydgwpvtr2"]
 
 [ext_resource type="Script" path="res://systems/winscreen.gd" id="1_ypl3l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jdqg"]
 bg_color = Color(0.960222, 0.35294, 0.536556, 1)
 
-[node name="winscreen" type="Control" node_paths=PackedStringArray("stats_label", "score_label", "share_text_button", "share_text_confirmation", "share_image_button")]
+[node name="winscreen" type="Control" node_paths=PackedStringArray("stats_label", "score_label", "share_text_button", "share_text_confirmation", "share_image_button", "file_dialog")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +18,7 @@ score_label = NodePath("CenterContainer/VBoxContainer/score")
 share_text_button = NodePath("CenterContainer/VBoxContainer/share text button")
 share_text_confirmation = NodePath("Panel")
 share_image_button = NodePath("CenterContainer/VBoxContainer/share image button")
+file_dialog = NodePath("FileDialog")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -88,3 +89,6 @@ text = "copied to clipboard!"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
+
+[node name="FileDialog" type="FileDialog" parent="."]
+access = 2
