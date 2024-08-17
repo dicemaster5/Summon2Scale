@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=41 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
 [ext_resource type="Texture2D" uid="uid://fd10ymbmrxc2" path="res://assets/tower/Tower Base-1.png(1).png" id="1_s1gq3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cv6onxigv60s7" path="res://scenes/mainmenu.tscn" id="2_3djux"]
 [ext_resource type="Texture2D" uid="uid://dxi2g8qel7o4i" path="res://icon.svg" id="3_6yly4"]
 [ext_resource type="PackedScene" uid="uid://d3tiwo8ub427f" path="res://scenes/tutorialmenu.tscn" id="3_rtmu4"]
+[ext_resource type="PackedScene" uid="uid://bphqeksa5roo6" path="res://scenes/countdowntimer.tscn" id="3_ussdb"]
 [ext_resource type="Script" path="res://systems/win_area.gd" id="4_2l6c1"]
 [ext_resource type="Script" path="res://scenes/block_container_area.gd" id="5_qduty"]
 [ext_resource type="PackedScene" uid="uid://b2qeydgwpvtr2" path="res://scenes/winscreen.tscn" id="5_yanaa"]
@@ -83,6 +84,8 @@ follow_target = NodePath("../Player")
 move_speed = 800.0
 
 [node name="UserInterfaceManager" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="UserInterfaceManager" instance=ExtResource("3_ussdb")]
 
 [node name="Main Menu" parent="UserInterfaceManager" node_paths=PackedStringArray("menu_tutorial") instance=ExtResource("2_3djux")]
 size_flags_horizontal = 4
