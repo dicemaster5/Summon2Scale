@@ -34,8 +34,8 @@ func camera_movement(delta:float) -> void:
 
 # camera drag
 func _input(event):
-	if Globals.current_gamemode != Globals.GAMEMODE.BUILDER:
-		return
+	if Globals.current_gamemode != Globals.GAMEMODE.BUILDER: return
+	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 		if event.is_pressed():
 			dragging = true
@@ -43,5 +43,4 @@ func _input(event):
 			dragging = false
 	elif event is InputEventMouseMotion and dragging:
 		var diff = event.screen_relative
-		print(diff)
 		position = position - diff

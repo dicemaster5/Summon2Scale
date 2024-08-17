@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cv6onxigv60s7"]
 
 [ext_resource type="Script" path="res://systems/mainmenu.gd" id="1_8qncb"]
-[ext_resource type="PackedScene" uid="uid://ctsy6kgah056y" path="res://scenes/scoreboard.tscn" id="1_gs2js"]
+[ext_resource type="PackedScene" path="res://scenes/scoreboard.tscn" id="1_gs2js"]
 [ext_resource type="Texture2D" uid="uid://dqs1ils1l7u2u" path="res://assets/wizard_witch/main_character.png" id="2_ea4cg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwx7t"]
@@ -122,13 +122,14 @@ centered = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Name:"
 
 [node name="LineEdit" type="LineEdit" parent="PanelContainer/HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "what the"
+placeholder_text = "name"
 max_length = 20
 
 [node name="Play Button" type="Button" parent="PanelContainer/HBoxContainer/CenterContainer/VBoxContainer"]
@@ -142,69 +143,3 @@ layout_mode = 2
 
 [node name="Scoreboard" parent="PanelContainer/HBoxContainer" instance=ExtResource("1_gs2js")]
 layout_mode = 2
-
-[node name="Control" type="Control" parent="."]
-anchors_preset = 0
-offset_left = -134.0
-offset_top = 344.0
-offset_right = -94.0
-offset_bottom = 384.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 2
-offset_left = 248.0
-offset_top = 408.0
-offset_right = 582.0
-offset_bottom = 439.0
-
-[node name="Label" type="Label" parent="Control/HBoxContainer"]
-layout_mode = 2
-text = "DIFFICULTY"
-
-[node name="CheckBox" type="CheckBox" parent="Control/HBoxContainer"]
-layout_mode = 2
-button_pressed = true
-text = "EASY"
-
-[node name="CheckBox2" type="CheckBox" parent="Control/HBoxContainer"]
-layout_mode = 2
-disabled = true
-text = "MEDIUM"
-
-[node name="CheckBox3" type="CheckBox" parent="Control/HBoxContainer"]
-layout_mode = 2
-disabled = true
-text = "HARD"
-
-[node name="Button" type="Button" parent="Control"]
-layout_mode = 2
-offset_left = 248.0
-offset_top = 443.0
-offset_right = 582.0
-offset_bottom = 474.0
-text = "PLAY RANDOM SEED"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control"]
-layout_mode = 2
-offset_left = 248.0
-offset_top = 478.0
-offset_right = 582.0
-offset_bottom = 509.0
-
-[node name="Button" type="Button" parent="Control/HBoxContainer2"]
-layout_mode = 2
-disabled = true
-text = "PLAY SEED"
-
-[node name="TextEdit" type="TextEdit" parent="Control/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-editable = false
-
-[node name="Button2" type="Button" parent="Control"]
-layout_mode = 2
-offset_left = 248.0
-offset_top = 513.0
-offset_right = 582.0
-offset_bottom = 544.0
-text = "QUIT"

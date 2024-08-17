@@ -9,6 +9,8 @@ extends CharacterBody2D
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coyote_timer: Timer = $CoyoteTimer
 
+@export var height_label: Label
+
 var gravity_value: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player_gravity: Vector2
 var move_speed: float
@@ -37,6 +39,8 @@ func _process(_delta: float) -> void:
 	current_height = global_position.y
 	if current_height <  max_height_reached:
 		max_height_reached = current_height
+		print("max!!!! - ",max_height_reached)
+		height_label.text = "%.2f - meters" %[max_height_reached]
 
 func _physics_process(delta: float) -> void:
 	if Globals.current_gamemode != Globals.GAMEMODE.PLAYER: return
