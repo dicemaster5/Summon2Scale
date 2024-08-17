@@ -5,8 +5,8 @@ extends Camera2D
 
 @export var move_speed: float = 2
 
-
 var move_direction: Vector2
+var dragging = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,3 +31,17 @@ func camera_movement(delta:float) -> void:
 	move_direction.y = Input.get_axis("move_up", "move_down")
 
 	position += move_direction * delta * move_speed
+
+# camera drag
+func _input(event):
+	if Globals.current_gamemode != Globals.GAMEMODE.BUILDER:
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
+		if event.is_pressed():
+			dragging = true
+		else:
+			dragging = false
+	elif event is InputEventMouseMotion and dragging:
+		var diff = event.screen_relative
+		print(diff)
+		position = position - diff
