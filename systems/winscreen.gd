@@ -94,8 +94,9 @@ func _share_image():
 	#.save_png("user://Screenshot.png")
 	
 	image.clear_mipmaps()
-	if OS.get_name() == "HTML5" or OS.has_feature('JavaScript'):
+	if OS.get_name() == "Web" and OS.has_feature('web'):
 		var buffer = image.save_png_to_buffer()
+		JavaScriptBridge.eval('console.log("saving image")')
 		JavaScriptBridge.download_buffer(buffer, "pic.png")
 	elif OS.get_name() in ["Linux", "Windows", "macOS"]:
 		file_dialog.use_native_dialog = true

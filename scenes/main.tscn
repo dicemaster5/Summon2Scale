@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cgmhxvijem8h5" path="res://assets/blocks/deafault_block/block.tscn" id="3_1miv3"]
 [ext_resource type="Texture2D" uid="uid://dxi2g8qel7o4i" path="res://icon.svg" id="3_6yly4"]
 [ext_resource type="Script" path="res://systems/win_area.gd" id="4_2l6c1"]
-[ext_resource type="PackedScene" uid="uid://g1d5rta1lbgl" path="res://scenes/winscreen.tscn" id="5_yanaa"]
+[ext_resource type="PackedScene" uid="uid://b2qeydgwpvtr2" path="res://scenes/winscreen.tscn" id="5_yanaa"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1ew2j"]
 
