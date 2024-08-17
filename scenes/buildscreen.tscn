@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqjpmhjvpcaaw"]
+[gd_scene load_steps=11 format=3 uid="uid://dhh02pdtejxcy"]
 
 [ext_resource type="Script" path="res://scenes/block_container_area.gd" id="1_50s23"]
 [ext_resource type="PackedScene" uid="uid://cgmhxvijem8h5" path="res://assets/blocks/deafault_block/block.tscn" id="2_n24mn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://systems/cursor.gd" id="4_5liyy"]
 [ext_resource type="Texture2D" uid="uid://dxi2g8qel7o4i" path="res://icon.svg" id="5_0ukei"]
 [ext_resource type="Script" path="res://systems/tower_area.gd" id="6_8gwyh"]
+[ext_resource type="Texture2D" uid="uid://dgbteoggr04ld" path="res://assets/ui_elements/scroll.png" id="7_x7n52"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71foy"]
 size = Vector2(396, 299)
@@ -58,6 +59,25 @@ script = ExtResource("6_8gwyh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TowerArea"]
 position = Vector2(274, 357)
 shape = SubResource("RectangleShape2D_vdiri")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = 148.0
+offset_right = -272.0
+offset_bottom = 340.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 4.71239
+scale = Vector2(2.33056, 2.05785)
+texture = ExtResource("7_x7n52")
 
 [connection signal="body_exited" from="BlockContainerArea" to="BlockContainerArea" method="_on_body_exited"]
 [connection signal="body_entered" from="Cursor/CursorArea" to="Cursor" method="_on_cursor_area_body_entered"]
