@@ -128,7 +128,7 @@ text = "Name:"
 [node name="LineEdit" type="LineEdit" parent="PanelContainer/HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-alignment = 3
+text = "what the"
 max_length = 20
 
 [node name="Play Button" type="Button" parent="PanelContainer/HBoxContainer/CenterContainer/VBoxContainer"]
