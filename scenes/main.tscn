@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=40 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
 [ext_resource type="Texture2D" uid="uid://fd10ymbmrxc2" path="res://assets/tower/Tower Base-1.png(1).png" id="1_s1gq3"]
@@ -10,13 +10,26 @@
 [ext_resource type="Script" path="res://scenes/block_container_area.gd" id="5_qduty"]
 [ext_resource type="PackedScene" uid="uid://b2qeydgwpvtr2" path="res://scenes/winscreen.tscn" id="5_yanaa"]
 [ext_resource type="Texture2D" uid="uid://dg664vyrc1lpl" path="res://assets/tower/ground_infinit extension.png" id="6_cg67q"]
-[ext_resource type="PackedScene" uid="uid://cgmhxvijem8h5" path="res://assets/blocks/deafault_block/block.tscn" id="6_mpqpl"]
 [ext_resource type="Texture2D" uid="uid://cxtunhe6p13h8" path="res://assets/tower/ground.png" id="7_56t36"]
-[ext_resource type="PackedScene" uid="uid://d1lwxctf8vbke" path="res://assets/blocks/stone_block/stone_block.tscn" id="7_jajmu"]
 [ext_resource type="Script" path="res://systems/cursor.gd" id="8_a2omg"]
 [ext_resource type="Texture2D" uid="uid://bt3u8ltfkj0w6" path="res://assets/tower/crowd.png" id="8_w0b8g"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_city.tscn" id="9_8nl5q"]
 [ext_resource type="Texture2D" uid="uid://dgbteoggr04ld" path="res://assets/ui_elements/scroll.png" id="10_gl0ha"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_skulls.tscn" id="10_hf14v"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_sky.tscn" id="11_ffo8g"]
+[ext_resource type="Script" path="res://scenes/scale_tower_button.gd" id="11_ip2vg"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_black.tscn" id="12_uyefo"]
 [ext_resource type="Script" path="res://systems/tower_area.gd" id="13_163k7"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_green.tscn" id="13_dutyy"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_purple.tscn" id="14_hgi4b"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_red.tscn" id="15_63ipp"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="16_6pbn7"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_sky.tscn" id="18_8gps5"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/square_candles.tscn" id="19_j4tuq"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/square_tower.tscn" id="22_kdmlc"]
 
 [sub_resource type="Gradient" id="Gradient_mjvv7"]
 colors = PackedColorArray(0.0776302, 0.102834, 0.327013, 1, 0.421007, 0.493041, 0.631455, 1)
@@ -123,7 +136,7 @@ top_level = true
 z_index = 20
 position = Vector2(952, 324)
 script = ExtResource("5_qduty")
-blocks = Array[PackedScene]([ExtResource("6_mpqpl"), ExtResource("7_jajmu")])
+blocks = Array[PackedScene]([ExtResource("9_8nl5q"), ExtResource("10_hf14v"), ExtResource("11_ffo8g"), ExtResource("12_uyefo"), ExtResource("13_dutyy"), ExtResource("14_hgi4b"), ExtResource("15_63ipp"), ExtResource("16_6pbn7"), ExtResource("17_3csh1"), ExtResource("18_8gps5"), ExtResource("19_j4tuq"), ExtResource("20_81kgl"), ExtResource("21_fh6l5"), ExtResource("22_kdmlc")])
 positions = [NodePath("Position 1"), NodePath("Position 2"), NodePath("Position 3"), NodePath("Position 4")]
 
 [node name="Position 1" type="Node2D" parent="UserInterfaceManager/Buildscreen/BlockContainerArea"]
@@ -144,6 +157,23 @@ z_as_relative = false
 position = Vector2(38, -3)
 scale = Vector2(2.40625, 2.40625)
 texture = ExtResource("10_gl0ha")
+
+[node name="ScaleTowerButton" type="Button" parent="UserInterfaceManager" node_paths=PackedStringArray("buildscreen")]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = 171.0
+offset_right = -61.0
+offset_bottom = 244.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Scale the tower!"
+script = ExtResource("11_ip2vg")
+buildscreen = NodePath("../Buildscreen")
 
 [node name="Player" parent="." instance=ExtResource("1_ucno6")]
 position = Vector2(0, 107.295)
