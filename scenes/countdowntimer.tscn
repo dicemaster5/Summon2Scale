@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bphqeksa5roo6"]
 
 [ext_resource type="Script" path="res://systems/Timer.gd" id="1_hdch8"]
-[ext_resource type="Texture2D" uid="uid://cogjx8srn6xd4" path="res://assets/stopwatch/StopWatch Base-1.png.png" id="2_narpw"]
-[ext_resource type="Texture2D" uid="uid://kg3yw672rhqp" path="res://assets/stopwatch/Ornate Tick-1.png.png" id="3_7x4du"]
+[ext_resource type="Texture2D" uid="uid://b8t0cgr73aeig" path="res://assets/stopwatch/StopWatch Base-1.png(1).png" id="2_jscv6"]
+[ext_resource type="Texture2D" uid="uid://c73xk31upkrll" path="res://assets/stopwatch/Ornate Tick-1.png(1).png" id="3_m4rai"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("timer", "label", "watch_hand")]
 layout_mode = 3
@@ -37,7 +37,7 @@ offset_top = -51.0
 offset_right = 70.0
 offset_bottom = 77.0
 scale = Vector2(3, 3)
-texture = ExtResource("2_narpw")
+texture = ExtResource("2_jscv6")
 
 [node name="WatchHand" type="TextureRect" parent="TextureRect"]
 layout_mode = 1
@@ -46,13 +46,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.5
-offset_top = -32.0
-offset_right = 31.5
-offset_bottom = 32.0
+offset_left = -32.0
+offset_top = -36.3333
+offset_right = 32.0
+offset_bottom = 27.6667
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.00407149
 scale = Vector2(0.9, 0.9)
-pivot_offset = Vector2(32, 36)
-texture = ExtResource("3_7x4du")
+pivot_offset = Vector2(32, 40.5)
+texture = ExtResource("3_m4rai")
