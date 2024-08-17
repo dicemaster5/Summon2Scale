@@ -136,6 +136,7 @@ floor_constant_speed = true
 script = ExtResource("1_ydmqw")
 walk_speed = 200.0
 run_speed = 400.0
+coyote_frames = 8
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_gy50o")
@@ -150,3 +151,5 @@ frame_progress = 0.502005
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
