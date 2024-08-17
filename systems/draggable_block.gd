@@ -4,8 +4,16 @@ var held := false
 var movable := true
 var initial_position: int
 
+var rotate_direction = 1
+const ROTATE_JIGGLE = 0.1
+const ROTATE_SPEED = 0.1
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var offset_rotation = randf_range(-ROTATE_JIGGLE, ROTATE_JIGGLE)
+	global_rotation = offset_rotation
+	if offset_rotation > 0:
+		rotate_direction = -1
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,6 +26,19 @@ func _process(_delta: float) -> void:
 			modulate.a = 0.5
 	else:
 		modulate.a = 1.0
+		
+	# animation
+	if movable:
+		if rotate_direction == -1 and global_rotation <= rotate_direction * ROTATE_JIGGLE:
+			rotate_direction *= -1
+		elif rotate_direction == 1 and  global_rotation >= rotate_direction * ROTATE_JIGGLE:
+			rotate_direction *= -1
+		if initial_position == 0:
+			print(global_rotation)
+			print("go from", global_rotation)
+			print("to", float(rotate_direction * ROTATE_JIGGLE))
+			print("by pct", ROTATE_SPEED * _delta)
+		global_rotation += rotate_direction * _delta * ROTATE_SPEED
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -26,7 +47,7 @@ func _input_event(viewport, event, shape_idx):
 		
 func pick_up():
 	held = true
+	movable = false
 	
 func drop():
 	held = false
-	movable = false
