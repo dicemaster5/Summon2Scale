@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://bqjpmhjvpcaaw"]
+
+[ext_resource type="Script" path="res://scenes/block_container_area.gd" id="1_50s23"]
+[ext_resource type="PackedScene" uid="uid://cgmhxvijem8h5" path="res://assets/blocks/deafault_block/block.tscn" id="2_n24mn"]
+[ext_resource type="PackedScene" uid="uid://d1lwxctf8vbke" path="res://assets/blocks/stone_block/stone_block.tscn" id="3_2gu3b"]
+[ext_resource type="Script" path="res://systems/cursor.gd" id="4_5liyy"]
+[ext_resource type="Texture2D" uid="uid://dxi2g8qel7o4i" path="res://icon.svg" id="5_0ukei"]
+[ext_resource type="Script" path="res://systems/tower_area.gd" id="6_8gwyh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71foy"]
+size = Vector2(396, 299)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c7x32"]
+radius = 52.0865
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdiri"]
+size = Vector2(371, 583)
+
+[node name="Buildscreen" type="Node2D"]
+
+[node name="BlockContainerArea" type="Area2D" parent="." node_paths=PackedStringArray("positions")]
+position = Vector2(952, 324)
+script = ExtResource("1_50s23")
+blocks = Array[PackedScene]([ExtResource("2_n24mn"), ExtResource("3_2gu3b")])
+positions = [NodePath("Position 1"), NodePath("Position 2"), NodePath("Position 3"), NodePath("Position 4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockContainerArea"]
+shape = SubResource("RectangleShape2D_71foy")
+
+[node name="Position 1" type="Node2D" parent="BlockContainerArea"]
+position = Vector2(-50, -50)
+
+[node name="Position 2" type="Node2D" parent="BlockContainerArea"]
+position = Vector2(50, -50)
+
+[node name="Position 3" type="Node2D" parent="BlockContainerArea"]
+position = Vector2(-50, 50)
+
+[node name="Position 4" type="Node2D" parent="BlockContainerArea"]
+position = Vector2(50, 50)
+
+[node name="Cursor" type="Node2D" parent="."]
+script = ExtResource("4_5liyy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cursor"]
+visible = false
+texture = ExtResource("5_0ukei")
+
+[node name="CursorArea" type="Area2D" parent="Cursor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/CursorArea"]
+shape = SubResource("CircleShape2D_c7x32")
+
+[node name="TowerArea" type="Area2D" parent="."]
+script = ExtResource("6_8gwyh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerArea"]
+position = Vector2(274, 357)
+shape = SubResource("RectangleShape2D_vdiri")
+
+[connection signal="body_exited" from="BlockContainerArea" to="BlockContainerArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Cursor/CursorArea" to="Cursor" method="_on_cursor_area_body_entered"]
+[connection signal="body_exited" from="Cursor/CursorArea" to="Cursor" method="_on_cursor_area_body_exited"]
+[connection signal="mouse_entered" from="TowerArea" to="TowerArea" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="TowerArea" to="TowerArea" method="_on_mouse_exited"]
