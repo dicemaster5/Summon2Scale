@@ -21,6 +21,9 @@ func _ready() -> void:
 	animator.play()
 
 func _physics_process(delta: float) -> void:
+	if Globals.we_are_in_a_menu:
+		return
+		
 	# Add the gravity.
 	if not is_on_floor() && gravity_enabled:
 		velocity += get_gravity() * delta

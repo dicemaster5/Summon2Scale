@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=14 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
 [ext_resource type="PackedScene" uid="uid://k3xhnojhg2vg" path="res://scenes/player.tscn" id="1_ucno6"]
+[ext_resource type="PackedScene" uid="uid://cv6onxigv60s7" path="res://scenes/mainmenu.tscn" id="2_3djux"]
 [ext_resource type="PackedScene" uid="uid://cgmhxvijem8h5" path="res://assets/blocks/deafault_block/block.tscn" id="3_1miv3"]
 [ext_resource type="Texture2D" uid="uid://dxi2g8qel7o4i" path="res://icon.svg" id="3_6yly4"]
+[ext_resource type="PackedScene" uid="uid://d3tiwo8ub427f" path="res://scenes/tutorialmenu.tscn" id="3_rtmu4"]
 [ext_resource type="Script" path="res://systems/win_area.gd" id="4_2l6c1"]
-[ext_resource type="PackedScene" uid="uid://g1d5rta1lbgl" path="res://scenes/winscreen.tscn" id="5_yanaa"]
+[ext_resource type="PackedScene" uid="uid://b2qeydgwpvtr2" path="res://scenes/winscreen.tscn" id="5_yanaa"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1ew2j"]
 
@@ -28,7 +30,14 @@ rotation_smoothing_enabled = true
 script = ExtResource("1_k2bgo")
 follow_target = NodePath("../Player")
 
-[node name="UserInterfacaeManager" type="CanvasLayer" parent="."]
+[node name="UserInterfaceManager" type="CanvasLayer" parent="."]
+
+[node name="Main Menu" parent="UserInterfaceManager" node_paths=PackedStringArray("menu_tutorial") instance=ExtResource("2_3djux")]
+z_index = 1
+menu_tutorial = NodePath("../tutorial menu")
+
+[node name="tutorial menu" parent="UserInterfaceManager" instance=ExtResource("3_rtmu4")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_ucno6")]
 position = Vector2(0, 107)
@@ -66,7 +75,7 @@ position = Vector2(43, -156)
 position = Vector2(-289, 120)
 script = ExtResource("4_2l6c1")
 win_screen_scene = ExtResource("5_yanaa")
-ui_canvas = NodePath("../UserInterfacaeManager")
+ui_canvas = NodePath("../UserInterfaceManager")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
 shape = SubResource("RectangleShape2D_pidno")
