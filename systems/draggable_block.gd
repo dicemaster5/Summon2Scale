@@ -12,7 +12,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if held:
-		global_transform.origin = get_global_mouse_position()
+		global_position = get_global_mouse_position()
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:

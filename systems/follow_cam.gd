@@ -10,3 +10,4 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position = lerp(position, follow_target.global_position, follow_speed * delta)
+	position.y = clamp(position.y, -10000, 20)

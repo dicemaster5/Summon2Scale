@@ -236,7 +236,7 @@ position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_vku5n")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.323025
+frame_progress = 0.335515
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 5.0
