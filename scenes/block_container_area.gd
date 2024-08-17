@@ -15,5 +15,14 @@ func spawn_shape_in_position(pos: int):
 	var new_block = blocks[rand_block_id].instantiate()
 	new_block.global_position = position.global_position
 	new_block.initial_position = pos
+	new_block.scale = Vector2(0.1, 0.1)
 	
 	add_sibling.call_deferred(new_block)
+	
+	# "pop" in from small
+	var tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_QUINT)
+	tween.tween_property(new_block,"scale",Vector2(1, 1),0.15)
+	tween.play()
+	
