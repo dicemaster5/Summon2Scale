@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgmhxvijem8h5"]
+[gd_scene load_steps=4 format=3 uid="uid://cgmhxvijem8h5"]
 
 [ext_resource type="Texture2D" uid="uid://by1fqhmexmjke" path="res://assets/blocks/deafault_block/block.png" id="1_lu4ab"]
+[ext_resource type="Script" path="res://systems/draggable_block.gd" id="1_rws3n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jnevd"]
 size = Vector2(40, 40)
 
 [node name="Block" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_rws3n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jnevd")
