@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 @export var blocks: Array[PackedScene]
 @export var positions: Array[Node2D]

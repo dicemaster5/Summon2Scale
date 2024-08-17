@@ -2,7 +2,6 @@ class_name DraggableBlock extends StaticBody2D
 
 var held := false
 var movable := true
-var mouseHover := false
 var initial_position: int
 
 # Called when the node enters the scene tree for the first time.
@@ -10,7 +9,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if held:
 		global_position = get_global_mouse_position()
 
@@ -25,9 +24,3 @@ func pick_up():
 func drop():
 	held = false
 	movable = false
-
-func _mouse_enter() -> void:
-	mouseHover = true
-
-func _mouse_exit() -> void:
-	mouseHover = false

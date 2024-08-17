@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=27 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
 [ext_resource type="Texture2D" uid="uid://fd10ymbmrxc2" path="res://assets/tower/Tower Base-1.png(1).png" id="1_s1gq3"]
@@ -29,9 +29,6 @@ fill_to = Vector2(0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c7x32"]
 radius = 52.0865
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_71foy"]
-size = Vector2(396, 299)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1ew2j"]
 
@@ -65,23 +62,34 @@ texture = SubResource("GradientTexture2D_f0iah")
 position = Vector2(0, 71)
 texture = ExtResource("1_s1gq3")
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
+[node name="Scale Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
+enabled = false
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 script = ExtResource("1_k2bgo")
 follow_target = NodePath("../Player")
 
+[node name="Build Camera" type="Camera2D" parent="."]
+
 [node name="UserInterfaceManager" type="CanvasLayer" parent="."]
 
 [node name="Main Menu" parent="UserInterfaceManager" node_paths=PackedStringArray("menu_tutorial") instance=ExtResource("2_3djux")]
 z_index = 1
+size_flags_horizontal = 4
 menu_tutorial = NodePath("../tutorial menu")
 
 [node name="tutorial menu" parent="UserInterfaceManager" instance=ExtResource("3_rtmu4")]
 visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+size_flags_horizontal = 4
 
 [node name="TextureRect" type="TextureRect" parent="UserInterfaceManager"]
+visible = false
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -113,7 +121,7 @@ texture = ExtResource("3_6yly4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UserInterfaceManager/Buildscreen/Cursor/CursorArea"]
 shape = SubResource("CircleShape2D_c7x32")
 
-[node name="BlockContainerArea" type="Area2D" parent="UserInterfaceManager/Buildscreen" node_paths=PackedStringArray("positions")]
+[node name="BlockContainerArea" type="Node2D" parent="UserInterfaceManager/Buildscreen" node_paths=PackedStringArray("positions")]
 top_level = true
 z_index = 20
 position = Vector2(952, 324)
@@ -121,8 +129,12 @@ script = ExtResource("5_qduty")
 blocks = Array[PackedScene]([ExtResource("6_mpqpl"), ExtResource("7_jajmu")])
 positions = [NodePath("Position 1"), NodePath("Position 2"), NodePath("Position 3"), NodePath("Position 4")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UserInterfaceManager/Buildscreen/BlockContainerArea"]
-shape = SubResource("RectangleShape2D_71foy")
+[node name="Sprite2D" type="Sprite2D" parent="UserInterfaceManager/Buildscreen/BlockContainerArea"]
+visible = false
+z_index = -5
+position = Vector2(38, -3)
+scale = Vector2(2.40625, 2.40625)
+texture = ExtResource("10_gl0ha")
 
 [node name="Position 1" type="Node2D" parent="UserInterfaceManager/Buildscreen/BlockContainerArea"]
 position = Vector2(-50, -50)
@@ -206,5 +218,4 @@ shape = SubResource("RectangleShape2D_073lb")
 
 [connection signal="body_entered" from="UserInterfaceManager/Buildscreen/Cursor/CursorArea" to="UserInterfaceManager/Buildscreen/Cursor" method="_on_cursor_area_body_entered"]
 [connection signal="body_exited" from="UserInterfaceManager/Buildscreen/Cursor/CursorArea" to="UserInterfaceManager/Buildscreen/Cursor" method="_on_cursor_area_body_exited"]
-[connection signal="body_exited" from="UserInterfaceManager/Buildscreen/BlockContainerArea" to="UserInterfaceManager/Buildscreen/BlockContainerArea" method="_on_body_exited"]
 [connection signal="body_entered" from="WinArea" to="WinArea" method="_on_body_entered"]
