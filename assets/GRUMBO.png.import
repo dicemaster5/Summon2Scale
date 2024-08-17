@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fd10ymbmrxc2"
-path="res://.godot/imported/Tower Base-1.png(1).png-1403c9b934ce706d68d25e1d37023dcf.ctex"
+uid="uid://d3ckci00jfe58"
+path="res://.godot/imported/GRUMBO.png-336497ed2aaf2891f879afc1d5ba944f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tower/Tower Base-1.png(1).png"
-dest_files=["res://.godot/imported/Tower Base-1.png(1).png-1403c9b934ce706d68d25e1d37023dcf.ctex"]
+source_file="res://assets/GRUMBO.png"
+dest_files=["res://.godot/imported/GRUMBO.png-336497ed2aaf2891f879afc1d5ba944f.ctex"]
 
 [params]
 

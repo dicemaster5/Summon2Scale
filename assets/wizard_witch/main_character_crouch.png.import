@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fd10ymbmrxc2"
-path="res://.godot/imported/Tower Base-1.png(1).png-1403c9b934ce706d68d25e1d37023dcf.ctex"
+uid="uid://ke5060ogiq5i"
+path="res://.godot/imported/main_character_crouch.png-a76c9c5c174ef5852d7d30cf1cfdca38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tower/Tower Base-1.png(1).png"
-dest_files=["res://.godot/imported/Tower Base-1.png(1).png-1403c9b934ce706d68d25e1d37023dcf.ctex"]
+source_file="res://assets/wizard_witch/main_character_crouch.png"
+dest_files=["res://.godot/imported/main_character_crouch.png-a76c9c5c174ef5852d7d30cf1cfdca38.ctex"]
 
 [params]
 

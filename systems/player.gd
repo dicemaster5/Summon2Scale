@@ -17,17 +17,28 @@ var can_jump: bool
 var jump_force: float
 var holding_jump: bool
 
-var coyote = false  # Track whether we're in coyote time or not
-var last_floor = false  # Last frame's on-floor state
-var gravity_enabled = true
+var coyote := false  # Track whether we're in coyote time or not
+var last_floor := false  # Last frame's on-floor state
+var gravity_enabled := true
+
+var current_height: float
+
+# Redorded data
+var max_height_reached: float = 0
+var jump_counter: int = 0
+var time_spent_scaling: float = 0
 
 func _ready() -> void:
 	animator.play()
 	coyote_timer.wait_time = coyote_frames / 60.0
 
+func _process(_delta: float) -> void:
+	current_height = global_position.y
+	if current_height <  max_height_reached:
+		max_height_reached = current_height
+
 func _physics_process(delta: float) -> void:
-	if Globals.we_are_in_a_menu:
-		return
+	if Globals.current_gamemode != Globals.GAMEMODE.PLAYER: return
 		
 	# Add the gravity.
 	if not is_on_floor() && gravity_enabled:
@@ -62,7 +73,9 @@ func _physics_process(delta: float) -> void:
 	# Variable jumping.
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or coyote):
 		velocity.y = max_jump_velocity
+		jumped = true
 		holding_jump = true
+		jump_counter += 1
 
 	if Input.is_action_just_released("jump"):  
 		holding_jump = false

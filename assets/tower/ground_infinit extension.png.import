@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fd10ymbmrxc2"
-path="res://.godot/imported/Tower Base-1.png(1).png-1403c9b934ce706d68d25e1d37023dcf.ctex"
+uid="uid://dg664vyrc1lpl"
+path="res://.godot/imported/ground_infinit extension.png-e4533d9e98888d72d72c681926d385ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tower/Tower Base-1.png(1).png"
-dest_files=["res://.godot/imported/Tower Base-1.png(1).png-1403c9b934ce706d68d25e1d37023dcf.ctex"]
+source_file="res://assets/tower/ground_infinit extension.png"
+dest_files=["res://.godot/imported/ground_infinit extension.png-e4533d9e98888d72d72c681926d385ba.ctex"]
 
 [params]
 

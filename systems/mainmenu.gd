@@ -8,6 +8,8 @@ extends Control
 func _ready() -> void:
 	button_play.pressed.connect(self._play)
 	textedit_username.text_changed.connect(self._name_updated)
+	if textedit_username.text != "":
+		button_play.disabled = false
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

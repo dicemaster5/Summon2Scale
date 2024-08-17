@@ -85,7 +85,7 @@ horizontal_alignment = 1
 [node name="Button" type="Button" parent="PanelContainer/HBoxContainer/countdown vbox"]
 layout_mode = 2
 size_flags_vertical = 10
-text = "START NOW (or click anywhere)"
+text = "START NOW"
 
 [node name="Label3" type="Label" parent="PanelContainer/HBoxContainer/countdown vbox"]
 layout_mode = 2
