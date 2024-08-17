@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cv6onxigv60s7"]
 
 [ext_resource type="Script" path="res://systems/mainmenu.gd" id="1_8qncb"]
-[ext_resource type="PackedScene" uid="uid://ctsy6kgah056y" path="res://scenes/scoreboard.tscn" id="1_gs2js"]
+[ext_resource type="PackedScene" path="res://scenes/scoreboard.tscn" id="1_gs2js"]
 [ext_resource type="Texture2D" uid="uid://dqs1ils1l7u2u" path="res://assets/wizard_witch/main_character.png" id="2_ea4cg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwx7t"]

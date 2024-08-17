@@ -68,5 +68,6 @@ rotation = 4.71239
 scale = Vector2(2.33056, 2.05785)
 texture = ExtResource("7_x7n52")
 
+[connection signal="body_exited" from="BlockContainerArea" to="BlockContainerArea" method="_on_body_exited"]
 [connection signal="body_entered" from="Cursor/CursorArea" to="Cursor" method="_on_cursor_area_body_entered"]
 [connection signal="body_exited" from="Cursor/CursorArea" to="Cursor" method="_on_cursor_area_body_exited"]

@@ -63,14 +63,11 @@ position = Vector2(0, 71)
 texture = ExtResource("1_s1gq3")
 
 [node name="Scale Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
-enabled = false
-zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 script = ExtResource("1_k2bgo")
 follow_target = NodePath("../Player")
-
-[node name="Build Camera" type="Camera2D" parent="."]
+move_speed = 800.0
 
 [node name="UserInterfaceManager" type="CanvasLayer" parent="."]
 
@@ -129,13 +126,6 @@ script = ExtResource("5_qduty")
 blocks = Array[PackedScene]([ExtResource("6_mpqpl"), ExtResource("7_jajmu")])
 positions = [NodePath("Position 1"), NodePath("Position 2"), NodePath("Position 3"), NodePath("Position 4")]
 
-[node name="Sprite2D" type="Sprite2D" parent="UserInterfaceManager/Buildscreen/BlockContainerArea"]
-visible = false
-z_index = -5
-position = Vector2(38, -3)
-scale = Vector2(2.40625, 2.40625)
-texture = ExtResource("10_gl0ha")
-
 [node name="Position 1" type="Node2D" parent="UserInterfaceManager/Buildscreen/BlockContainerArea"]
 position = Vector2(-50, -50)
 
@@ -147,6 +137,13 @@ position = Vector2(-50, 50)
 
 [node name="Position 4" type="Node2D" parent="UserInterfaceManager/Buildscreen/BlockContainerArea"]
 position = Vector2(50, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="UserInterfaceManager/Buildscreen/BlockContainerArea"]
+z_index = -20
+z_as_relative = false
+position = Vector2(38, -3)
+scale = Vector2(2.40625, 2.40625)
+texture = ExtResource("10_gl0ha")
 
 [node name="Player" parent="." instance=ExtResource("1_ucno6")]
 position = Vector2(0, 107.295)

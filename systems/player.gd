@@ -38,8 +38,7 @@ func _process(_delta: float) -> void:
 		max_height_reached = current_height
 
 func _physics_process(delta: float) -> void:
-	if Globals.we_are_in_a_menu:
-		return
+	if Globals.current_gamemode != Globals.GAMEMODE.PLAYER: return
 		
 	# Add the gravity.
 	if not is_on_floor() && gravity_enabled:
