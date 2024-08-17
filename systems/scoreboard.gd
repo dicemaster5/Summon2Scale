@@ -10,23 +10,31 @@ extends VBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	button_time_daily.pressed.connect(_fetch_things)
-	_fetch_things()
+	button_time_daily.pressed.connect(_fetch_things("daily"))
+	button_time_weekly.pressed.connect(_fetch_things("weekly"))
+	button_time_alltime.pressed.connect(_fetch_things("alltime"))
+	_fetch_things("alltime").call()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func _fetch_things():
-	print("[%s] starting request" % Time.get_datetime_string_from_system())
-	
-	status_label.text = "loading..."
-	status_label.visible = true
-	http_request_scores.request_completed.connect(_fetch_completed)
-	
-	var error = http_request_scores.request("https://summon2scale.alifeee.co.uk/scoreboard/top?total=10&timeframe=daily")
-	if error != OK:
-		status_label.text = "oh no"
+func _fetch_things(timeframe: String) -> Callable:
+	var _fetch_timeframe = func():
+		print("[%s] starting request" % Time.get_datetime_string_from_system())
+		
+		for i in range(0, scoreboardentry_vbox.get_child_count()):
+			scoreboardentry_vbox.get_child(i).queue_free()
+		status_label.text = "loading..."
+		status_label.visible = true
+		http_request_scores.request_completed.connect(_fetch_completed)
+		
+		var error = http_request_scores.request(
+			"https://summon2scale.alifeee.co.uk/scoreboard/top?total=10&timeframe=%s" % timeframe
+		)
+		if error != OK:
+			status_label.text = "oh no"
+	return _fetch_timeframe
 
 func _fetch_completed(result, response_code, headers, body):
 	print("[%s] fetch completed" % Time.get_datetime_string_from_system())
@@ -37,8 +45,6 @@ func _fetch_completed(result, response_code, headers, body):
 	print(response)
 	
 	var scores = response["scores"]
-	for i in range(0, scoreboardentry_vbox.get_child_count()):
-		scoreboardentry_vbox.get_child(i).queue_free()
 
 	for score in scores:
 		var name: String = score["name"]
