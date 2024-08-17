@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://k3xhnojhg2vg"]
+[gd_scene load_steps=37 format=3 uid="uid://k3xhnojhg2vg"]
 
 [ext_resource type="Script" path="res://systems/player.gd" id="1_ydmqw"]
 [ext_resource type="Texture2D" uid="uid://dqs1ils1l7u2u" path="res://assets/wizard_witch/main_character.png" id="2_wjbyj"]
 [ext_resource type="Texture2D" uid="uid://c3qsrayr1q4id" path="res://assets/wizard_witch/main_character_fall.png" id="3_j66ea"]
+[ext_resource type="Texture2D" uid="uid://ke5060ogiq5i" path="res://assets/wizard_witch/main_character_crouch.png" id="3_kvsor"]
 [ext_resource type="Texture2D" uid="uid://c4wp3aufi0dop" path="res://assets/wizard_witch/main_character_run.png" id="3_movwh"]
 [ext_resource type="Texture2D" uid="uid://cpnwjmaqevlqs" path="res://assets/wizard_witch/main_character_walk.png" id="4_akljy"]
 [ext_resource type="Texture2D" uid="uid://bdyr1ey6vev5y" path="res://assets/wizard_witch/main_character_jump.png" id="4_m2pk6"]
@@ -32,6 +33,10 @@ region = Rect2(0, 128, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gnlxf"]
 atlas = ExtResource("2_wjbyj")
 region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqwj0"]
+atlas = ExtResource("3_kvsor")
+region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_48xtg"]
 atlas = ExtResource("3_j66ea")
@@ -139,6 +144,14 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_dqwj0")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 0.6,
 "texture": SubResource("AtlasTexture_48xtg")
 }, {
@@ -234,9 +247,8 @@ shape = SubResource("CapsuleShape2D_gy50o")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_vku5n")
-animation = &"Idle"
+animation = &"crouch"
 autoplay = "Idle"
-frame_progress = 0.335515
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 5.0

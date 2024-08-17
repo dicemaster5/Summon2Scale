@@ -14,6 +14,7 @@ var player_gravity: Vector2
 var move_speed: float
 var jumped: bool
 var can_jump: bool
+var can_move: bool = true
 var jump_force: float
 var holding_jump: bool
 
@@ -48,9 +49,15 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("move_left", "move_right")
 	
+	# Player crouch!
+	if is_on_floor() && Input.is_action_pressed("move_down"):
+		animator.play("crouch")
+		return
+
+	# movement and stuff
 	if is_on_floor():
 		jumped = false
-		if direction != 0:
+		if direction != 0 && can_move:
 			if Input.is_action_pressed("run"):
 				move_speed = run_speed
 				animator.play("run")
