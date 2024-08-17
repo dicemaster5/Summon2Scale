@@ -24,6 +24,7 @@ func pick_up():
 	
 func drop():
 	held = false
+	movable = false
 
 func _mouse_enter() -> void:
 	mouseHover = true

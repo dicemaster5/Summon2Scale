@@ -23,9 +23,10 @@ func _unhandled_input(event):
 func on_clicked_block(body: DraggableBlock) -> void:
 	if held_block:
 		return
-		
-	held_block = body
-	held_block.pick_up()
 	
-	await get_tree().create_timer(0.5).timeout
-	block_container_area.spawn_shape_in_position(body.initial_position)
+	if body.movable:
+		held_block = body
+		held_block.pick_up()
+		
+		await get_tree().create_timer(0.5).timeout
+		block_container_area.spawn_shape_in_position(body.initial_position)
