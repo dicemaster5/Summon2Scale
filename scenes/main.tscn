@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cgmhxvijem8h5" path="res://assets/blocks/deafault_block/block.tscn" id="3_1miv3"]
 [ext_resource type="Texture2D" uid="uid://dxi2g8qel7o4i" path="res://icon.svg" id="3_6yly4"]
 [ext_resource type="Script" path="res://systems/win_area.gd" id="4_2l6c1"]
-[ext_resource type="PackedScene" uid="uid://b2qeydgwpvtr2" path="res://scenes/winscreen.tscn" id="5_yanaa"]
+[ext_resource type="PackedScene" uid="uid://g1d5rta1lbgl" path="res://scenes/winscreen.tscn" id="5_yanaa"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1ew2j"]
 
@@ -25,6 +25,8 @@ fill_to = Vector2(0, 1)
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
 script = ExtResource("1_k2bgo")
 follow_target = NodePath("../Player")
+
+[node name="UserInterfacaeManager" type="CanvasLayer" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_ucno6")]
 position = Vector2(0, 107)
@@ -46,6 +48,8 @@ position = Vector2(122, 80)
 
 [node name="Block2" parent="." instance=ExtResource("3_1miv3")]
 position = Vector2(205, 21)
+rotation = -0.622639
+scale = Vector2(2.95544, 0.505955)
 
 [node name="Block3" parent="." instance=ExtResource("3_1miv3")]
 position = Vector2(296, -47)
@@ -56,10 +60,11 @@ position = Vector2(159, -100)
 [node name="Block5" parent="." instance=ExtResource("3_1miv3")]
 position = Vector2(43, -156)
 
-[node name="WinArea" type="Area2D" parent="."]
+[node name="WinArea" type="Area2D" parent="." node_paths=PackedStringArray("ui_canvas")]
 position = Vector2(-289, 120)
 script = ExtResource("4_2l6c1")
 win_screen_scene = ExtResource("5_yanaa")
+ui_canvas = NodePath("../UserInterfacaeManager")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
 shape = SubResource("RectangleShape2D_pidno")
