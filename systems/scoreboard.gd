@@ -33,7 +33,7 @@ func _fetch_things(timeframe: String) -> Callable:
 			"https://summon2scale.alifeee.co.uk/scoreboard/top?total=10&timeframe=%s" % timeframe
 		)
 		if error != OK:
-			status_label.text = "oh no"
+			status_label.text = "something went wrong :("
 	return _fetch_timeframe
 
 func _fetch_completed(result, response_code, headers, body):
@@ -42,7 +42,10 @@ func _fetch_completed(result, response_code, headers, body):
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
-	print(response)
+	print("scoreboard response:", response)
+	if response == null:
+		status_label.text = "could not load scoreboard..."
+		return
 	
 	var scores = response["scores"]
 
