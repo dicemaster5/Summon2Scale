@@ -225,6 +225,7 @@ floor_constant_speed = true
 script = ExtResource("1_ydmqw")
 walk_speed = 200.0
 run_speed = 275.0
+max_jump_velocity = -250.0
 coyote_frames = 8
 
 [node name="Collider" type="CollisionShape2D" parent="."]
@@ -233,9 +234,9 @@ shape = SubResource("CapsuleShape2D_gy50o")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_vku5n")
-animation = &"jump"
+animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.771629
+frame_progress = 0.323025
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 5.0
