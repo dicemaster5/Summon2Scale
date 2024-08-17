@@ -51,7 +51,6 @@ func _physics_process(delta: float) -> void:
 			animator.play("falling")
 		elif velocity.y < 0:
 			animator.play("jump")
-			print("playing jump")
 
 	# Start coyote time.
 	if !is_on_floor() and last_floor and !jumped:
