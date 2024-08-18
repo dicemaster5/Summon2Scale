@@ -13,9 +13,7 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	print("is body  entered")
 	if Globals.current_gamemode == Globals.GAMEMODE.PLAYER and body is Player:
-		print("status_effect:", status_effects)
 		body.status_effects = status_effects
 
 
@@ -23,4 +21,3 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if Globals.current_gamemode == Globals.GAMEMODE.PLAYER and body is Player:
 		body.status_effects -= status_effects
-		print(body.status_effects)
