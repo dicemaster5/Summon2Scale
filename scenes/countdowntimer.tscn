@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://spa6knrjc32h"]
 
 [ext_resource type="Script" path="res://systems/Timer.gd" id="1_hdch8"]
+[ext_resource type="Texture2D" uid="uid://bmd2hjd6fkidf" path="res://assets/stopwatch/StopWatch Base-1.png(2).png" id="2_2ujpf"]
 [ext_resource type="FontFile" uid="uid://dmbu3dop65r7p" path="res://assets/ui_elements/BogFace.ttf" id="2_37ol4"]
-[ext_resource type="Texture2D" uid="uid://bg52xqwnyh01x" path="res://assets/stopwatch/StopWatch Base-1.png(1).png" id="2_jscv6"]
 [ext_resource type="Texture2D" uid="uid://be5i2ubmpij42" path="res://assets/stopwatch/Ornate Tick-1.png(1).png" id="3_m4rai"]
 
 [node name="Control2" type="Control" node_paths=PackedStringArray("timer", "label", "watch_hand")]
@@ -23,7 +23,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 148.0
 offset_bottom = 148.0
-texture = ExtResource("2_jscv6")
+texture = ExtResource("2_2ujpf")
 
 [node name="Label" type="Label" parent="TextureRect"]
 layout_mode = 1
