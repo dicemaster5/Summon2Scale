@@ -1,4 +1,3 @@
-
 class_name GameTimer extends Control
 @export var timer: Timer
 @export var label: Label
