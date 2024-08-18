@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=61 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
 [ext_resource type="Texture2D" uid="uid://dfxr3oc86bqce" path="res://assets/Parallax Sprites/Clouds 1.png" id="1_m6ykv"]
@@ -38,8 +38,10 @@
 [ext_resource type="PackedScene" uid="uid://spa6knrjc32h" path="res://scenes/countdowntimer.tscn" id="24_6ap04"]
 [ext_resource type="FontFile" uid="uid://dsjmvmgulm6ym" path="res://assets/ui_elements/LilitaOne-Regular.ttf" id="32_rn37u"]
 [ext_resource type="Texture2D" uid="uid://bvgr4su3rntd3" path="res://assets/opening_number/distance scene.png" id="33_8pagj"]
+[ext_resource type="Script" path="res://systems/intro_layer.gd" id="38_0psk0"]
 [ext_resource type="Texture2D" uid="uid://c0wjql2bkmf5a" path="res://assets/opening_number/lookup scene.png" id="39_lwx8f"]
 [ext_resource type="Texture2D" uid="uid://dysost5cvoxck" path="res://assets/GRUMBO/GRUMBO.png" id="40_li268"]
+[ext_resource type="PackedScene" uid="uid://dtbgo8h2hc5jn" path="res://scenes/fancy_button.tscn" id="41_ue23d"]
 
 [sub_resource type="Gradient" id="Gradient_mjvv7"]
 colors = PackedColorArray(0.0776302, 0.102834, 0.327013, 1, 0.421007, 0.493041, 0.631455, 1)
@@ -203,9 +205,10 @@ follow_target = NodePath("../Player")
 follow_speed = 3.5
 move_speed = 800.0
 
-[node name="UserInterfaceManager" type="CanvasLayer" parent="." node_paths=PackedStringArray("game_timer", "build_screen", "main_menu", "tutorial_menu", "end_menu", "height_tracker_label")]
+[node name="UserInterfaceManager" type="CanvasLayer" parent="." node_paths=PackedStringArray("game_timer", "intro_screen", "build_screen", "main_menu", "tutorial_menu", "end_menu", "height_tracker_label")]
 script = ExtResource("3_0wqh7")
 game_timer = NodePath("GameTimer")
+intro_screen = NodePath("../IntroLayer")
 build_screen = NodePath("Buildscreen")
 main_menu = NodePath("Main Menu")
 tutorial_menu = NodePath("tutorial menu")
@@ -378,10 +381,29 @@ shape = SubResource("RectangleShape2D_073lb")
 
 [node name="BlocksContianer" type="Node2D" parent="."]
 
-[node name="IntroLayer" type="CanvasLayer" parent="."]
+[node name="IntroLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("mainmenu", "start_button", "fader", "animated_splash", "static_splash")]
 layer = 128
-visible = false
 follow_viewport_enabled = true
+script = ExtResource("38_0psk0")
+mainmenu = NodePath("../UserInterfaceManager/Main Menu")
+start_button = NodePath("Fancy Button/TextureButton")
+fader = NodePath("Fader")
+animated_splash = NodePath("AnimatedSprite2D")
+static_splash = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="IntroLayer"]
+texture = ExtResource("39_lwx8f")
+
+[node name="Fancy Button" parent="IntroLayer" instance=ExtResource("41_ue23d")]
+custom_minimum_size = Vector2(192, 104)
+offset_left = -89.0
+offset_top = 201.0
+offset_right = 103.0
+offset_bottom = 305.0
+
+[node name="Label" parent="IntroLayer/Fancy Button/TextureButton" index="0"]
+theme_override_font_sizes/font_size = 40
+text = "START"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="IntroLayer"]
 sprite_frames = SubResource("SpriteFrames_0vcmn")
@@ -392,10 +414,6 @@ modulate = Color(0, 0, 0, 1)
 scale = Vector2(2000, 1000)
 texture = SubResource("CanvasTexture_y32xs")
 
-[node name="Sprite2D" type="Sprite2D" parent="IntroLayer"]
-visible = false
-texture = ExtResource("39_lwx8f")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(340, -59)
 sprite_frames = SubResource("SpriteFrames_aovkh")
@@ -404,3 +422,5 @@ speed_scale = 0.5
 
 [connection signal="body_entered" from="UserInterfaceManager/Buildscreen/Cursor/CursorArea" to="UserInterfaceManager/Buildscreen/Cursor" method="_on_cursor_area_body_entered"]
 [connection signal="body_exited" from="UserInterfaceManager/Buildscreen/Cursor/CursorArea" to="UserInterfaceManager/Buildscreen/Cursor" method="_on_cursor_area_body_exited"]
+
+[editable path="IntroLayer/Fancy Button"]
