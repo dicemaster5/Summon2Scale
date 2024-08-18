@@ -1,0 +1,128 @@
+[gd_scene load_steps=12 format=3 uid="uid://cttxbohn0sjsj"]
+
+[ext_resource type="PackedScene" uid="uid://k3xhnojhg2vg" path="res://scenes/player.tscn" id="1_2sc5o"]
+[ext_resource type="Script" path="res://systems/wall_grab_test.gd" id="1_lh6fv"]
+[ext_resource type="Texture2D" uid="uid://dg664vyrc1lpl" path="res://assets/tower/ground_infinit extension.png" id="2_qbctb"]
+[ext_resource type="Texture2D" uid="uid://cxtunhe6p13h8" path="res://assets/tower/ground.png" id="3_0umxe"]
+[ext_resource type="Texture2D" uid="uid://bt3u8ltfkj0w6" path="res://assets/tower/crowd.png" id="4_upj57"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hourglass.tscn" id="6_atn1k"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/slope_block_bronze.tscn" id="7_hjwvp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yt5m8"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vfinv"]
+
+[sub_resource type="Gradient" id="Gradient_10xlx"]
+colors = PackedColorArray(0.92549, 0.776471, 0.454902, 1, 0.590315, 0.466917, 0.181511, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fk4oq"]
+gradient = SubResource("Gradient_10xlx")
+fill_to = Vector2(0, 1)
+
+[node name="wall grab test" type="Node2D"]
+script = ExtResource("1_lh6fv")
+
+[node name="Player" parent="." node_paths=PackedStringArray("height_label", "ledge_grab_debug_node") instance=ExtResource("1_2sc5o")]
+position = Vector2(13, 217)
+height_label = NodePath("../Label")
+ledge_grab_debug_node = NodePath("ledge grab debug")
+
+[node name="ledge grab debug" type="Node2D" parent="Player"]
+
+[node name="top ray" type="Line2D" parent="Player/ledge grab debug"]
+points = PackedVector2Array(0, 0, 20, 0)
+width = 2.0
+default_color = Color(1, 0.105882, 1, 1)
+
+[node name="bottom ray" type="Line2D" parent="Player/ledge grab debug"]
+points = PackedVector2Array(0, 10, 20, 10)
+width = 2.0
+default_color = Color(1, 0.105882, 1, 1)
+
+[node name="Label" type="Label" parent="Player/ledge grab debug"]
+offset_left = -22.0
+offset_top = -45.0
+offset_right = 38.0
+offset_bottom = -22.0
+text = "no grab"
+
+[node name="rayup" type="Line2D" parent="Player/ledge grab debug"]
+points = PackedVector2Array(20, 10, 20, -30)
+width = 2.0
+
+[node name="point" type="Line2D" parent="Player/ledge grab debug"]
+points = PackedVector2Array(20, -10, 20, -12)
+width = 4.0
+default_color = Color(1, 0.376471, 0, 1)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(0, 239.295)
+
+[node name="Collider" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_yt5m8")
+
+[node name="Ground lower gradient" type="Sprite2D" parent="Floor"]
+material = SubResource("CanvasItemMaterial_vfinv")
+position = Vector2(0, 132)
+scale = Vector2(50.25, 3.21875)
+texture = SubResource("GradientTexture2D_fk4oq")
+
+[node name="grass" type="Sprite2D" parent="Floor"]
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_vfinv")
+position = Vector2(1943, -5)
+texture = ExtResource("2_qbctb")
+region_enabled = true
+region_rect = Rect2(-1501.52, 0, 3502.75, 250)
+
+[node name="grass2" type="Sprite2D" parent="Floor"]
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_vfinv")
+position = Vector2(-1943, -5)
+texture = ExtResource("2_qbctb")
+region_enabled = true
+region_rect = Rect2(-1501.52, 0, 3502.75, 250)
+
+[node name="Ground" type="Sprite2D" parent="Floor"]
+material = SubResource("CanvasItemMaterial_vfinv")
+position = Vector2(0, -50)
+texture = ExtResource("3_0umxe")
+
+[node name="Crowd" type="Sprite2D" parent="Floor"]
+position = Vector2(-5, -20)
+texture = ExtResource("4_upj57")
+
+[node name="Crowd2" type="Sprite2D" parent="Floor"]
+position = Vector2(-7, -5)
+scale = Vector2(-1, 1)
+texture = ExtResource("4_upj57")
+
+[node name="BlocksContianer" type="Node2D" parent="."]
+
+[node name="Block2" parent="BlocksContianer" instance=ExtResource("6_atn1k")]
+position = Vector2(236, 100)
+movable = false
+
+[node name="Block" parent="BlocksContianer" instance=ExtResource("6_atn1k")]
+position = Vector2(140, 200)
+movable = false
+
+[node name="Block3" parent="BlocksContianer" instance=ExtResource("6_atn1k")]
+position = Vector2(-29, 165)
+movable = false
+
+[node name="Block4" parent="BlocksContianer" instance=ExtResource("6_atn1k")]
+position = Vector2(236, 160)
+movable = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(11, 157)
+zoom = Vector2(2, 2)
+
+[node name="Block" parent="." instance=ExtResource("7_hjwvp")]
+position = Vector2(-86, 184)
+movable = false
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
