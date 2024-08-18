@@ -17,7 +17,7 @@ func open():
 	#menu_container.add_theme_stylebox_override("normal", stylebox)
 	magical_scroll.play()
 	await magical_scroll.animation_finished
-	var tween = get_tree().create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
+	#var tween = get_tree().create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
 	#tween.tween_property()
 	menu_container.show()
 	start_timer()
