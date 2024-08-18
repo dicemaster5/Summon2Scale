@@ -140,8 +140,8 @@ expand_mode = 3
 layout_mode = 2
 theme = ExtResource("4_fwhcs")
 text = "1: SUMMON
-(MOUSE + WASD)
-WARNING: Blocks will rotate "
+(MOUSE and WASD)
+Some blocks have special effects"
 horizontal_alignment = 1
 
 [node name="countdown vbox" type="VBoxContainer" parent="Container/VBoxContainer/HBoxContainer"]
