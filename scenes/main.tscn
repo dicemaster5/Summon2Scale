@@ -26,8 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://wr6x4764aexf" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_sky.tscn" id="18_8gps5"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_candles.tscn" id="19_j4tuq"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
+[ext_resource type="PackedScene" uid="uid://rtg0mmmjxe7d" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
+[ext_resource type="PackedScene" uid="uid://c6sxq43s0f8o0" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_tower.tscn" id="22_kdmlc"]
 [ext_resource type="PackedScene" uid="uid://lc8p2eatyg1s" path="res://assets/real_blocks/slope_block_bronze.tscn" id="22_t6rpc"]
 [ext_resource type="PackedScene" uid="uid://dmh6ixlwheujk" path="res://assets/real_blocks/slope_block_green.tscn" id="23_l282h"]
@@ -75,11 +75,11 @@ texture = SubResource("GradientTexture2D_f0iah")
 position = Vector2(0, 71)
 texture = ExtResource("1_s1gq3")
 
-[node name="Scale Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
-position_smoothing_enabled = true
+[node name="Game Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
 rotation_smoothing_enabled = true
 script = ExtResource("1_k2bgo")
 follow_target = NodePath("../Player")
+follow_speed = 3.5
 move_speed = 800.0
 
 [node name="UserInterfaceManager" type="CanvasLayer" parent="." node_paths=PackedStringArray("game_timer", "build_screen", "main_menu", "tutorial_menu", "end_menu")]
