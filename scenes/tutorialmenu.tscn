@@ -112,7 +112,8 @@ expand_mode = 3
 [node name="Label" type="Label" parent="HBoxContainer/howto build vbox"]
 layout_mode = 2
 theme = ExtResource("4_fwhcs")
-text = "1: BUILD"
+text = "1: BUILD
+(MOUSE + WASD)"
 horizontal_alignment = 1
 
 [node name="countdown vbox" type="VBoxContainer" parent="HBoxContainer"]
@@ -154,7 +155,8 @@ expand_mode = 3
 [node name="Label" type="Label" parent="HBoxContainer/how to climb vbox"]
 layout_mode = 2
 theme = ExtResource("4_fwhcs")
-text = "2: SCALE"
+text = "2: SCALE
+(WASD)"
 horizontal_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

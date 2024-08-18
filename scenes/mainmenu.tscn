@@ -130,9 +130,9 @@ button_play = NodePath("UI Container/CenterContainer/VBoxContainer/Play Button")
 textedit_username = NodePath("UI Container/CenterContainer/VBoxContainer/HBoxContainer/LineEdit")
 
 [node name="magical scroll container" type="AnimatedSprite2D" parent="."]
-position = Vector2(580, 330)
+position = Vector2(618, 332)
 rotation = -1.57079
-scale = Vector2(3.60575, 3.60575)
+scale = Vector2(4.13531, 4.13531)
 sprite_frames = SubResource("SpriteFrames_atmsx")
 frame = 4
 frame_progress = 1.0
