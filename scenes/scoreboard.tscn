@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dtbgo8h2hc5jn" path="res://scenes/fancy_button.tscn" id="3_8os6o"]
 
 [node name="VBoxContainer2" type="VBoxContainer" node_paths=PackedStringArray("scoreboardentry_vbox", "http_request_scores", "status_label", "button_time_daily", "button_time_weekly", "button_time_alltime", "http_request_submit")]
+custom_minimum_size = Vector2(0, 300)
 script = ExtResource("1_f72r6")
 scoreboardentry_scene = ExtResource("1_pvbib")
 scoreboardentry_vbox = NodePath("scores")
@@ -42,10 +43,102 @@ layout_mode = 2
 text = "ALL TIME"
 
 [node name="status label" type="Label" parent="."]
+visible = false
 layout_mode = 2
+text = "loading..."
 
 [node name="scores" type="VBoxContainer" parent="."]
 layout_mode = 2
+
+[node name="scoreboardentry" parent="scores" instance=ExtResource("1_pvbib")]
+layout_mode = 2
+
+[node name="name" parent="scores/scoreboardentry" index="1"]
+text = "alifeee"
+
+[node name="score" parent="scores/scoreboardentry" index="2"]
+text = "124.53 m"
+
+[node name="scoreboardentry2" parent="scores" instance=ExtResource("1_pvbib")]
+layout_mode = 2
+
+[node name="name" parent="scores/scoreboardentry2" index="1"]
+text = "alifeee"
+
+[node name="score" parent="scores/scoreboardentry2" index="2"]
+text = "124.53 m"
+
+[node name="scoreboardentry3" parent="scores" instance=ExtResource("1_pvbib")]
+layout_mode = 2
+
+[node name="name" parent="scores/scoreboardentry3" index="1"]
+text = "alifeee"
+
+[node name="score" parent="scores/scoreboardentry3" index="2"]
+text = "124.53 m"
+
+[node name="scoreboardentry4" parent="scores" instance=ExtResource("1_pvbib")]
+layout_mode = 2
+
+[node name="name" parent="scores/scoreboardentry4" index="1"]
+text = "alifeee"
+
+[node name="score" parent="scores/scoreboardentry4" index="2"]
+text = "124.53 m"
+
+[node name="scoreboardentry5" parent="scores" instance=ExtResource("1_pvbib")]
+layout_mode = 2
+
+[node name="name" parent="scores/scoreboardentry5" index="1"]
+text = "alifeee"
+
+[node name="score" parent="scores/scoreboardentry5" index="2"]
+text = "124.53 m"
+
+[node name="scoreboardentry6" parent="scores" instance=ExtResource("1_pvbib")]
+layout_mode = 2
+
+[node name="name" parent="scores/scoreboardentry6" index="1"]
+text = "alifeee"
+
+[node name="score" parent="scores/scoreboardentry6" index="2"]
+text = "124.53 m"
+
+[node name="scoreboardentry7" parent="scores" instance=ExtResource("1_pvbib")]
+layout_mode = 2
+
+[node name="name" parent="scores/scoreboardentry7" index="1"]
+text = "alifeee"
+
+[node name="score" parent="scores/scoreboardentry7" index="2"]
+text = "124.53 m"
+
+[node name="scoreboardentry8" parent="scores" instance=ExtResource("1_pvbib")]
+layout_mode = 2
+
+[node name="name" parent="scores/scoreboardentry8" index="1"]
+text = "alifeee"
+
+[node name="score" parent="scores/scoreboardentry8" index="2"]
+text = "124.53 m"
+
+[node name="scoreboardentry9" parent="scores" instance=ExtResource("1_pvbib")]
+layout_mode = 2
+
+[node name="name" parent="scores/scoreboardentry9" index="1"]
+text = "alifeee"
+
+[node name="score" parent="scores/scoreboardentry9" index="2"]
+text = "124.53 m"
+
+[node name="scoreboardentry10" parent="scores" instance=ExtResource("1_pvbib")]
+layout_mode = 2
+
+[node name="name" parent="scores/scoreboardentry10" index="1"]
+text = "alifeee"
+
+[node name="score" parent="scores/scoreboardentry10" index="2"]
+text = "124.53 m"
 
 [node name="GET scores" type="HTTPRequest" parent="."]
 
@@ -62,3 +155,13 @@ layout_mode = 2
 [editable path="HBoxContainer/button time daily"]
 [editable path="HBoxContainer/button time weekly"]
 [editable path="HBoxContainer/button time alltime"]
+[editable path="scores/scoreboardentry"]
+[editable path="scores/scoreboardentry2"]
+[editable path="scores/scoreboardentry3"]
+[editable path="scores/scoreboardentry4"]
+[editable path="scores/scoreboardentry5"]
+[editable path="scores/scoreboardentry6"]
+[editable path="scores/scoreboardentry7"]
+[editable path="scores/scoreboardentry8"]
+[editable path="scores/scoreboardentry9"]
+[editable path="scores/scoreboardentry10"]
