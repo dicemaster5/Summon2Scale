@@ -1,7 +1,6 @@
-[gd_scene load_steps=41 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=40 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
-[ext_resource type="Texture2D" uid="uid://fd10ymbmrxc2" path="res://assets/tower/Tower Base-1.png(1).png" id="1_s1gq3"]
 [ext_resource type="PackedScene" uid="uid://k3xhnojhg2vg" path="res://scenes/player.tscn" id="1_ucno6"]
 [ext_resource type="PackedScene" uid="uid://cv6onxigv60s7" path="res://scenes/mainmenu.tscn" id="2_3djux"]
 [ext_resource type="Script" path="res://systems/ui_manager.gd" id="3_0wqh7"]
@@ -73,7 +72,6 @@ texture = SubResource("GradientTexture2D_f0iah")
 
 [node name="TowerBase-1_png(1)" type="Sprite2D" parent="Tower"]
 position = Vector2(0, 71)
-texture = ExtResource("1_s1gq3")
 
 [node name="Game Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
 rotation_smoothing_enabled = true
