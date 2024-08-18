@@ -26,6 +26,9 @@ layout_mode = 2
 [node name="button time daily" parent="HBoxContainer" instance=ExtResource("3_8os6o")]
 layout_mode = 2
 
+[node name="Label" parent="HBoxContainer/button time daily/TextureButton" index="0"]
+text = "DAILY"
+
 [node name="button time weekly" parent="HBoxContainer" instance=ExtResource("3_8os6o")]
 layout_mode = 2
 

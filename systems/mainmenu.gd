@@ -2,7 +2,7 @@ extends Control
 
 @export var magical_scroll: AnimatedSprite2D
 @export var menu_container: HBoxContainer
-@export var button_play: Button
+@export var button_play: BaseButton
 @export var menu_tutorial: Control
 @export var textedit_username: LineEdit
 

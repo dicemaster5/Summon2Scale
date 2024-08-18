@@ -2,7 +2,7 @@ extends Control
 
 @export var magical_scroll: AnimatedSprite2D
 @export var menu_container: HBoxContainer
-@export var button_skip: Button
+@export var button_skip: BaseButton
 @export var timer: Timer
 @export var time_label: Label
 
