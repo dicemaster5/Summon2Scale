@@ -5,9 +5,9 @@ extends VBoxContainer
 @export var scoreboardentry_vbox: VBoxContainer
 @export var http_request_scores: HTTPRequest
 @export var status_label: Label
-@export var button_time_daily: Button
-@export var button_time_weekly: Button
-@export var button_time_alltime: Button
+@export var button_time_daily: BaseButton
+@export var button_time_weekly: BaseButton
+@export var button_time_alltime: BaseButton
 @export var http_request_submit: HTTPRequest
 
 var current_board = "daily" # "daily" or "weekly" or "alltime"
@@ -45,7 +45,7 @@ func clear_button_styles():
 	button_time_alltime.remove_theme_stylebox_override("normal")
 	pass
 
-func highlight_button(button: Button):
+func highlight_button(button: BaseButton):
 	var stylebox = StyleBoxFlat.new()
 	stylebox.bg_color = "#ff0000"
 	button.add_theme_stylebox_override("normal", stylebox)
