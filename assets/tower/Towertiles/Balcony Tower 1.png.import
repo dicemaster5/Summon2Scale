@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0xqia4hqrf08"
-path="res://.godot/imported/Ivy Tower 1-1.png.png-f1fdab308cf47de2692144cf73ca1398.ctex"
+uid="uid://dp2f8l1c0afn0"
+path="res://.godot/imported/Balcony Tower 1.png-f648fe3b4987690249eb55a58442cce4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tower/Towertiles/Ivy Tower 1-1.png.png"
-dest_files=["res://.godot/imported/Ivy Tower 1-1.png.png-f1fdab308cf47de2692144cf73ca1398.ctex"]
+source_file="res://assets/tower/Towertiles/Balcony Tower 1.png"
+dest_files=["res://.godot/imported/Balcony Tower 1.png-f648fe3b4987690249eb55a58442cce4.ctex"]
 
 [params]
 
