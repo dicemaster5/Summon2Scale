@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2qeydgwpvtr2"]
+[gd_scene load_steps=12 format=3 uid="uid://b2qeydgwpvtr2"]
 
 [ext_resource type="Script" path="res://systems/winscreen.gd" id="1_ypl3l"]
 [ext_resource type="Texture2D" uid="uid://pmyjhqrij7le" path="res://assets/ui_elements/scroll_animation.png" id="2_xklr6"]
 [ext_resource type="Theme" uid="uid://b7yk4lxn6npo8" path="res://theme.tres" id="3_0sykk"]
+[ext_resource type="PackedScene" uid="uid://dtbgo8h2hc5jn" path="res://scenes/fancy_button.tscn" id="4_b1pnp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jeswi"]
 atlas = ExtResource("2_xklr6")
@@ -60,9 +61,9 @@ grow_vertical = 2
 script = ExtResource("1_ypl3l")
 stats_label = NodePath("CenterContainer/VBoxContainer/statistics")
 score_label = NodePath("CenterContainer/VBoxContainer/score")
-share_text_button = NodePath("CenterContainer/VBoxContainer/share text button")
+share_text_button = NodePath("")
 share_text_confirmation = NodePath("Panel")
-share_image_button = NodePath("CenterContainer/VBoxContainer/share image button")
+share_image_button = NodePath("")
 file_dialog = NodePath("FileDialog")
 
 [node name="magical scroll container" type="AnimatedSprite2D" parent="."]
@@ -103,13 +104,25 @@ text = "SCORE SUBMITTED TO SCOREBOARD
 YOU PLACED %d%s (TODAY) OR %d%s (ALL TIME)"
 horizontal_alignment = 1
 
-[node name="share text button" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "SHARE (COPY TO CLIPBOARD)"
+size_flags_horizontal = 4
 
-[node name="share image button" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="share text button" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_b1pnp")]
+custom_minimum_size = Vector2(144, 78)
 layout_mode = 2
-text = "SAVE IMAGE"
+size_flags_horizontal = 4
+
+[node name="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/share text button/TextureButton" index="0"]
+text = "Share text"
+
+[node name="share image button" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_b1pnp")]
+custom_minimum_size = Vector2(144, 78)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/share image button/TextureButton" index="0"]
+text = "Share image"
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -147,3 +160,6 @@ position = Vector2(576, 324)
 
 [node name="FileDialog" type="FileDialog" parent="."]
 access = 2
+
+[editable path="CenterContainer/VBoxContainer/HBoxContainer/share text button"]
+[editable path="CenterContainer/VBoxContainer/HBoxContainer/share image button"]
