@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0qalq7bfxai5"]
+
+[ext_resource type="AudioStream" uid="uid://5i1ow1q7ggcm" path="res://assets/Audio/BasicLoopIntro.wav" id="1_bs2wa"]
+
+[node name="MusicPlayer" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_bs2wa")
+autoplay = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
