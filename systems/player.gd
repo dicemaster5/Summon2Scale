@@ -5,10 +5,11 @@ extends CharacterBody2D
 @export var max_jump_velocity: float = -100.0
 @export var jump_impede: float = -10
 @export var coyote_frames: int = 30  # How many in-air frames to allow jumping
-@export var ledge_grab_debug_node: Node2D
 
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var collider: CollisionShape2D = $Collider
+@onready var areachecker: Area2D = $AreaChecker
 
 @export var height_label: Label
 
@@ -27,11 +28,11 @@ var gravity_enabled := true
 
 # LEDGE GRABBING
 # top ray
-var ledge_grab_top_from = Vector2(0,0)
-var ledge_grab_top_to = Vector2(13,0)
+var ledge_grab_top_from = Vector2(0,-15)
+var ledge_grab_top_to = Vector2(13,-15)
 # bottom ray
-var ledge_grab_bottom_from = Vector2(0,10)
-var ledge_grab_bottom_to = Vector2(13,10)
+var ledge_grab_bottom_from = Vector2(0,-5)
+var ledge_grab_bottom_to = Vector2(13,-5)
 # ray from top to bottom
 var ledge_grab_floor_from = Vector2(0, 0)
 var ledge_grab_floor_to = Vector2(0, 10)
@@ -39,13 +40,14 @@ var facing_direction = Vector2(1,1) # 1 right, -1 left
 # climbing
 var climbing: bool = false
 var climb_to: Vector2
-const CLIMB_SPEED = 10
+const CLIMB_SPEED = 40
 # debug visuals
-@onready var topline: Line2D = ledge_grab_debug_node.get_child(0)
-@onready var bottomline: Line2D = ledge_grab_debug_node.get_child(1)
-@onready var label: Label = ledge_grab_debug_node.get_child(2)
-@onready var upline: Line2D = ledge_grab_debug_node.get_child(3)
-@onready var point: Line2D = ledge_grab_debug_node.get_child(4)
+@export var ledge_grab_debug_node: Node2D
+var topline: Line2D
+var bottomline: Line2D
+var label: Label
+var upline: Line2D
+var point: Line2D
 
 var current_height: float
 var start_height_offset: float
@@ -61,6 +63,12 @@ func _ready() -> void:
 	coyote_timer.wait_time = coyote_frames / 60.0
 	move_speed = walk_speed
 	start_height_offset = global_position.y
+	
+	topline = ledge_grab_debug_node.get_child(0)
+	bottomline = ledge_grab_debug_node.get_child(1)
+	label = ledge_grab_debug_node.get_child(2)
+	upline = ledge_grab_debug_node.get_child(3)
+	point = ledge_grab_debug_node.get_child(4)
 
 func _process(_delta: float) -> void:
 	height_calculation()
@@ -69,7 +77,6 @@ func height_calculation() -> void:
 	current_height = (-global_position.y - -start_height_offset) / METER_SCALE
 	if current_height >  max_height_reached:
 		max_height_reached = current_height
-		print("max!!!! - ",max_height_reached)
 		height_label.text = "%.2f - meters" %[max_height_reached]
 
 func _physics_process(delta: float) -> void:
@@ -80,6 +87,10 @@ func _physics_process(delta: float) -> void:
 			climb_to,
 			delta * CLIMB_SPEED
 		)
+		var overlaps = areachecker.get_overlapping_bodies()
+		if overlaps.size() > 0:
+			climbing = false
+
 		if global_position == climb_to:
 			climbing = false
 		else:
@@ -203,10 +214,14 @@ func check_and_grab() -> bool:
 		position + to
 	)
 	var resultfloor = space_state.intersect_ray(queryfloor)
+	# debug line
 	# if we do not hit (the floor)
 	if len(resultfloor) == 0:
 		label.text = "no grab"
 		return false
+	point.points[0] = to_local(resultfloor.position) + + Vector2(0,2)
+	point.points[1] = to_local(resultfloor.position) + Vector2(0,-2)
+		
 	
 	upline.default_color = "#ffffff"
 	#var colliding = get_last_slide_collision()
@@ -214,13 +229,23 @@ func check_and_grab() -> bool:
 	if facing_direction.x == 1: check_holding = "move_right"
 	else: check_holding = "move_left"
 	var pushing_against = Input.is_action_pressed(check_holding)
-	if not pushing_against:
+	if not pushing_against and is_on_floor():
 		label.text = "no grab"
 		return false
+		
+	# can we fit?
+	var climb_to_local = to_local(resultfloor.position) + fd * Vector2(12,-1)
+	areachecker.position = climb_to_local + Vector2(0, -15) # as player is shifted up by 15 px
+	var overlaps = areachecker.get_overlapping_bodies()
+	print(overlaps)
+	if len(overlaps) > 0:
+		label.text = "no grab"
+		return false
+	
+	
+	# grab !!!
 	label.text = "grab"
-	# debug line
-	point.points[0] = to_local(resultfloor.position) + + Vector2(0,2)
-	point.points[1] = to_local(resultfloor.position) + Vector2(0,-2)
 	# set climb_to
-	climb_to = resultfloor.position + fd * Vector2(10,-15)
+	climb_to = resultfloor.position + fd * Vector2(10,0)
+	velocity = Vector2.ZERO
 	return true

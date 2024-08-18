@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://k3xhnojhg2vg"]
+[gd_scene load_steps=38 format=3 uid="uid://k3xhnojhg2vg"]
 
 [ext_resource type="Script" path="res://systems/player.gd" id="1_ydmqw"]
 [ext_resource type="Texture2D" uid="uid://dqs1ils1l7u2u" path="res://assets/wizard_witch/main_character.png" id="2_wjbyj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c4wp3aufi0dop" path="res://assets/wizard_witch/main_character_run.png" id="3_movwh"]
 [ext_resource type="Texture2D" uid="uid://cpnwjmaqevlqs" path="res://assets/wizard_witch/main_character_walk.png" id="4_akljy"]
 [ext_resource type="Texture2D" uid="uid://bdyr1ey6vev5y" path="res://assets/wizard_witch/main_character_jump.png" id="4_m2pk6"]
+[ext_resource type="Texture2D" uid="uid://dxi2g8qel7o4i" path="res://icon.svg" id="8_vshu6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gy50o"]
 
@@ -257,5 +258,17 @@ wait_time = 5.0
 one_shot = true
 
 [node name="JumpTimer" type="Timer" parent="."]
+
+[node name="AreaChecker" type="Area2D" parent="."]
+position = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaChecker"]
+shape = SubResource("CapsuleShape2D_gy50o")
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaChecker"]
+visible = false
+position = Vector2(8.34465e-07, 0)
+scale = Vector2(0.15625, 0.234375)
+texture = ExtResource("8_vshu6")
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
