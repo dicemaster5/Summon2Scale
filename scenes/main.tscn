@@ -356,7 +356,6 @@ autoplay = "default"
 frame_progress = 0.16769
 
 [node name="Fader" type="Sprite2D" parent="IntroLayer"]
-visible = false
 modulate = Color(0, 0, 0, 1)
 scale = Vector2(2000, 1000)
 texture = SubResource("CanvasTexture_y32xs")

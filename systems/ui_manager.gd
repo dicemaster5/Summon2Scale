@@ -23,11 +23,15 @@ func gamemode_check(new_gamemode: Globals.GAMEMODE) -> void:
 		Globals.GAMEMODE.START:
 			pass
 		Globals.GAMEMODE.BUILDER:
+			main_menu.hide()
+			tutorial_menu.hide()
 			build_screen.show()
 			game_timer.show()
 			game_timer.start_timer()
 			pass
 		Globals.GAMEMODE.PLAYER:
+			main_menu.hide()
+			tutorial_menu.hide()
 			height_tracker_label.show()
 			build_screen.hide()
 			pass
