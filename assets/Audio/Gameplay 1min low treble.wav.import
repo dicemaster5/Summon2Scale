@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://s1nvvvhq3diq"
+path="res://.godot/imported/Gameplay 1min low treble.wav-49f50e2c5e6c1f10a9d467f39f94ebea.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Gameplay 1min low treble.wav"
+dest_files=["res://.godot/imported/Gameplay 1min low treble.wav-49f50e2c5e6c1f10a9d467f39f94ebea.sample"]
+
+[params]
+
+force/8_bit=true
+force/mono=true
+force/max_rate=true
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=1
