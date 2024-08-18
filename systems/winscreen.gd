@@ -3,6 +3,7 @@ extends Control
 # text formatting:
 # https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_format_string.html
 
+@export var height_label: Label
 @export var stats_label: Label
 @export var score_label: Label
 @export var share_text_button: BaseButton
@@ -64,6 +65,10 @@ func _ready() -> void:
 	share_text_button.pressed.connect(self._share_text)
 	
 	share_image_button.pressed.connect(self._share_image)
+	
+func populate():
+	height_label.text = "%.2f m" % Globals.max_height
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

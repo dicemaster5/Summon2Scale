@@ -47,6 +47,9 @@ func gamemode_check(new_gamemode: Globals.GAMEMODE) -> void:
 			pass
 		Globals.GAMEMODE.FINISHED:
 			intro_screen.hide()
+			height_tracker_label.hide()
+			game_timer.hide()
+			end_menu.populate()
 			end_menu.show()
 			pass
 		_:
