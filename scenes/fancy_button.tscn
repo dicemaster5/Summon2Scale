@@ -30,4 +30,9 @@ offset_bottom = 14.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "DAILY"
+text = "sizes:
+48x26
+96x52
+144x78
+192x104
+"
