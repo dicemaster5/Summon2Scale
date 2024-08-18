@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=49 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
 [ext_resource type="PackedScene" path="res://scenes/tower.tscn" id="1_r70rj"]
@@ -56,6 +56,8 @@ colors = PackedColorArray(0.92549, 0.776471, 0.454902, 1, 0.590315, 0.466917, 0.
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gmbwd"]
 gradient = SubResource("Gradient_f0umn")
 fill_to = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t3ajl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_073lb"]
 size = Vector2(272, 3908.5)
@@ -281,6 +283,20 @@ texture = ExtResource("8_w0b8g")
 position = Vector2(-7, -5)
 scale = Vector2(-1, 1)
 texture = ExtResource("8_w0b8g")
+
+[node name="WorldColliderLeft" type="StaticBody2D" parent="Floor"]
+position = Vector2(-900, -128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/WorldColliderLeft"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_t3ajl")
+
+[node name="WorldColliderRight" type="StaticBody2D" parent="Floor"]
+position = Vector2(900, -128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/WorldColliderRight"]
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_t3ajl")
 
 [node name="TowerArea" type="Area2D" parent="."]
 position = Vector2(0, -165)

@@ -22,7 +22,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Input.is_key_pressed(KEY_BACKSPACE) || Input.is_key_pressed(KEY_SPACE):
+	if Input.is_key_pressed(KEY_BACKSPACE) || Input.is_key_pressed(KEY_ESCAPE):
 		change_gamemode(GAMEMODE.START)
 		get_tree().reload_current_scene()
 		print("Game Restarted!")
