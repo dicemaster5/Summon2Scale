@@ -5,9 +5,9 @@ extends Control
 
 @export var stats_label: Label
 @export var score_label: Label
-@export var share_text_button: Button
+@export var share_text_button: BaseButton
 @export var share_text_confirmation: Panel
-@export var share_image_button: Button
+@export var share_image_button: BaseButton
 @export var file_dialog: FileDialog
 
 var max_height = 124.14451

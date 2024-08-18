@@ -1,11 +1,14 @@
-[gd_scene load_steps=49 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=54 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
-[ext_resource type="PackedScene" path="res://scenes/tower.tscn" id="1_r70rj"]
+[ext_resource type="Texture2D" uid="uid://dfxr3oc86bqce" path="res://assets/Parallax Sprites/Clouds 1.png" id="1_m6ykv"]
+[ext_resource type="PackedScene" uid="uid://c5v2x25cemcmw" path="res://scenes/tower.tscn" id="1_r70rj"]
 [ext_resource type="PackedScene" uid="uid://k3xhnojhg2vg" path="res://scenes/player.tscn" id="1_ucno6"]
-[ext_resource type="PackedScene" uid="uid://c0qalq7bfxai5" path="res://scenes/music_player.tscn" id="1_yqg5n"]
 [ext_resource type="PackedScene" uid="uid://cv6onxigv60s7" path="res://scenes/mainmenu.tscn" id="2_3djux"]
+[ext_resource type="Texture2D" uid="uid://c5k823ptci6qx" path="res://assets/Parallax Sprites/Foreground hills 1.png" id="2_cr3hu"]
+[ext_resource type="Texture2D" uid="uid://cthis376dbthx" path="res://assets/Parallax Sprites/Foreground hills 3.png" id="2_mkwi7"]
 [ext_resource type="Script" path="res://systems/ui_manager.gd" id="3_0wqh7"]
+[ext_resource type="Texture2D" uid="uid://d3s705xdgw12s" path="res://assets/Parallax Sprites/Foreground hills 2.png" id="3_cy6xr"]
 [ext_resource type="PackedScene" uid="uid://d3tiwo8ub427f" path="res://scenes/tutorialmenu.tscn" id="3_rtmu4"]
 [ext_resource type="Script" path="res://scenes/block_container_area.gd" id="5_qduty"]
 [ext_resource type="PackedScene" uid="uid://b2qeydgwpvtr2" path="res://scenes/winscreen.tscn" id="5_yanaa"]
@@ -13,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cxtunhe6p13h8" path="res://assets/tower/ground.png" id="7_56t36"]
 [ext_resource type="Script" path="res://systems/cursor.gd" id="8_a2omg"]
 [ext_resource type="Texture2D" uid="uid://bt3u8ltfkj0w6" path="res://assets/tower/crowd.png" id="8_w0b8g"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_city.tscn" id="9_8nl5q"]
+[ext_resource type="PackedScene" uid="uid://ceth0hvplbti7" path="res://assets/real_blocks/bronze_wide_block_city.tscn" id="9_8nl5q"]
 [ext_resource type="Texture2D" uid="uid://dgbteoggr04ld" path="res://assets/ui_elements/scroll.png" id="10_gl0ha"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_skulls.tscn" id="10_hf14v"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_sky.tscn" id="11_ffo8g"]
@@ -23,16 +26,17 @@
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_green.tscn" id="13_dutyy"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_purple.tscn" id="14_hgi4b"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_red.tscn" id="15_63ipp"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="16_6pbn7"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
+[ext_resource type="PackedScene" uid="uid://d175jaktk5417" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="16_6pbn7"]
+[ext_resource type="PackedScene" uid="uid://wr6x4764aexf" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_sky.tscn" id="18_8gps5"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_candles.tscn" id="19_j4tuq"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
+[ext_resource type="PackedScene" uid="uid://rtg0mmmjxe7d" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
+[ext_resource type="PackedScene" uid="uid://c6sxq43s0f8o0" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_tower.tscn" id="22_kdmlc"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/slope_block_bronze.tscn" id="22_t6rpc"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/slope_block_green.tscn" id="23_l282h"]
-[ext_resource type="PackedScene" uid="uid://cgc7s8d78kfb8" path="res://scenes/countdowntimer.tscn" id="24_6ap04"]
+[ext_resource type="PackedScene" uid="uid://lc8p2eatyg1s" path="res://assets/real_blocks/slope_block_bronze.tscn" id="22_t6rpc"]
+[ext_resource type="PackedScene" uid="uid://dmh6ixlwheujk" path="res://assets/real_blocks/slope_block_green.tscn" id="23_l282h"]
+[ext_resource type="PackedScene" uid="uid://spa6knrjc32h" path="res://scenes/countdowntimer.tscn" id="24_6ap04"]
+[ext_resource type="FontFile" uid="uid://dmbu3dop65r7p" path="res://assets/ui_elements/BogFace.ttf" id="32_06klo"]
 [ext_resource type="Texture2D" uid="uid://bvgr4su3rntd3" path="res://assets/opening_number/distance scene.png" id="33_8pagj"]
 
 [sub_resource type="Gradient" id="Gradient_mjvv7"]
@@ -57,6 +61,8 @@ colors = PackedColorArray(0.92549, 0.776471, 0.454902, 1, 0.590315, 0.466917, 0.
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gmbwd"]
 gradient = SubResource("Gradient_10xlx")
 fill_to = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t3ajl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_073lb"]
 size = Vector2(272, 3908.5)
@@ -101,15 +107,67 @@ animations = [{
 
 [node name="Main" type="Node2D"]
 
-[node name="MusicPlayer" parent="." instance=ExtResource("1_yqg5n")]
+[node name="ParalaxedBackground" type="Node2D" parent="."]
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.5, 0.5)
+[node name="Sky" type="Parallax2D" parent="ParalaxedBackground"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(23, -866)
-scale = Vector2(142.094, 21.1875)
+[node name="Sprite2D" type="Sprite2D" parent="ParalaxedBackground/Sky"]
+position = Vector2(23, -1364.5)
+scale = Vector2(142.094, 35.1172)
 texture = SubResource("GradientTexture2D_f0iah")
+
+[node name="Clouds" type="Parallax2D" parent="ParalaxedBackground"]
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(0, -498)
+autoscroll = Vector2(2000, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="ParalaxedBackground/Clouds"]
+texture_repeat = 2
+position = Vector2(0, -949)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_m6ykv")
+region_enabled = true
+region_rect = Rect2(-3162.49, 2688.85, 9861.16, 2567.3)
+
+[node name="Foreground 3" type="Parallax2D" parent="ParalaxedBackground"]
+scale = Vector2(0.75, 0.75)
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(0, -25)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParalaxedBackground/Foreground 3"]
+texture_repeat = 2
+position = Vector2(0, -57)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_mkwi7")
+region_enabled = true
+region_rect = Rect2(-4573.66, 4823.69, 12683.5, 1802.21)
+
+[node name="Foreground 2" type="Parallax2D" parent="ParalaxedBackground"]
+scale = Vector2(0.75, 0.75)
+scroll_scale = Vector2(0.75, 0.75)
+scroll_offset = Vector2(0, -25)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParalaxedBackground/Foreground 2"]
+texture_repeat = 2
+position = Vector2(0, -57)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_cy6xr")
+region_enabled = true
+region_rect = Rect2(-4573.66, 4823.69, 12683.5, 1802.21)
+
+[node name="Foreground 1" type="Parallax2D" parent="ParalaxedBackground"]
+scale = Vector2(0.75, 0.75)
+scroll_scale = Vector2(0.9, 0.9)
+scroll_offset = Vector2(0, -25)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParalaxedBackground/Foreground 1"]
+texture_repeat = 2
+position = Vector2(0, -57)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cr3hu")
+region_enabled = true
+region_rect = Rect2(-4573.66, 4823.69, 12683.5, 1802.21)
 
 [node name="tower" parent="." instance=ExtResource("1_r70rj")]
 position = Vector2(0, 132)
@@ -121,13 +179,14 @@ follow_target = NodePath("../Player")
 follow_speed = 3.5
 move_speed = 800.0
 
-[node name="UserInterfaceManager" type="CanvasLayer" parent="." node_paths=PackedStringArray("game_timer", "build_screen", "main_menu", "tutorial_menu", "end_menu")]
+[node name="UserInterfaceManager" type="CanvasLayer" parent="." node_paths=PackedStringArray("game_timer", "build_screen", "main_menu", "tutorial_menu", "end_menu", "height_tracker_label")]
 script = ExtResource("3_0wqh7")
 game_timer = NodePath("GameTimer")
 build_screen = NodePath("Buildscreen")
 main_menu = NodePath("Main Menu")
 tutorial_menu = NodePath("tutorial menu")
 end_menu = NodePath("EndMenu")
+height_tracker_label = NodePath("HeightTrackerLabel")
 
 [node name="Main Menu" parent="UserInterfaceManager" node_paths=PackedStringArray("menu_tutorial") instance=ExtResource("2_3djux")]
 size_flags_horizontal = 4
@@ -140,7 +199,6 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-size_flags_horizontal = 4
 
 [node name="Buildscreen" type="Node2D" parent="UserInterfaceManager"]
 visible = false
@@ -199,19 +257,26 @@ buildscreen = NodePath("..")
 
 [node name="GameTimer" parent="UserInterfaceManager" instance=ExtResource("24_6ap04")]
 visible = false
+offset_left = 12.0
+offset_right = 12.0
 
 [node name="EndMenu" parent="UserInterfaceManager" instance=ExtResource("5_yanaa")]
 visible = false
 
-[node name="Label" type="Label" parent="UserInterfaceManager"]
-offset_top = 197.0
-offset_right = 221.0
-offset_bottom = 220.0
-text = "This is the height reached lol"
+[node name="HeightTrackerLabel" type="Label" parent="UserInterfaceManager"]
+visible = false
+offset_left = 7.0
+offset_top = 165.0
+offset_right = 187.0
+offset_bottom = 203.0
+theme_override_fonts/font = ExtResource("32_06klo")
+theme_override_font_sizes/font_size = 21
+text = "Max Height Reached"
+horizontal_alignment = 3
 
 [node name="Player" parent="." node_paths=PackedStringArray("height_label") instance=ExtResource("1_ucno6")]
 position = Vector2(0, 124)
-height_label = NodePath("../UserInterfaceManager/Label")
+height_label = NodePath("../UserInterfaceManager/HeightTrackerLabel")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 128)
@@ -255,6 +320,20 @@ position = Vector2(-7, -5)
 scale = Vector2(-1, 1)
 texture = ExtResource("8_w0b8g")
 
+[node name="WorldColliderLeft" type="StaticBody2D" parent="Floor"]
+position = Vector2(-900, -128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/WorldColliderLeft"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_t3ajl")
+
+[node name="WorldColliderRight" type="StaticBody2D" parent="Floor"]
+position = Vector2(900, -128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/WorldColliderRight"]
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_t3ajl")
+
 [node name="TowerArea" type="Area2D" parent="."]
 position = Vector2(0, -165)
 script = ExtResource("13_163k7")
@@ -276,7 +355,6 @@ autoplay = "default"
 frame_progress = 0.16769
 
 [node name="Fader" type="Sprite2D" parent="IntroLayer"]
-visible = false
 modulate = Color(0, 0, 0, 1)
 scale = Vector2(2000, 1000)
 texture = SubResource("CanvasTexture_y32xs")

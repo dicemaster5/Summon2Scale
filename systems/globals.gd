@@ -17,11 +17,21 @@ var mouse_in_tower_area: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	change_gamemode(GAMEMODE.START)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _process(_delta: float) -> void:
+	if Input.is_key_pressed(KEY_BACKSPACE) || Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().reload_current_scene()
+		change_gamemode(GAMEMODE.START)
+		print("Game Restarted!")
+
+	# restart game in build mode
+	if Input.is_key_pressed(KEY_R):
+		get_tree().reload_current_scene()
+		await get_tree().create_timer(0.01).timeout
+		call_deferred("change_gamemode", GAMEMODE.BUILDER)
+		print("build mode Restarted!")
 
 func change_gamemode(new_gamemode: GAMEMODE) -> void:
 	current_gamemode = new_gamemode
