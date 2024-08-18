@@ -51,19 +51,18 @@ animations = [{
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jdqg"]
 bg_color = Color(0.960222, 0.35294, 0.536556, 1)
 
-[node name="winscreen" type="Control" node_paths=PackedStringArray("stats_label", "score_label", "share_text_button", "share_text_confirmation", "share_image_button", "file_dialog")]
+[node name="winscreen" type="Control" node_paths=PackedStringArray("stats_label", "score_label", "share_text_confirmation", "file_dialog")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_0sykk")
 script = ExtResource("1_ypl3l")
 stats_label = NodePath("CenterContainer/VBoxContainer/statistics")
 score_label = NodePath("CenterContainer/VBoxContainer/score")
-share_text_button = NodePath("")
 share_text_confirmation = NodePath("Panel")
-share_image_button = NodePath("")
 file_dialog = NodePath("FileDialog")
 
 [node name="magical scroll container" type="AnimatedSprite2D" parent="."]
