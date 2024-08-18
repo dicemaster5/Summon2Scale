@@ -91,6 +91,8 @@ func height_calculation() -> void:
 		height_label.text = "%.2f m" %[max_height_reached]
 
 func _physics_process(delta: float) -> void:
+	if Globals.current_gamemode == Globals.GAMEMODE.BUILDER:
+		animator.play("summon")
 	if Globals.current_gamemode != Globals.GAMEMODE.PLAYER: return
 	
 	if climbing:

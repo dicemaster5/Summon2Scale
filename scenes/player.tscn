@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://k3xhnojhg2vg"]
+[gd_scene load_steps=54 format=3 uid="uid://k3xhnojhg2vg"]
 
 [ext_resource type="Script" path="res://systems/player.gd" id="1_ydmqw"]
 [ext_resource type="Texture2D" uid="uid://dqs1ils1l7u2u" path="res://assets/wizard_witch/main_character.png" id="2_wjbyj"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bdyr1ey6vev5y" path="res://assets/wizard_witch/main_character_jump.png" id="4_m2pk6"]
 [ext_resource type="Texture2D" uid="uid://g0wl6tysft46" path="res://assets/wizard_witch/main_character_grab_2.png" id="5_npl4h"]
 [ext_resource type="Texture2D" uid="uid://dxi2g8qel7o4i" path="res://icon.svg" id="8_vshu6"]
+[ext_resource type="Texture2D" uid="uid://cov7hnpn3mq52" path="res://assets/wizard_witch/main_character_summon_blocks.png" id="8_xbhj0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gy50o"]
 
@@ -131,6 +132,30 @@ region = Rect2(0, 64, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2k1d6"]
 atlas = ExtResource("3_movwh")
 region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j15if"]
+atlas = ExtResource("8_xbhj0")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y14uj"]
+atlas = ExtResource("8_xbhj0")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgcyg"]
+atlas = ExtResource("8_xbhj0")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldaw3"]
+atlas = ExtResource("8_xbhj0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8q06"]
+atlas = ExtResource("8_xbhj0")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r0w3"]
+atlas = ExtResource("8_xbhj0")
+region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mwcxw"]
 atlas = ExtResource("4_akljy")
@@ -276,6 +301,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_j15if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y14uj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgcyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldaw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8q06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r0w3")
+}],
+"loop": true,
+"name": &"summon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mwcxw")
 }, {
 "duration": 1.0,
@@ -312,10 +360,9 @@ shape = SubResource("CapsuleShape2D_gy50o")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -20)
 sprite_frames = SubResource("SpriteFrames_vku5n")
-animation = &"grab"
+animation = &"summon"
 autoplay = "Idle"
-frame = 7
-frame_progress = 1.0
+frame_progress = 0.691454
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 5.0
