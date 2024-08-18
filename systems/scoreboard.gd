@@ -16,8 +16,6 @@ signal submit_score_start
 signal submit_score_fail
 signal submit_score_success
 
-var test_label
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	button_time_daily.pressed.connect(_fetch_things("daily"))
@@ -28,9 +26,9 @@ func _ready() -> void:
 	if debug:
 		$"test button".visible = true
 		$"test button".pressed.connect(submit_fake_score)
-		test_label = $"test label"
-		test_label.visible = true
-		test_label.text = "nothing happening"
+		status_label = $"test label"
+		status_label.visible = true
+		status_label.text = "nothing happening"
 		
 	http_request_scores.request_completed.connect(_fetch_completed)
 	http_request_submit.request_completed.connect(_submit_score_completed)
@@ -132,7 +130,7 @@ func submit_score(
 ):
 	print("[%s] starting score submit" % Time.get_datetime_string_from_system())
 	submit_score_start.emit()
-	test_label.text = "starting submit"
+	status_label.text = "starting submit"
 	
 	var now = Time.get_datetime_string_from_unix_time(Time.get_unix_time_from_system())
 	
@@ -159,7 +157,7 @@ func submit_score(
 		)
 	if error != OK:
 		submit_score_fail.emit("failed to make HTTP request")
-		test_label.text = "failed to make HTTP request"
+		status_label.text = "failed to make HTTP request"
 	
 
 func _submit_score_completed(result, response_code, headers, body):
@@ -171,17 +169,17 @@ func _submit_score_completed(result, response_code, headers, body):
 	print("scoreboard response:", response)
 	if response == null:
 		submit_score_fail.emit("failed to parse submit score result")
-		test_label.text = "failed to parse submit score result"
+		status_label.text = "failed to parse submit score result"
 		return
 	
 	var success = response["success"]
 	if success != true:
 		submit_score_fail.emit("failed to submit score")
-		test_label.text = "failed to submit score"
+		status_label.text = "failed to submit score"
 	var id = response["id"]
 	
 	submit_score_success.emit("success", id)
-	test_label.text = "added score with id %s" % id
+	status_label.text = "added score with id %s" % id
 	
 	refresh_leadereboard()
 
