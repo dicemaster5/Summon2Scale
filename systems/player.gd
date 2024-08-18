@@ -25,6 +25,8 @@ var last_floor := false  # Last frame's on-floor state
 var gravity_enabled := true
 
 var current_height: float
+var start_height_offset: float
+const METER_SCALE: int = 15 # Player collider height divided by 2
 
 # Redorded data
 var max_height_reached: float = 0
@@ -35,10 +37,14 @@ func _ready() -> void:
 	animator.play()
 	coyote_timer.wait_time = coyote_frames / 60.0
 	move_speed = walk_speed
+	start_height_offset = global_position.y
 
 func _process(_delta: float) -> void:
-	current_height = global_position.y
-	if current_height <  max_height_reached:
+	height_calculation()
+
+func height_calculation() -> void:
+	current_height = (-global_position.y - -start_height_offset) / METER_SCALE
+	if current_height >  max_height_reached:
 		max_height_reached = current_height
 		print("max!!!! - ",max_height_reached)
 		height_label.text = "%.2f - meters" %[max_height_reached]

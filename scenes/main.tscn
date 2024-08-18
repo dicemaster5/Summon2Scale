@@ -171,11 +171,11 @@ offset_bottom = 220.0
 text = "This is the height reached lol"
 
 [node name="Player" parent="." node_paths=PackedStringArray("height_label") instance=ExtResource("1_ucno6")]
-position = Vector2(0, 107.295)
+position = Vector2(0, 124)
 height_label = NodePath("../UserInterfaceManager/Label")
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(0, 132)
+position = Vector2(0, 128)
 
 [node name="Collider" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape2D_1ew2j")
