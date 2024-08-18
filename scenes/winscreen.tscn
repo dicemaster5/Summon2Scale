@@ -53,7 +53,7 @@ animations = [{
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jdqg"]
 bg_color = Color(0.960222, 0.35294, 0.536556, 1)
 
-[node name="winscreen" type="Control" node_paths=PackedStringArray("height_label", "stats_label", "score_label", "share_text_button", "share_text_confirmation", "share_image_button", "file_dialog")]
+[node name="winscreen" type="Control" node_paths=PackedStringArray("height_label", "stats_label", "score_label", "share_text_button", "share_text_confirmation", "share_image_button", "file_dialog", "scoreboard")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,6 +69,7 @@ share_text_button = NodePath("Container/VBoxContainer/HBoxContainer2/HBoxContain
 share_text_confirmation = NodePath("Panel")
 share_image_button = NodePath("Container/VBoxContainer/HBoxContainer2/HBoxContainer3/VBoxContainer/share image button/TextureButton")
 file_dialog = NodePath("FileDialog")
+scoreboard = NodePath("Container/VBoxContainer/HBoxContainer2/Scoreboard")
 
 [node name="Container" type="BoxContainer" parent="."]
 layout_mode = 1
@@ -112,6 +113,7 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Container/VBoxContainer/HBoxContainer2/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="share text button" parent="Container/VBoxContainer/HBoxContainer2/HBoxContainer3/VBoxContainer" instance=ExtResource("4_b1pnp")]
 custom_minimum_size = Vector2(144, 78)
@@ -131,6 +133,8 @@ text = "Save image"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Container/VBoxContainer/HBoxContainer2/HBoxContainer3"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Fancy Button" parent="Container/VBoxContainer/HBoxContainer2/HBoxContainer3/VBoxContainer2" instance=ExtResource("4_b1pnp")]
 custom_minimum_size = Vector2(192, 104)
@@ -165,6 +169,7 @@ YOU PLACED %d%s (TODAY) OR %d%s (ALL TIME)"
 horizontal_alignment = 1
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8

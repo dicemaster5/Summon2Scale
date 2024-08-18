@@ -16,6 +16,7 @@ signal new_height_reached
 
 var mouse_in_tower_area: bool = false
 var max_height: float = 0
+var username = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

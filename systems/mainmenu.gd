@@ -36,6 +36,8 @@ func _process(_delta: float) -> void:
 	pass
 
 func _play():
+	if textedit_username.text == "":
+		return
 	await close()
 	self.visible = false
 	if menu_tutorial != null:
@@ -47,3 +49,4 @@ func _name_updated(newtext: String):
 		button_play.disabled = true
 	else:
 		button_play.disabled = false
+	Globals.username = newtext

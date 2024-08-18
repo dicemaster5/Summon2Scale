@@ -10,6 +10,7 @@ extends Control
 @export var share_text_confirmation: Panel
 @export var share_image_button: BaseButton
 @export var file_dialog: FileDialog
+@export var scoreboard: BoxContainer
 
 var max_height = 124.14451
 var time_summon = 74.112
@@ -38,8 +39,7 @@ var share_text = "I built and climbed %.2f m in Summon & Scale
   ⬛⬛
 ⬛ ⬛  🏃‍♀️
 ⬛    ⬛⬛
-I spent %.2f summoning %d blocks and %.2f climbing %.2f m
-I placed %d%s (today)
+https://jman9092.itch.io/summon-to-scale
 "
 
 # Called when the node enters the scene tree for the first time.
@@ -68,30 +68,30 @@ func _ready() -> void:
 	
 func populate():
 	height_label.text = "%.2f m" % Globals.max_height
+	scoreboard.submit_score(
+		Globals.username,
+		Globals.max_height,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0
+	)
 	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if fading:
-		share_text_confirmation.modulate.a = lerp(share_text_confirmation.modulate.a, 0.0, delta * FADE_SPEED)
 
 func _share_text():
 	var text = share_text % [
-		max_height,
-		time_summon,
-		blocks_summoned,
-		time_scale,
-		max_height,
-		lb_today_pos,
-		lb_today_ord,
+		Globals.max_height,
 	]
 	DisplayServer.clipboard_set(text)
 	
 	#var styleBox: StyleBoxFlat = get_theme_stylebox("panel")
-	fading = 0
+	share_text_confirmation.show()
 	share_text_confirmation.modulate.a = 1
 	await get_tree().create_timer(FADE_WAIT).timeout
-	fading = 1
+	share_text_confirmation.modulate.a = 0
+	share_text_confirmation.hide()
 
 func _share_image():
 	await RenderingServer.frame_post_draw
