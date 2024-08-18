@@ -1,7 +1,7 @@
-[gd_scene load_steps=48 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=49 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
-[ext_resource type="PackedScene" uid="uid://c5v2x25cemcmw" path="res://scenes/tower.tscn" id="1_r70rj"]
+[ext_resource type="PackedScene" path="res://scenes/tower.tscn" id="1_r70rj"]
 [ext_resource type="PackedScene" uid="uid://k3xhnojhg2vg" path="res://scenes/player.tscn" id="1_ucno6"]
 [ext_resource type="PackedScene" uid="uid://cv6onxigv60s7" path="res://scenes/mainmenu.tscn" id="2_3djux"]
 [ext_resource type="Script" path="res://systems/ui_manager.gd" id="3_0wqh7"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cxtunhe6p13h8" path="res://assets/tower/ground.png" id="7_56t36"]
 [ext_resource type="Script" path="res://systems/cursor.gd" id="8_a2omg"]
 [ext_resource type="Texture2D" uid="uid://bt3u8ltfkj0w6" path="res://assets/tower/crowd.png" id="8_w0b8g"]
-[ext_resource type="PackedScene" uid="uid://bxgsxnf1icc5o" path="res://assets/real_blocks/bronze_wide_block_city.tscn" id="9_8nl5q"]
+[ext_resource type="PackedScene" uid="uid://ceth0hvplbti7" path="res://assets/real_blocks/bronze_wide_block_city.tscn" id="9_8nl5q"]
 [ext_resource type="Texture2D" uid="uid://dgbteoggr04ld" path="res://assets/ui_elements/scroll.png" id="10_gl0ha"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_skulls.tscn" id="10_hf14v"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_sky.tscn" id="11_ffo8g"]
@@ -22,15 +22,15 @@
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_green.tscn" id="13_dutyy"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_purple.tscn" id="14_hgi4b"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_red.tscn" id="15_63ipp"]
-[ext_resource type="PackedScene" uid="uid://d175jaktk5417" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="16_6pbn7"]
-[ext_resource type="PackedScene" uid="uid://wr6x4764aexf" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="16_6pbn7"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_sky.tscn" id="18_8gps5"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_candles.tscn" id="19_j4tuq"]
-[ext_resource type="PackedScene" uid="uid://rtg0mmmjxe7d" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
-[ext_resource type="PackedScene" uid="uid://c6sxq43s0f8o0" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_tower.tscn" id="22_kdmlc"]
-[ext_resource type="PackedScene" uid="uid://lc8p2eatyg1s" path="res://assets/real_blocks/slope_block_bronze.tscn" id="22_t6rpc"]
-[ext_resource type="PackedScene" uid="uid://dmh6ixlwheujk" path="res://assets/real_blocks/slope_block_green.tscn" id="23_l282h"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/slope_block_bronze.tscn" id="22_t6rpc"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/slope_block_green.tscn" id="23_l282h"]
 [ext_resource type="PackedScene" uid="uid://spa6knrjc32h" path="res://scenes/countdowntimer.tscn" id="24_6ap04"]
 [ext_resource type="Texture2D" uid="uid://bvgr4su3rntd3" path="res://assets/opening_number/distance scene.png" id="33_8pagj"]
 
@@ -50,12 +50,14 @@ radius = 52.0865
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p1rrr"]
 
-[sub_resource type="Gradient" id="Gradient_10xlx"]
+[sub_resource type="Gradient" id="Gradient_f0umn"]
 colors = PackedColorArray(0.92549, 0.776471, 0.454902, 1, 0.590315, 0.466917, 0.181511, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gmbwd"]
-gradient = SubResource("Gradient_10xlx")
+gradient = SubResource("Gradient_f0umn")
 fill_to = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t3ajl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_073lb"]
 size = Vector2(272, 3908.5)
@@ -206,9 +208,39 @@ offset_right = 221.0
 offset_bottom = 220.0
 text = "This is the height reached lol"
 
-[node name="Player" parent="." node_paths=PackedStringArray("height_label") instance=ExtResource("1_ucno6")]
+[node name="Player" parent="." node_paths=PackedStringArray("height_label", "ledge_grab_debug_node") instance=ExtResource("1_ucno6")]
 position = Vector2(0, 124)
 height_label = NodePath("../UserInterfaceManager/Label")
+ledge_grab_debug_node = NodePath("ledge grab debug")
+
+[node name="ledge grab debug" type="Node2D" parent="Player"]
+visible = false
+
+[node name="top ray" type="Line2D" parent="Player/ledge grab debug"]
+points = PackedVector2Array(0, 0, 20, 0)
+width = 2.0
+default_color = Color(1, 0.105882, 1, 1)
+
+[node name="bottom ray" type="Line2D" parent="Player/ledge grab debug"]
+points = PackedVector2Array(0, 10, 20, 10)
+width = 2.0
+default_color = Color(1, 0.105882, 1, 1)
+
+[node name="Label" type="Label" parent="Player/ledge grab debug"]
+offset_left = -22.0
+offset_top = -45.0
+offset_right = 38.0
+offset_bottom = -22.0
+text = "no grab"
+
+[node name="rayup" type="Line2D" parent="Player/ledge grab debug"]
+points = PackedVector2Array(20, 10, 20, -30)
+width = 2.0
+
+[node name="point" type="Line2D" parent="Player/ledge grab debug"]
+points = PackedVector2Array(20, -10, 20, -12)
+width = 4.0
+default_color = Color(1, 0.376471, 0, 1)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 128)
@@ -251,6 +283,20 @@ texture = ExtResource("8_w0b8g")
 position = Vector2(-7, -5)
 scale = Vector2(-1, 1)
 texture = ExtResource("8_w0b8g")
+
+[node name="WorldColliderLeft" type="StaticBody2D" parent="Floor"]
+position = Vector2(-900, -128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/WorldColliderLeft"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_t3ajl")
+
+[node name="WorldColliderRight" type="StaticBody2D" parent="Floor"]
+position = Vector2(900, -128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/WorldColliderRight"]
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_t3ajl")
 
 [node name="TowerArea" type="Area2D" parent="."]
 position = Vector2(0, -165)

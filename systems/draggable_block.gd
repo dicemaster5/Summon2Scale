@@ -4,7 +4,7 @@ var random_rotation: bool = true
 
 var rotatioins: Array[int] = [0, 90, 180, 270]
 var held := false
-var movable := true
+@export var movable := true
 var initial_position: int
 
 # rotate when in block selector
@@ -14,13 +14,13 @@ var ROTATE_SPEED = 0.1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if movable:
+		var offset_rotation = randf_range(-ROTATE_JIGGLE, ROTATE_JIGGLE)
 	
-	var offset_rotation = randf_range(-ROTATE_JIGGLE, ROTATE_JIGGLE)
-	
-	global_rotation = offset_rotation
-	if offset_rotation > 0:
-		rotate_direction = -1
-	ROTATE_SPEED += randf_range(-0.02, 0.02)
+		global_rotation = offset_rotation
+		if offset_rotation > 0:
+			rotate_direction = -1
+		ROTATE_SPEED += randf_range(-0.02, 0.02)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

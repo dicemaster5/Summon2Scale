@@ -8,7 +8,8 @@ extends Camera2D
 var move_direction: Vector2
 var dragging = false
 
-const HEIGHT_CLAMP: Vector2 = Vector2(-10000, 20)
+const HEIGHT_CLAMP: Vector2 = Vector2(-5000, 20)
+const LENGTH_CLAMP: Vector2 = Vector2(-1000, 1000)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,6 +25,7 @@ func _physics_process(delta: float) -> void:
 		_:
 			pass
 	position.y = clamp(position.y, HEIGHT_CLAMP.x, HEIGHT_CLAMP.y)
+	position.x = clamp(position.x, LENGTH_CLAMP.x, LENGTH_CLAMP.y)
 
 func follow_tartget(delta: float) -> void:
 	position = lerp(position, follow_target.global_position, follow_speed * delta)
