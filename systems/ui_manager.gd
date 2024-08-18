@@ -5,6 +5,8 @@ extends CanvasLayer
 @export var main_menu: Control
 @export var tutorial_menu: Control
 @export var end_menu: Control
+@export var height_tracker_label: Label
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,6 +28,7 @@ func gamemode_check(new_gamemode: Globals.GAMEMODE) -> void:
 			game_timer.start_timer()
 			pass
 		Globals.GAMEMODE.PLAYER:
+			height_tracker_label.show()
 			build_screen.hide()
 			pass
 		Globals.GAMEMODE.FINISHED:
