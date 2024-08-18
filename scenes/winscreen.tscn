@@ -136,7 +136,16 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="Label" type="Label" parent="Container/VBoxContainer/HBoxContainer2/HBoxContainer3/VBoxContainer2"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "press
+ESCAPE or R
+to retry"
+horizontal_alignment = 1
+
 [node name="Fancy Button" parent="Container/VBoxContainer/HBoxContainer2/HBoxContainer3/VBoxContainer2" instance=ExtResource("4_b1pnp")]
+visible = false
 custom_minimum_size = Vector2(192, 104)
 layout_mode = 2
 size_flags_vertical = 3
