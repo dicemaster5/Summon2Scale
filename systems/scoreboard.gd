@@ -1,12 +1,13 @@
 extends VBoxContainer
 
+@export var debug: bool = false
 @export var scoreboardentry_scene: PackedScene
 @export var scoreboardentry_vbox: VBoxContainer
 @export var http_request_scores: HTTPRequest
 @export var status_label: Label
-@export var button_time_daily: Button
-@export var button_time_weekly: Button
-@export var button_time_alltime: Button
+@export var button_time_daily: BaseButton
+@export var button_time_weekly: BaseButton
+@export var button_time_alltime: BaseButton
 @export var http_request_submit: HTTPRequest
 
 var current_board = "daily" # "daily" or "weekly" or "alltime"
@@ -24,17 +25,46 @@ func _ready() -> void:
 	button_time_alltime.pressed.connect(_fetch_things("alltime"))
 	refresh_leadereboard()	
 	
-	if OS.is_debug_build():
+	if debug:
 		$"test button".visible = true
 		$"test button".pressed.connect(submit_fake_score)
 		test_label = $"test label"
 		test_label.visible = true
 		test_label.text = "nothing happening"
 		
+	http_request_scores.request_completed.connect(_fetch_completed)
+	http_request_submit.request_completed.connect(_submit_score_completed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func clear_button_styles():
+	button_time_daily.remove_theme_stylebox_override("normal")
+	button_time_weekly.remove_theme_stylebox_override("normal")
+	button_time_alltime.remove_theme_stylebox_override("normal")
+	pass
+
+func highlight_button(button: BaseButton):
+	var stylebox = StyleBoxFlat.new()
+	stylebox.bg_color = "#ff0000"
+	button.add_theme_stylebox_override("normal", stylebox)
+
+func update_board_to(timeframe: String) -> void:
+	current_board = timeframe
+	match current_board:
+		"daily":
+			clear_button_styles()
+			highlight_button(button_time_daily)
+			pass
+		"weekly":
+			clear_button_styles()
+			highlight_button(button_time_weekly)
+			pass
+		"alltime":
+			clear_button_styles()
+			highlight_button(button_time_alltime)
+			pass
 
 func refresh_leadereboard():
 	_fetch_things(current_board).call()
@@ -42,13 +72,12 @@ func refresh_leadereboard():
 func _fetch_things(timeframe: String) -> Callable:
 	var _fetch_timeframe = func():
 		print("[%s] starting request" % Time.get_datetime_string_from_system())
-		current_board = timeframe
+		update_board_to(timeframe)
 		
 		for i in range(0, scoreboardentry_vbox.get_child_count()):
 			scoreboardentry_vbox.get_child(i).queue_free()
 		status_label.text = "loading..."
 		status_label.visible = true
-		http_request_scores.request_completed.connect(_fetch_completed)
 		
 		var error = http_request_scores.request(
 			"https://summon2scale.alifeee.co.uk/scoreboard/top?total=10&timeframe=%s" % timeframe
@@ -71,6 +100,10 @@ func _fetch_completed(result, response_code, headers, body):
 	var scores = response.get("scores")
 	if scores == null:
 		status_label.text = "could not load scoreboard..."
+		return
+		
+	if len(scores) == 0:
+		status_label.text = "no scores!..."
 		return
 
 	for score in scores:
@@ -112,8 +145,6 @@ func submit_score(
 		"distance_fallen": distance_fallen
 	}
 	var json = JSON.stringify(data)
-	
-	http_request_submit.request_completed.connect(_submit_score_completed)
 	
 	var error = http_request_submit.request(
 			"https://summon2scale.alifeee.co.uk/score/new",
