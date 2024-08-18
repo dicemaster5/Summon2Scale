@@ -14,6 +14,7 @@ size_flags_horizontal = 3
 theme = ExtResource("1_1npjo")
 texture_normal = ExtResource("2_ltjk2")
 texture_hover = ExtResource("3_kdouq")
+texture_disabled = ExtResource("3_kdouq")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="TextureButton"]

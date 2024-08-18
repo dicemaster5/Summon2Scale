@@ -37,7 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://lc8p2eatyg1s" path="res://assets/real_blocks/slope_block_bronze.tscn" id="22_t6rpc"]
 [ext_resource type="PackedScene" uid="uid://dmh6ixlwheujk" path="res://assets/real_blocks/slope_block_green.tscn" id="23_l282h"]
 [ext_resource type="PackedScene" uid="uid://spa6knrjc32h" path="res://scenes/countdowntimer.tscn" id="24_6ap04"]
-[ext_resource type="PackedScene" uid="uid://bym2vgf82mamx" path="res://assets/real_blocks/cobweb.tscn" id="28_jmib6"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/cobweb.tscn" id="28_jmib6"]
 [ext_resource type="Texture2D" uid="uid://bvgr4su3rntd3" path="res://assets/opening_number/distance scene.png" id="33_8pagj"]
 [ext_resource type="PackedScene" uid="uid://bcfg5hkor2xtl" path="res://scenes/height_tracker_label.tscn" id="33_y5ad0"]
 [ext_resource type="Script" path="res://systems/intro_layer.gd" id="38_0psk0"]
@@ -56,6 +56,9 @@ width = 128
 height = 128
 fill_to = Vector2(0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_073lb"]
+size = Vector2(272, 13798)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_c7x32"]
 radius = 52.0865
 
@@ -71,9 +74,6 @@ gradient = SubResource("Gradient_10xlx")
 fill_to = Vector2(0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t3ajl"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_073lb"]
-size = Vector2(272, 3908.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ciqdl"]
 atlas = ExtResource("33_8pagj")
@@ -142,8 +142,8 @@ animations = [{
 [node name="Sky" type="Parallax2D" parent="ParalaxedBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParalaxedBackground/Sky"]
-position = Vector2(23, -1364.5)
-scale = Vector2(142.094, 35.1172)
+position = Vector2(23, -2643)
+scale = Vector2(142.094, 55.0938)
 texture = SubResource("GradientTexture2D_f0iah")
 
 [node name="Clouds" type="Parallax2D" parent="ParalaxedBackground"]
@@ -201,6 +201,14 @@ region_rect = Rect2(-4573.66, 4823.69, 12683.5, 1802.21)
 
 [node name="tower" parent="." instance=ExtResource("1_r70rj")]
 position = Vector2(0, 132)
+
+[node name="TowerArea" type="Area2D" parent="."]
+position = Vector2(0, -165)
+script = ExtResource("13_163k7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerArea"]
+position = Vector2(0, -6609)
+shape = SubResource("RectangleShape2D_073lb")
 
 [node name="Game Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
 rotation_smoothing_enabled = true
@@ -260,33 +268,31 @@ scale = Vector2(2.40625, 2.40625)
 texture = ExtResource("10_gl0ha")
 
 [node name="Position 1" type="Node2D" parent="UserInterfaceManager/Buildscreen/BlockContainerArea"]
-position = Vector2(-50, -50)
+position = Vector2(-13, -50)
 
 [node name="Position 2" type="Node2D" parent="UserInterfaceManager/Buildscreen/BlockContainerArea"]
-position = Vector2(50, -50)
+position = Vector2(87, -50)
 
 [node name="Position 3" type="Node2D" parent="UserInterfaceManager/Buildscreen/BlockContainerArea"]
-position = Vector2(-50, 50)
+position = Vector2(-13, 50)
 
 [node name="Position 4" type="Node2D" parent="UserInterfaceManager/Buildscreen/BlockContainerArea"]
-position = Vector2(50, 50)
+position = Vector2(87, 50)
 
-[node name="ScaleTowerButton" type="Button" parent="UserInterfaceManager/Buildscreen" node_paths=PackedStringArray("buildscreen")]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 890.0
-offset_top = 495.0
-offset_right = 1091.0
-offset_bottom = 568.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 25
-text = "Scale the tower!"
+[node name="Fancy Button" parent="UserInterfaceManager/Buildscreen" instance=ExtResource("41_ue23d")]
+custom_minimum_size = Vector2(144, 78)
+offset_left = 912.0
+offset_top = 519.0
+offset_right = 1056.0
+offset_bottom = 597.0
+
+[node name="TextureButton" parent="UserInterfaceManager/Buildscreen/Fancy Button" index="0" node_paths=PackedStringArray("buildscreen")]
 script = ExtResource("11_ip2vg")
-buildscreen = NodePath("..")
+buildscreen = NodePath("../..")
+
+[node name="Label" parent="UserInterfaceManager/Buildscreen/Fancy Button/TextureButton" index="0"]
+text = "Scale Tower!
+"
 
 [node name="GameTimer" parent="UserInterfaceManager" instance=ExtResource("24_6ap04")]
 visible = false
@@ -368,14 +374,6 @@ position = Vector2(900, -128)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_t3ajl")
 
-[node name="TowerArea" type="Area2D" parent="."]
-position = Vector2(0, -165)
-script = ExtResource("13_163k7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerArea"]
-position = Vector2(0, -1664.25)
-shape = SubResource("RectangleShape2D_073lb")
-
 [node name="BlocksContianer" type="Node2D" parent="."]
 
 [node name="IntroLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("mainmenu", "start_game_button", "fader", "animated_splash", "static_splash")]
@@ -432,4 +430,5 @@ BEAT ME!!"
 [connection signal="body_entered" from="UserInterfaceManager/Buildscreen/Cursor/CursorArea" to="UserInterfaceManager/Buildscreen/Cursor" method="_on_cursor_area_body_entered"]
 [connection signal="body_exited" from="UserInterfaceManager/Buildscreen/Cursor/CursorArea" to="UserInterfaceManager/Buildscreen/Cursor" method="_on_cursor_area_body_exited"]
 
+[editable path="UserInterfaceManager/Buildscreen/Fancy Button"]
 [editable path="IntroLayer/Fancy Button"]
