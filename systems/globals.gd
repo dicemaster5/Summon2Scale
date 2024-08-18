@@ -19,8 +19,14 @@ var mouse_in_tower_area: bool = false
 func _ready() -> void:
 	pass # Replace with function body.
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	if Input.is_key_pressed(KEY_BACKSPACE) || Input.is_key_pressed(KEY_SPACE):
+		change_gamemode(GAMEMODE.START)
+		get_tree().reload_current_scene()
+		print("Game Restarted!")
+
 	pass
 
 func change_gamemode(new_gamemode: GAMEMODE) -> void:
