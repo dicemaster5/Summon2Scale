@@ -33,6 +33,10 @@ func _process(_delta: float) -> void:
 		await get_tree().create_timer(0.01).timeout
 		call_deferred("change_gamemode", GAMEMODE.BUILDER)
 		print("build mode Restarted!")
+		
+	# skip intro in intro mode
+	if Input.is_key_pressed(KEY_SPACE) and (current_gamemode == GAMEMODE.INTRO):
+		call_deferred("change_gamemode", GAMEMODE.START)
 
 func change_gamemode(new_gamemode: GAMEMODE) -> void:
 	print("changed gamemode to ", new_gamemode)
