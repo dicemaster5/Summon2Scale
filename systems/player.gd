@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var max_jump_velocity: float = -100.0
 @export var jump_impede: float = -10
 @export var coyote_frames: int = 30  # How many in-air frames to allow jumping
+@export var ledge_grab_debug_node: Node2D
 
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coyote_timer: Timer = $CoyoteTimer
@@ -21,6 +22,28 @@ var holding_jump: bool
 var coyote := false  # Track whether we're in coyote time or not
 var last_floor := false  # Last frame's on-floor state
 var gravity_enabled := true
+
+# LEDGE GRABBING
+# top ray
+var ledge_grab_top_from = Vector2(0,0)
+var ledge_grab_top_to = Vector2(13,0)
+# bottom ray
+var ledge_grab_bottom_from = Vector2(0,10)
+var ledge_grab_bottom_to = Vector2(13,10)
+# ray from top to bottom
+var ledge_grab_floor_from = Vector2(0, 0)
+var ledge_grab_floor_to = Vector2(0, 10)
+var facing_direction = Vector2(1,1) # 1 right, -1 left
+# climbing
+var climbing: bool = false
+var climb_to: Vector2
+const CLIMB_SPEED = 10
+# debug visuals
+@onready var topline: Line2D = ledge_grab_debug_node.get_child(0)
+@onready var bottomline: Line2D = ledge_grab_debug_node.get_child(1)
+@onready var label: Label = ledge_grab_debug_node.get_child(2)
+@onready var upline: Line2D = ledge_grab_debug_node.get_child(3)
+@onready var point: Line2D = ledge_grab_debug_node.get_child(4)
 
 var current_height: float
 
@@ -40,6 +63,16 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if Globals.current_gamemode != Globals.GAMEMODE.PLAYER: return
+	
+	if climbing:
+		global_position = global_position.move_toward(
+			climb_to,
+			delta * CLIMB_SPEED
+		)
+		if global_position == climb_to:
+			climbing = false
+		else:
+			return
 		
 	# Add the gravity.
 	if not is_on_floor() && gravity_enabled:
@@ -95,13 +128,88 @@ func _physics_process(delta: float) -> void:
 		# Flip character 
 		if velocity.x > 0:
 			animator.flip_h = false
+			facing_direction = Vector2(1, 1)
 		elif velocity.x < 0:
 			animator.flip_h = true
+			facing_direction = Vector2(-1, 1)
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
+
+	climbing = check_and_grab()
 	
 	last_floor = is_on_floor()
 	move_and_slide()
 
 func _on_coyote_timer_timeout() -> void:
 	coyote = false
+
+func check_and_grab() -> bool:
+	# wall grab
+	var space_state = get_world_2d().direct_space_state
+	var fd = facing_direction
+	# debug lines
+	topline.points[0] = fd * ledge_grab_top_from
+	topline.points[1] = fd * ledge_grab_top_to
+	bottomline.points[0] = fd * ledge_grab_bottom_from
+	bottomline.points[1] = fd * ledge_grab_bottom_to
+	upline.default_color = "#ff0000"
+	
+	# top ray
+	var querytop = PhysicsRayQueryParameters2D.create(
+		position + fd * ledge_grab_top_from,
+		position + fd * ledge_grab_top_to
+	)
+	var resulttop = space_state.intersect_ray(querytop)
+	if len(resulttop) > 1: topline.default_color = "#ffffff"
+	else: topline.default_color = "#00ff00"
+	# bottom ray
+	var querybottom = PhysicsRayQueryParameters2D.create(
+		position + fd * ledge_grab_bottom_from,
+		position + fd * ledge_grab_bottom_to
+	)
+	var resultbottom = space_state.intersect_ray(querybottom)
+	if len(resultbottom) > 1: bottomline.default_color = "#ffffff"
+	else: bottomline.default_color = "#ff00ff"
+	
+	# if NOT(bottom hits and top doesn't)
+	if not (len(resulttop) == 0 and len(resultbottom) > 0):
+		label.text = "no grab"
+		return false
+		
+	# ray cast from x where wall is, and from y between the raycasts
+	var from_x = to_local(Vector2(resultbottom.position.x, 0)).x
+	var from_y = ledge_grab_top_to.y
+	var to_x = to_local(Vector2(resultbottom.position.x, 0)).x
+	var to_y = ledge_grab_bottom_to.y
+	var from = Vector2(from_x, from_y)
+	var to = Vector2(to_x, to_y)
+	# debug line
+	upline.points[0] = from
+	upline.points[1] = to
+	# ray cast!
+	var queryfloor = PhysicsRayQueryParameters2D.create(
+		position + from,
+		position + to
+	)
+	var resultfloor = space_state.intersect_ray(queryfloor)
+	# if we do not hit (the floor)
+	if len(resultfloor) == 0:
+		label.text = "no grab"
+		return false
+	
+	upline.default_color = "#ffffff"
+	#var colliding = get_last_slide_collision()
+	var check_holding
+	if facing_direction.x == 1: check_holding = "move_right"
+	else: check_holding = "move_left"
+	var pushing_against = Input.is_action_pressed(check_holding)
+	if not pushing_against:
+		label.text = "no grab"
+		return false
+	label.text = "grab"
+	# debug line
+	point.points[0] = to_local(resultfloor.position) + + Vector2(0,2)
+	point.points[1] = to_local(resultfloor.position) + Vector2(0,-2)
+	# set climb_to
+	climb_to = resultfloor.position + fd * Vector2(10,-15)
+	return true
