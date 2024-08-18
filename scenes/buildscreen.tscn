@@ -1,11 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5k6uux421mgn"]
+[gd_scene load_steps=24 format=3 uid="uid://c5k6uux421mgn"]
 
 [ext_resource type="Script" path="res://scenes/block_container_area.gd" id="1_50s23"]
-[ext_resource type="PackedScene" uid="uid://cgmhxvijem8h5" path="res://assets/blocks/deafault_block/block.tscn" id="2_n24mn"]
-[ext_resource type="PackedScene" uid="uid://d1lwxctf8vbke" path="res://assets/blocks/stone_block/stone_block.tscn" id="3_2gu3b"]
+[ext_resource type="PackedScene" uid="uid://ceth0hvplbti7" path="res://assets/real_blocks/bronze_wide_block_city.tscn" id="2_m4h8r"]
+[ext_resource type="PackedScene" uid="uid://bym2vgf82mamx" path="res://assets/real_blocks/cobweb.tscn" id="2_q0gt1"]
+[ext_resource type="PackedScene" uid="uid://dlqtnupbvvy2v" path="res://assets/real_blocks/bronze_wide_block_skulls.tscn" id="3_sek7w"]
 [ext_resource type="Script" path="res://systems/cursor.gd" id="4_5liyy"]
+[ext_resource type="PackedScene" uid="uid://m75t4eji38f0" path="res://assets/real_blocks/bronze_wide_block_sky.tscn" id="4_onqt4"]
 [ext_resource type="Texture2D" uid="uid://dxi2g8qel7o4i" path="res://icon.svg" id="5_0ukei"]
+[ext_resource type="PackedScene" uid="uid://c4f321dxwjqcc" path="res://assets/real_blocks/cauldren_black.tscn" id="5_cyeer"]
+[ext_resource type="PackedScene" uid="uid://dc0v6y76xmx6m" path="res://assets/real_blocks/cauldren_green.tscn" id="6_bq5bu"]
+[ext_resource type="PackedScene" uid="uid://cvs4et2uw3itk" path="res://assets/real_blocks/cauldren_purple.tscn" id="7_4u7rf"]
 [ext_resource type="Texture2D" uid="uid://dgbteoggr04ld" path="res://assets/ui_elements/scroll.png" id="7_x7n52"]
+[ext_resource type="PackedScene" uid="uid://mj3sr5kiixmf" path="res://assets/real_blocks/cauldren_red.tscn" id="8_rrjtc"]
+[ext_resource type="PackedScene" uid="uid://d175jaktk5417" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="9_doy1g"]
+[ext_resource type="PackedScene" uid="uid://wr6x4764aexf" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="10_645is"]
+[ext_resource type="PackedScene" uid="uid://crtgo2pu2d4nf" path="res://assets/real_blocks/ice_wide_block_sky.tscn" id="11_5x5r8"]
+[ext_resource type="PackedScene" uid="uid://b1nni54dkjkdj" path="res://assets/real_blocks/square_candles.tscn" id="12_230lh"]
+[ext_resource type="PackedScene" uid="uid://rtg0mmmjxe7d" path="res://assets/real_blocks/square_hat.tscn" id="13_6jkd1"]
+[ext_resource type="PackedScene" uid="uid://c6sxq43s0f8o0" path="res://assets/real_blocks/square_hourglass.tscn" id="14_gawsi"]
+[ext_resource type="PackedScene" uid="uid://mf7dacxre1uj" path="res://assets/real_blocks/square_tower.tscn" id="15_xqdxv"]
+[ext_resource type="PackedScene" uid="uid://lc8p2eatyg1s" path="res://assets/real_blocks/slope_block_bronze.tscn" id="16_xtewt"]
+[ext_resource type="PackedScene" uid="uid://dmh6ixlwheujk" path="res://assets/real_blocks/slope_block_green.tscn" id="17_2bfgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71foy"]
 size = Vector2(396, 299)
@@ -18,7 +33,7 @@ radius = 52.0865
 [node name="BlockContainerArea" type="Area2D" parent="." node_paths=PackedStringArray("positions")]
 position = Vector2(952, 324)
 script = ExtResource("1_50s23")
-blocks = Array[PackedScene]([ExtResource("2_n24mn"), ExtResource("3_2gu3b")])
+blocks = Array[PackedScene]([ExtResource("2_m4h8r"), ExtResource("3_sek7w"), ExtResource("4_onqt4"), ExtResource("5_cyeer"), ExtResource("6_bq5bu"), ExtResource("7_4u7rf"), ExtResource("8_rrjtc"), ExtResource("9_doy1g"), ExtResource("10_645is"), ExtResource("11_5x5r8"), ExtResource("12_230lh"), ExtResource("13_6jkd1"), ExtResource("14_gawsi"), ExtResource("15_xqdxv"), ExtResource("16_xtewt"), ExtResource("17_2bfgy"), ExtResource("2_q0gt1")])
 positions = [NodePath("Position 1"), NodePath("Position 2"), NodePath("Position 3"), NodePath("Position 4")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BlockContainerArea"]

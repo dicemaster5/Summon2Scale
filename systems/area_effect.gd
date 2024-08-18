@@ -17,7 +17,6 @@ func _on_body_entered(body: Node2D) -> void:
 		body.status_effects = status_effects
 
 
-
 func _on_body_exited(body: Node2D) -> void:
 	if Globals.current_gamemode == Globals.GAMEMODE.PLAYER and body is Player:
 		body.status_effects -= status_effects

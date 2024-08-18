@@ -18,7 +18,7 @@ script = ExtResource("1_fi14h")
 rotation = 3.14159
 scale = Vector2(1.25, -1.263)
 script = ExtResource("3_812g8")
-status_effects = 2
+status_effects = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-4.08282e-05, -23.357)

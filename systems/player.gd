@@ -161,9 +161,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("jump"):  
 		holding_jump = false
   
-	if holding_jump and velocity.y <= jump_impede:  
-		velocity.y -= -jump_impede
-
+	if holding_jump and velocity.y <= jump_impede:
+			velocity.y -= -jump_impede
 	if direction:
 		velocity.x = direction * move_speed
 		# Flip character 
@@ -264,7 +263,6 @@ func check_and_grab() -> bool:
 		if DEBUG: label.text = "no grab"
 		return false
 	
-	
 	# grab !!!
 	if DEBUG: label.text = "grab"
 	# set climb_to
@@ -281,7 +279,12 @@ func check_status_effect(status: STATUSEFFECT):
 		current_value /= 2
 		bit -= 1
 	
-	if bits[8 - status] == 1:
+	var index = 1
+	while status % 2 != 0:
+		index += 1
+		status /= 2 
+		
+	if bits[8 - index] == 1:
 		return true
 	else:
 		return false
@@ -289,6 +292,6 @@ func check_status_effect(status: STATUSEFFECT):
 func calculate_speed(speed: float):
 	move_speed = speed
 	if check_status_effect(STATUSEFFECT.SLOW):
-		move_speed -= 190
-	if check_status_effect(STATUSEFFECT.FAST):
 		move_speed += 200
+	if check_status_effect(STATUSEFFECT.FAST):
+		move_speed -= 190
