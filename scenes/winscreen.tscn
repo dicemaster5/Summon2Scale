@@ -1,6 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2qeydgwpvtr2"]
+[gd_scene load_steps=11 format=3 uid="uid://b2qeydgwpvtr2"]
 
 [ext_resource type="Script" path="res://systems/winscreen.gd" id="1_ypl3l"]
+[ext_resource type="Texture2D" uid="uid://pmyjhqrij7le" path="res://assets/ui_elements/scroll_animation.png" id="2_xklr6"]
+[ext_resource type="Theme" uid="uid://b7yk4lxn6npo8" path="res://theme.tres" id="3_0sykk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeswi"]
+atlas = ExtResource("2_xklr6")
+region = Rect2(128, 192, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hicr"]
+atlas = ExtResource("2_xklr6")
+region = Rect2(0, 192, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77hbc"]
+atlas = ExtResource("2_xklr6")
+region = Rect2(256, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ka8t"]
+atlas = ExtResource("2_xklr6")
+region = Rect2(128, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbat7"]
+atlas = ExtResource("2_xklr6")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7e045"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeswi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hicr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77hbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ka8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbat7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jdqg"]
 bg_color = Color(0.960222, 0.35294, 0.536556, 1)
@@ -20,6 +65,14 @@ share_text_confirmation = NodePath("Panel")
 share_image_button = NodePath("CenterContainer/VBoxContainer/share image button")
 file_dialog = NodePath("FileDialog")
 
+[node name="magical scroll container" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 318)
+rotation = -1.57079
+scale = Vector2(4.17622, 4.17622)
+sprite_frames = SubResource("SpriteFrames_7e045")
+frame = 4
+frame_progress = 1.0
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -33,6 +86,7 @@ layout_mode = 2
 
 [node name="statistics" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_0sykk")
 text = "WELL DONE
 YOU WON
 YOU CLIMBED %.2f m in 2 minutes
@@ -44,6 +98,7 @@ horizontal_alignment = 1
 
 [node name="score" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_0sykk")
 text = "SCORE SUBMITTED TO SCOREBOARD
 YOU PLACED %d%s (TODAY) OR %d%s (ALL TIME)"
 horizontal_alignment = 1

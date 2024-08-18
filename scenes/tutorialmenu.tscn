@@ -1,8 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3tiwo8ub427f"]
+[gd_scene load_steps=13 format=3 uid="uid://d3tiwo8ub427f"]
 
 [ext_resource type="Script" path="res://systems/tutorialmenu.gd" id="1_0mbsy"]
+[ext_resource type="Texture2D" uid="uid://pmyjhqrij7le" path="res://assets/ui_elements/scroll_animation.png" id="2_3e5os"]
 [ext_resource type="Texture2D" uid="uid://cglkw2g2hwf63" path="res://assets/tutorial/build.png" id="2_b5oi8"]
 [ext_resource type="Texture2D" uid="uid://cf46cto8g4gwq" path="res://assets/tutorial/climb.png" id="3_fcto1"]
+[ext_resource type="Theme" uid="uid://b7yk4lxn6npo8" path="res://theme.tres" id="4_fwhcs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeswi"]
+atlas = ExtResource("2_3e5os")
+region = Rect2(128, 192, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hicr"]
+atlas = ExtResource("2_3e5os")
+region = Rect2(0, 192, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77hbc"]
+atlas = ExtResource("2_3e5os")
+region = Rect2(256, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ka8t"]
+atlas = ExtResource("2_3e5os")
+region = Rect2(128, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbat7"]
+atlas = ExtResource("2_3e5os")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xqyp1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeswi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hicr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77hbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ka8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbat7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dx7n7"]
 bg_color = Color(0.666667, 0.321569, 0.698039, 0.145098)
@@ -21,7 +66,7 @@ expand_margin_top = 50.0
 expand_margin_right = 50.0
 expand_margin_bottom = 50.0
 
-[node name="tutorial menu" type="Control" node_paths=PackedStringArray("button_skip", "timer", "time_label")]
+[node name="tutorial menu" type="Control" node_paths=PackedStringArray("magical_scroll", "menu_container", "button_skip", "timer", "time_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,83 +74,101 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0mbsy")
-button_skip = NodePath("PanelContainer/HBoxContainer/countdown vbox/Button")
+magical_scroll = NodePath("magical scroll container")
+menu_container = NodePath("HBoxContainer")
+button_skip = NodePath("HBoxContainer/countdown vbox/Button")
 timer = NodePath("Timer")
-time_label = NodePath("PanelContainer/HBoxContainer/countdown vbox/Label2")
+time_label = NodePath("HBoxContainer/countdown vbox/Label2")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -475.0
-offset_top = -150.0
-offset_right = 475.0
-offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dx7n7")
+[node name="magical scroll container" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 318)
+rotation = -1.57079
+scale = Vector2(4.17622, 4.17622)
+sprite_frames = SubResource("SpriteFrames_xqyp1")
+frame = 4
+frame_progress = 1.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+offset_left = 275.0
+offset_top = 210.5
+offset_right = 876.0
+offset_bottom = 437.5
+size_flags_horizontal = 4
 theme_override_constants/separation = 50
 
-[node name="howto build vbox" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="howto build vbox" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="BoxContainer" type="BoxContainer" parent="PanelContainer/HBoxContainer/howto build vbox"]
-custom_minimum_size = Vector2(300, 300)
+[node name="BoxContainer" type="BoxContainer" parent="HBoxContainer/howto build vbox"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/howto build vbox/BoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/howto build vbox/BoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_b5oi8")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/howto build vbox"]
+[node name="Label" type="Label" parent="HBoxContainer/howto build vbox"]
 layout_mode = 2
+theme = ExtResource("4_fwhcs")
 text = "1: BUILD"
 horizontal_alignment = 1
 
-[node name="countdown vbox" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="countdown vbox" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/countdown vbox"]
+[node name="Label" type="Label" parent="HBoxContainer/countdown vbox"]
 layout_mode = 2
+theme = ExtResource("4_fwhcs")
 text = "STARTING IN"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="PanelContainer/HBoxContainer/countdown vbox"]
+[node name="Label2" type="Label" parent="HBoxContainer/countdown vbox"]
 layout_mode = 2
+theme = ExtResource("4_fwhcs")
 text = "10 s"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="PanelContainer/HBoxContainer/countdown vbox"]
+[node name="Button" type="Button" parent="HBoxContainer/countdown vbox"]
 layout_mode = 2
 size_flags_vertical = 10
 text = "START NOW"
 
-[node name="Label3" type="Label" parent="PanelContainer/HBoxContainer/countdown vbox"]
+[node name="Label3" type="Label" parent="HBoxContainer/countdown vbox"]
+layout_mode = 2
+theme = ExtResource("4_fwhcs")
+
+[node name="how to climb vbox" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="how to climb vbox" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="BoxContainer" type="BoxContainer" parent="HBoxContainer/how to climb vbox"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 
-[node name="BoxContainer" type="BoxContainer" parent="PanelContainer/HBoxContainer/how to climb vbox"]
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/how to climb vbox/BoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/how to climb vbox/BoxContainer"]
 layout_mode = 2
 texture = ExtResource("3_fcto1")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/how to climb vbox"]
+[node name="Label" type="Label" parent="HBoxContainer/how to climb vbox"]
 layout_mode = 2
+theme = ExtResource("4_fwhcs")
 text = "2: SCALE"
 horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0876736
+anchor_top = 0.247685
+anchor_right = 0.912326
+anchor_bottom = 0.752315
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dx7n7")
+metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 11.0

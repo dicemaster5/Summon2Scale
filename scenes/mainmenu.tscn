@@ -1,25 +1,53 @@
-[gd_scene load_steps=12 format=3 uid="uid://cv6onxigv60s7"]
+[gd_scene load_steps=20 format=3 uid="uid://cv6onxigv60s7"]
 
 [ext_resource type="Script" path="res://systems/mainmenu.gd" id="1_8qncb"]
 [ext_resource type="PackedScene" uid="uid://ctsy6kgah056y" path="res://scenes/scoreboard.tscn" id="1_gs2js"]
 [ext_resource type="Texture2D" uid="uid://dqs1ils1l7u2u" path="res://assets/wizard_witch/main_character.png" id="2_ea4cg"]
+[ext_resource type="Theme" uid="uid://b7yk4lxn6npo8" path="res://theme.tres" id="4_2ye8u"]
+[ext_resource type="Texture2D" uid="uid://pmyjhqrij7le" path="res://assets/ui_elements/scroll_animation.png" id="4_hl4dm"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwx7t"]
-bg_color = Color(0.666667, 0.321569, 0.698039, 0.145098)
-border_width_left = 50
-border_width_top = 50
-border_width_right = 50
-border_width_bottom = 50
-border_color = Color(0.8, 0.8, 0.8, 0)
-border_blend = true
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-expand_margin_left = 50.0
-expand_margin_top = 50.0
-expand_margin_right = 50.0
-expand_margin_bottom = 50.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeswi"]
+atlas = ExtResource("4_hl4dm")
+region = Rect2(128, 192, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hicr"]
+atlas = ExtResource("4_hl4dm")
+region = Rect2(0, 192, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77hbc"]
+atlas = ExtResource("4_hl4dm")
+region = Rect2(256, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ka8t"]
+atlas = ExtResource("4_hl4dm")
+region = Rect2(128, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbat7"]
+atlas = ExtResource("4_hl4dm")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_atmsx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeswi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hicr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77hbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ka8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbat7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wk5ae"]
 atlas = ExtResource("2_ea4cg")
@@ -71,7 +99,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Control2" type="Control" node_paths=PackedStringArray("button_play", "textedit_username")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwx7t"]
+bg_color = Color(0.666667, 0.321569, 0.698039, 0.145098)
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0.8, 0.8, 0.8, 0)
+border_blend = true
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 50.0
+expand_margin_top = 50.0
+expand_margin_right = 50.0
+expand_margin_bottom = 50.0
+
+[node name="main menu" type="Control" node_paths=PackedStringArray("magical_scroll", "menu_container", "button_play", "textedit_username")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,10 +124,73 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8qncb")
-button_play = NodePath("PanelContainer/HBoxContainer/CenterContainer/VBoxContainer/Play Button")
-textedit_username = NodePath("PanelContainer/HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer/LineEdit")
+magical_scroll = NodePath("magical scroll container")
+menu_container = NodePath("UI Container")
+button_play = NodePath("UI Container/CenterContainer/VBoxContainer/Play Button")
+textedit_username = NodePath("UI Container/CenterContainer/VBoxContainer/HBoxContainer/LineEdit")
+
+[node name="magical scroll container" type="AnimatedSprite2D" parent="."]
+position = Vector2(580, 330)
+rotation = -1.57079
+scale = Vector2(3.60575, 3.60575)
+sprite_frames = SubResource("SpriteFrames_atmsx")
+frame = 4
+frame_progress = 1.0
+
+[node name="UI Container" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 315.0
+offset_top = 139.0
+offset_right = 837.0
+offset_bottom = 509.0
+
+[node name="CenterContainer" type="CenterContainer" parent="UI Container"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI Container/CenterContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UI Container/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI Container/CenterContainer/VBoxContainer/Control"]
+position = Vector2(-85, -31)
+scale = Vector2(5.85938, 5.85938)
+sprite_frames = SubResource("SpriteFrames_1cslk")
+autoplay = "default"
+centered = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI Container/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI Container/CenterContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Name:"
+
+[node name="LineEdit" type="LineEdit" parent="UI Container/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_2ye8u")
+placeholder_text = "name"
+max_length = 20
+
+[node name="Play Button" type="Button" parent="UI Container/CenterContainer/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "CLIMB!"
+
+[node name="VSeparator" type="VSeparator" parent="UI Container"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Scoreboard" parent="UI Container" instance=ExtResource("1_gs2js")]
+layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -96,50 +204,3 @@ offset_bottom = 235.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_bwx7t")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
-layout_mode = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/CenterContainer"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/HBoxContainer/CenterContainer/VBoxContainer/Control"]
-position = Vector2(-85, -31)
-scale = Vector2(5.85938, 5.85938)
-sprite_frames = SubResource("SpriteFrames_1cslk")
-autoplay = "default"
-centered = false
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer"]
-visible = false
-layout_mode = 2
-text = "Name:"
-
-[node name="LineEdit" type="LineEdit" parent="PanelContainer/HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "name"
-max_length = 20
-
-[node name="Play Button" type="Button" parent="PanelContainer/HBoxContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-disabled = true
-text = "CLIMB!"
-
-[node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="Scoreboard" parent="PanelContainer/HBoxContainer" instance=ExtResource("1_gs2js")]
-layout_mode = 2

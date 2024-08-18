@@ -134,12 +134,11 @@ menu_tutorial = NodePath("../tutorial menu")
 
 [node name="tutorial menu" parent="UserInterfaceManager" instance=ExtResource("3_rtmu4")]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-size_flags_horizontal = 4
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Buildscreen" type="Node2D" parent="UserInterfaceManager"]
 visible = false
