@@ -245,7 +245,6 @@ func check_and_grab() -> bool:
 	var climb_to_local = to_local(resultfloor.position) + fd * Vector2(12,-1)
 	areachecker.position = climb_to_local + Vector2(0, -15) # as player is shifted up by 15 px
 	var overlaps = areachecker.get_overlapping_bodies()
-	print(overlaps)
 	if len(overlaps) > 0:
 		if DEBUG: label.text = "no grab"
 		return false
