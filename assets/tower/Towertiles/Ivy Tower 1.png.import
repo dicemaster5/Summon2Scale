@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buookr2i0jwsf"
-path="res://.godot/imported/Ornate Tick-1.png.png-8da2f4b2727759170c6087f0935dc8bf.ctex"
+uid="uid://b5bnhgpub7g8h"
+path="res://.godot/imported/Ivy Tower 1.png-eb833e4f163b8cf59c62c9358bb62140.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tower/Ornate Tick-1.png.png"
-dest_files=["res://.godot/imported/Ornate Tick-1.png.png-8da2f4b2727759170c6087f0935dc8bf.ctex"]
+source_file="res://assets/tower/Towertiles/Ivy Tower 1.png"
+dest_files=["res://.godot/imported/Ivy Tower 1.png-eb833e4f163b8cf59c62c9358bb62140.ctex"]
 
 [params]
 

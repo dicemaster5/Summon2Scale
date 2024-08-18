@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0xqia4hqrf08"
-path="res://.godot/imported/Ivy Tower 1-1.png.png-f1fdab308cf47de2692144cf73ca1398.ctex"
+uid="uid://c37q5q0dlctef"
+path="res://.godot/imported/Blank Stone Wall 1.png-d47e7514e00f8b4bccf5720fbbf21ec9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tower/Towertiles/Ivy Tower 1-1.png.png"
-dest_files=["res://.godot/imported/Ivy Tower 1-1.png.png-f1fdab308cf47de2692144cf73ca1398.ctex"]
+source_file="res://assets/tower/Towertiles/Blank Stone Wall 1.png"
+dest_files=["res://.godot/imported/Blank Stone Wall 1.png-d47e7514e00f8b4bccf5720fbbf21ec9.ctex"]
 
 [params]
 

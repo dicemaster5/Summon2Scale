@@ -1,5 +1,8 @@
 class_name DraggableBlock extends StaticBody2D
 
+var random_rotation: bool = true
+
+var rotatioins: Array[int] = [0, 90, 180, 270]
 var held := false
 @export var movable := true
 var initial_position: int
@@ -13,6 +16,7 @@ var ROTATE_SPEED = 0.1
 func _ready() -> void:
 	if movable:
 		var offset_rotation = randf_range(-ROTATE_JIGGLE, ROTATE_JIGGLE)
+	
 		global_rotation = offset_rotation
 		if offset_rotation > 0:
 			rotate_direction = -1
@@ -45,8 +49,10 @@ func _input_event(viewport, event, shape_idx):
 func pick_up():
 	held = true
 	movable = false
-	global_rotation = 0
-	
+
+	if random_rotation:
+		global_rotation_degrees = rotatioins.pick_random()
+
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_CUBIC)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o5ss52ocmpf2"
-path="res://.godot/imported/Ivy Tower 1-1.png.png-cd3fe050a8ec8730204d28d5f026f095.ctex"
+uid="uid://b6tgr0yxodqeg"
+path="res://.godot/imported/main_character_grab.png-444c274388f3b23849506141d4395aed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tower/Ivy Tower 1-1.png.png"
-dest_files=["res://.godot/imported/Ivy Tower 1-1.png.png-cd3fe050a8ec8730204d28d5f026f095.ctex"]
+source_file="res://assets/wizard_witch/main_character_grab.png"
+dest_files=["res://.godot/imported/main_character_grab.png-444c274388f3b23849506141d4395aed.ctex"]
 
 [params]
 

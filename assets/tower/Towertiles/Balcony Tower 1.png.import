@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by1fqhmexmjke"
-path="res://.godot/imported/block.png-e6fab6cfe73b2742d5b391fa945a87f1.ctex"
+uid="uid://dp2f8l1c0afn0"
+path="res://.godot/imported/Balcony Tower 1.png-f648fe3b4987690249eb55a58442cce4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/blocks/deafault_block/block.png"
-dest_files=["res://.godot/imported/block.png-e6fab6cfe73b2742d5b391fa945a87f1.ctex"]
+source_file="res://assets/tower/Towertiles/Balcony Tower 1.png"
+dest_files=["res://.godot/imported/Balcony Tower 1.png-f648fe3b4987690249eb55a58442cce4.ctex"]
 
 [params]
 

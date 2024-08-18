@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxnv1whj8nuoc"
-path="res://.godot/imported/Basic Window No Detail-1.png.png-ef8b197e1fdaa22953dc5de824787c3f.ctex"
+uid="uid://bek7jbxbq0v8b"
+path="res://.godot/imported/Tower Base 1.png-49ff977d7cfafffcdd8845f0a448bf2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tower/Basic Window No Detail-1.png.png"
-dest_files=["res://.godot/imported/Basic Window No Detail-1.png.png-ef8b197e1fdaa22953dc5de824787c3f.ctex"]
+source_file="res://assets/tower/Towertiles/Tower Base 1.png"
+dest_files=["res://.godot/imported/Tower Base 1.png-49ff977d7cfafffcdd8845f0a448bf2e.ctex"]
 
 [params]
 

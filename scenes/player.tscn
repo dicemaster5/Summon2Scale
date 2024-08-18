@@ -235,6 +235,7 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 physics_interpolation_mode = 1
 floor_constant_speed = true
+floor_snap_length = 10.0
 script = ExtResource("1_ydmqw")
 walk_speed = 200.0
 run_speed = 275.0
@@ -242,10 +243,11 @@ max_jump_velocity = -250.0
 coyote_frames = 8
 
 [node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_gy50o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -5)
+position = Vector2(0, -20)
 sprite_frames = SubResource("SpriteFrames_vku5n")
 animation = &"crouch"
 autoplay = "Idle"

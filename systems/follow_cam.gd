@@ -8,6 +8,8 @@ extends Camera2D
 var move_direction: Vector2
 var dragging = false
 
+const HEIGHT_CLAMP: Vector2 = Vector2(-10000, 20)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -21,10 +23,10 @@ func _physics_process(delta: float) -> void:
 			follow_tartget(delta)
 		_:
 			pass
+	position.y = clamp(position.y, HEIGHT_CLAMP.x, HEIGHT_CLAMP.y)
 
 func follow_tartget(delta: float) -> void:
 	position = lerp(position, follow_target.global_position, follow_speed * delta)
-	position.y = clamp(position.y, -10000, 20)
 
 func camera_movement(delta:float) -> void:
 	move_direction.x = Input.get_axis("move_left", "move_right")
@@ -32,16 +34,18 @@ func camera_movement(delta:float) -> void:
 
 	position += move_direction * delta * move_speed
 
+
 # camera drag
 func _input(event):
-	if Globals.current_gamemode != Globals.GAMEMODE.BUILDER:
-		return
+	if Globals.current_gamemode != Globals.GAMEMODE.BUILDER: return
+	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 		if event.is_pressed():
 			dragging = true
+			position_smoothing_enabled = false
 		else:
 			dragging = false
+			position_smoothing_enabled = true
 	elif event is InputEventMouseMotion and dragging:
 		var diff = event.screen_relative
-		print(diff)
 		position = position - diff

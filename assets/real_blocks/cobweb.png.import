@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4n4bsptetpxa"
-path="res://.godot/imported/Blank Stone Wall-1.png.png-21a22a288f696ae7332ed05401c89012.ctex"
+uid="uid://do68ryfvfsoku"
+path="res://.godot/imported/cobweb.png-fc1f59334291efb6755dc51b7e51ce06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tower/Towertiles/Blank Stone Wall-1.png.png"
-dest_files=["res://.godot/imported/Blank Stone Wall-1.png.png-21a22a288f696ae7332ed05401c89012.ctex"]
+source_file="res://assets/real_blocks/cobweb.png"
+dest_files=["res://.godot/imported/cobweb.png-fc1f59334291efb6755dc51b7e51ce06.ctex"]
 
 [params]
 

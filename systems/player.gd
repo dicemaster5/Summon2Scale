@@ -10,6 +10,8 @@ extends CharacterBody2D
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coyote_timer: Timer = $CoyoteTimer
 
+@export var height_label: Label
+
 var gravity_value: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player_gravity: Vector2
 var move_speed: float
@@ -46,6 +48,8 @@ const CLIMB_SPEED = 10
 @onready var point: Line2D = ledge_grab_debug_node.get_child(4)
 
 var current_height: float
+var start_height_offset: float
+const METER_SCALE: int = 15 # Player collider height divided by 2
 
 # Redorded data
 var max_height_reached: float = 0
@@ -55,11 +59,18 @@ var time_spent_scaling: float = 0
 func _ready() -> void:
 	animator.play()
 	coyote_timer.wait_time = coyote_frames / 60.0
+	move_speed = walk_speed
+	start_height_offset = global_position.y
 
 func _process(_delta: float) -> void:
-	current_height = global_position.y
-	if current_height <  max_height_reached:
+	height_calculation()
+
+func height_calculation() -> void:
+	current_height = (-global_position.y - -start_height_offset) / METER_SCALE
+	if current_height >  max_height_reached:
 		max_height_reached = current_height
+		print("max!!!! - ",max_height_reached)
+		height_label.text = "%.2f - meters" %[max_height_reached]
 
 func _physics_process(delta: float) -> void:
 	if Globals.current_gamemode != Globals.GAMEMODE.PLAYER: return

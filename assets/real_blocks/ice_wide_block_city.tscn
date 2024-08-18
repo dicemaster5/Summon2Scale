@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcpw3wbf0yb1l"]
+[gd_scene load_steps=4 format=3 uid="uid://d175jaktk5417"]
 
 [ext_resource type="Script" path="res://systems/draggable_block.gd" id="1_f63r3"]
 [ext_resource type="Texture2D" uid="uid://cgv2sd3ju1dts" path="res://assets/real_blocks/wide_ice_blocks.png" id="2_4wm45"]

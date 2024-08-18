@@ -1,19 +1,18 @@
-[gd_scene load_steps=40 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=48 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
-[ext_resource type="Texture2D" uid="uid://fd10ymbmrxc2" path="res://assets/tower/Tower Base-1.png(1).png" id="1_s1gq3"]
+[ext_resource type="PackedScene" uid="uid://c5v2x25cemcmw" path="res://scenes/tower.tscn" id="1_r70rj"]
 [ext_resource type="PackedScene" uid="uid://k3xhnojhg2vg" path="res://scenes/player.tscn" id="1_ucno6"]
 [ext_resource type="PackedScene" uid="uid://cv6onxigv60s7" path="res://scenes/mainmenu.tscn" id="2_3djux"]
-[ext_resource type="Texture2D" uid="uid://dxi2g8qel7o4i" path="res://icon.svg" id="3_6yly4"]
+[ext_resource type="Script" path="res://systems/ui_manager.gd" id="3_0wqh7"]
 [ext_resource type="PackedScene" uid="uid://d3tiwo8ub427f" path="res://scenes/tutorialmenu.tscn" id="3_rtmu4"]
-[ext_resource type="Script" path="res://systems/win_area.gd" id="4_2l6c1"]
 [ext_resource type="Script" path="res://scenes/block_container_area.gd" id="5_qduty"]
 [ext_resource type="PackedScene" uid="uid://b2qeydgwpvtr2" path="res://scenes/winscreen.tscn" id="5_yanaa"]
 [ext_resource type="Texture2D" uid="uid://dg664vyrc1lpl" path="res://assets/tower/ground_infinit extension.png" id="6_cg67q"]
 [ext_resource type="Texture2D" uid="uid://cxtunhe6p13h8" path="res://assets/tower/ground.png" id="7_56t36"]
 [ext_resource type="Script" path="res://systems/cursor.gd" id="8_a2omg"]
 [ext_resource type="Texture2D" uid="uid://bt3u8ltfkj0w6" path="res://assets/tower/crowd.png" id="8_w0b8g"]
-[ext_resource type="PackedScene" uid="uid://ceth0hvplbti7" path="res://assets/real_blocks/bronze_wide_block_city.tscn" id="9_8nl5q"]
+[ext_resource type="PackedScene" uid="uid://bxgsxnf1icc5o" path="res://assets/real_blocks/bronze_wide_block_city.tscn" id="9_8nl5q"]
 [ext_resource type="Texture2D" uid="uid://dgbteoggr04ld" path="res://assets/ui_elements/scroll.png" id="10_gl0ha"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_skulls.tscn" id="10_hf14v"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_sky.tscn" id="11_ffo8g"]
@@ -23,13 +22,17 @@
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_green.tscn" id="13_dutyy"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_purple.tscn" id="14_hgi4b"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_red.tscn" id="15_63ipp"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="16_6pbn7"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
+[ext_resource type="PackedScene" uid="uid://d175jaktk5417" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="16_6pbn7"]
+[ext_resource type="PackedScene" uid="uid://wr6x4764aexf" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_sky.tscn" id="18_8gps5"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_candles.tscn" id="19_j4tuq"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
+[ext_resource type="PackedScene" uid="uid://rtg0mmmjxe7d" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
+[ext_resource type="PackedScene" uid="uid://c6sxq43s0f8o0" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_tower.tscn" id="22_kdmlc"]
+[ext_resource type="PackedScene" uid="uid://lc8p2eatyg1s" path="res://assets/real_blocks/slope_block_bronze.tscn" id="22_t6rpc"]
+[ext_resource type="PackedScene" uid="uid://dmh6ixlwheujk" path="res://assets/real_blocks/slope_block_green.tscn" id="23_l282h"]
+[ext_resource type="PackedScene" uid="uid://spa6knrjc32h" path="res://scenes/countdowntimer.tscn" id="24_6ap04"]
+[ext_resource type="Texture2D" uid="uid://bvgr4su3rntd3" path="res://assets/opening_number/distance scene.png" id="33_8pagj"]
 
 [sub_resource type="Gradient" id="Gradient_mjvv7"]
 colors = PackedColorArray(0.0776302, 0.102834, 0.327013, 1, 0.421007, 0.493041, 0.631455, 1)
@@ -54,10 +57,46 @@ colors = PackedColorArray(0.92549, 0.776471, 0.454902, 1, 0.590315, 0.466917, 0.
 gradient = SubResource("Gradient_f0umn")
 fill_to = Vector2(0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pidno"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_073lb"]
-size = Vector2(258, 3902.5)
+size = Vector2(272, 3908.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciqdl"]
+atlas = ExtResource("33_8pagj")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixefo"]
+atlas = ExtResource("33_8pagj")
+region = Rect2(1152, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4u4v"]
+atlas = ExtResource("33_8pagj")
+region = Rect2(0, 648, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8dcg"]
+atlas = ExtResource("33_8pagj")
+region = Rect2(1152, 648, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0vcmn"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_ciqdl")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_ixefo")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_q4u4v")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_d8dcg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y32xs"]
 
 [node name="Main" type="Node2D"]
 
@@ -69,20 +108,23 @@ position = Vector2(23, -866)
 scale = Vector2(142.094, 21.1875)
 texture = SubResource("GradientTexture2D_f0iah")
 
-[node name="Tower" type="Node2D" parent="."]
+[node name="tower" parent="." instance=ExtResource("1_r70rj")]
+position = Vector2(0, 132)
 
-[node name="TowerBase-1_png(1)" type="Sprite2D" parent="Tower"]
-position = Vector2(0, 71)
-texture = ExtResource("1_s1gq3")
-
-[node name="Scale Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
-position_smoothing_enabled = true
+[node name="Game Camera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
 rotation_smoothing_enabled = true
 script = ExtResource("1_k2bgo")
 follow_target = NodePath("../Player")
+follow_speed = 3.5
 move_speed = 800.0
 
-[node name="UserInterfaceManager" type="CanvasLayer" parent="."]
+[node name="UserInterfaceManager" type="CanvasLayer" parent="." node_paths=PackedStringArray("game_timer", "build_screen", "main_menu", "tutorial_menu", "end_menu")]
+script = ExtResource("3_0wqh7")
+game_timer = NodePath("GameTimer")
+build_screen = NodePath("Buildscreen")
+main_menu = NodePath("Main Menu")
+tutorial_menu = NodePath("tutorial menu")
+end_menu = NodePath("EndMenu")
 
 [node name="Main Menu" parent="UserInterfaceManager" node_paths=PackedStringArray("menu_tutorial") instance=ExtResource("2_3djux")]
 size_flags_horizontal = 4
@@ -98,6 +140,7 @@ anchor_bottom = 0.5
 size_flags_horizontal = 4
 
 [node name="Buildscreen" type="Node2D" parent="UserInterfaceManager"]
+visible = false
 
 [node name="Cursor" type="Node2D" parent="UserInterfaceManager/Buildscreen" node_paths=PackedStringArray("block_container_area", "placed_block_container")]
 script = ExtResource("8_a2omg")
@@ -113,7 +156,7 @@ shape = SubResource("CircleShape2D_c7x32")
 top_level = true
 position = Vector2(952, 324)
 script = ExtResource("5_qduty")
-blocks = Array[PackedScene]([ExtResource("9_8nl5q"), ExtResource("10_hf14v"), ExtResource("11_ffo8g"), ExtResource("12_uyefo"), ExtResource("13_dutyy"), ExtResource("14_hgi4b"), ExtResource("15_63ipp"), ExtResource("16_6pbn7"), ExtResource("17_3csh1"), ExtResource("18_8gps5"), ExtResource("19_j4tuq"), ExtResource("20_81kgl"), ExtResource("21_fh6l5"), ExtResource("22_kdmlc")])
+blocks = Array[PackedScene]([ExtResource("9_8nl5q"), ExtResource("10_hf14v"), ExtResource("11_ffo8g"), ExtResource("12_uyefo"), ExtResource("13_dutyy"), ExtResource("14_hgi4b"), ExtResource("15_63ipp"), ExtResource("16_6pbn7"), ExtResource("17_3csh1"), ExtResource("18_8gps5"), ExtResource("19_j4tuq"), ExtResource("20_81kgl"), ExtResource("21_fh6l5"), ExtResource("22_kdmlc"), ExtResource("22_t6rpc"), ExtResource("23_l282h")])
 positions = [NodePath("Position 1"), NodePath("Position 2"), NodePath("Position 3"), NodePath("Position 4")]
 
 [node name="Sprite2D" type="Sprite2D" parent="UserInterfaceManager/Buildscreen/BlockContainerArea"]
@@ -134,25 +177,26 @@ position = Vector2(-50, 50)
 [node name="Position 4" type="Node2D" parent="UserInterfaceManager/Buildscreen/BlockContainerArea"]
 position = Vector2(50, 50)
 
-[node name="ScaleTowerButton" type="Button" parent="UserInterfaceManager" node_paths=PackedStringArray("buildscreen")]
+[node name="ScaleTowerButton" type="Button" parent="UserInterfaceManager/Buildscreen" node_paths=PackedStringArray("buildscreen")]
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -259.0
-offset_top = 171.0
-offset_right = -61.0
-offset_bottom = 244.0
+offset_left = 890.0
+offset_top = 495.0
+offset_right = 1091.0
+offset_bottom = 568.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = "Scale the tower!"
 script = ExtResource("11_ip2vg")
-buildscreen = NodePath("../Buildscreen")
+buildscreen = NodePath("..")
 
-[node name="Player" parent="." node_paths=PackedStringArray("ledge_grab_debug_node") instance=ExtResource("1_ucno6")]
-position = Vector2(0, 107.295)
+[node name="Player" parent="." node_paths=PackedStringArray("ledge_grab_debug_node", "height_label") instance=ExtResource("1_ucno6")]
+position = Vector2(0, 124)
+height_label = NodePath("../UserInterfaceManager/Label")
 ledge_grab_debug_node = NodePath("ledge grab debug")
 
 [node name="ledge grab debug" type="Node2D" parent="Player"]
@@ -182,9 +226,20 @@ width = 2.0
 points = PackedVector2Array(20, -10, 20, -12)
 width = 4.0
 default_color = Color(1, 0.376471, 0, 1)
+[node name="GameTimer" parent="UserInterfaceManager" instance=ExtResource("24_6ap04")]
+visible = false
+
+[node name="EndMenu" parent="UserInterfaceManager" instance=ExtResource("5_yanaa")]
+visible = false
+
+[node name="Label" type="Label" parent="UserInterfaceManager"]
+offset_top = 197.0
+offset_right = 221.0
+offset_bottom = 220.0
+text = "This is the height reached lol"
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(0, 132)
+position = Vector2(0, 128)
 
 [node name="Collider" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape2D_1ew2j")
@@ -225,19 +280,6 @@ position = Vector2(-7, -5)
 scale = Vector2(-1, 1)
 texture = ExtResource("8_w0b8g")
 
-[node name="WinArea" type="Area2D" parent="." node_paths=PackedStringArray("ui_canvas")]
-position = Vector2(-289, 120)
-script = ExtResource("4_2l6c1")
-win_screen_scene = ExtResource("5_yanaa")
-ui_canvas = NodePath("../UserInterfaceManager")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
-shape = SubResource("RectangleShape2D_pidno")
-
-[node name="Sprite2D" type="Sprite2D" parent="WinArea"]
-scale = Vector2(0.125, 0.125)
-texture = ExtResource("3_6yly4")
-
 [node name="TowerArea" type="Area2D" parent="."]
 position = Vector2(0, -165)
 script = ExtResource("13_163k7")
@@ -248,6 +290,21 @@ shape = SubResource("RectangleShape2D_073lb")
 
 [node name="BlocksContianer" type="Node2D" parent="."]
 
+[node name="IntroLayer" type="CanvasLayer" parent="."]
+layer = 128
+visible = false
+follow_viewport_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="IntroLayer"]
+sprite_frames = SubResource("SpriteFrames_0vcmn")
+autoplay = "default"
+frame_progress = 0.16769
+
+[node name="Fader" type="Sprite2D" parent="IntroLayer"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(2000, 1000)
+texture = SubResource("CanvasTexture_y32xs")
+
 [connection signal="body_entered" from="UserInterfaceManager/Buildscreen/Cursor/CursorArea" to="UserInterfaceManager/Buildscreen/Cursor" method="_on_cursor_area_body_entered"]
 [connection signal="body_exited" from="UserInterfaceManager/Buildscreen/Cursor/CursorArea" to="UserInterfaceManager/Buildscreen/Cursor" method="_on_cursor_area_body_exited"]
-[connection signal="body_entered" from="WinArea" to="WinArea" method="_on_body_entered"]

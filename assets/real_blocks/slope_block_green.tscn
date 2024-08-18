@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmh6ixlwheujk"]
+
+[ext_resource type="Script" path="res://systems/draggable_block.gd" id="1_42iap"]
+[ext_resource type="Texture2D" uid="uid://clixhw5n6adbb" path="res://assets/real_blocks/slope_blocks_set.png" id="2_nxgu4"]
+
+[node name="Block" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_42iap")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(32, -33, -33, 32, 32, 32)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nxgu4")
+vframes = 2

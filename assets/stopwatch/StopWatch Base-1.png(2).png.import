@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3onkhd77wfll"
-path="res://.godot/imported/Blank Tower Tile-1.png.png-ee2d2855e2ffa5fc499280133d410b1f.ctex"
+uid="uid://bmd2hjd6fkidf"
+path="res://.godot/imported/StopWatch Base-1.png(2).png-9e551cec9ff3f4cfe437dd71fb5a85f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tower/Blank Tower Tile-1.png.png"
-dest_files=["res://.godot/imported/Blank Tower Tile-1.png.png-ee2d2855e2ffa5fc499280133d410b1f.ctex"]
+source_file="res://assets/stopwatch/StopWatch Base-1.png(2).png"
+dest_files=["res://.godot/imported/StopWatch Base-1.png(2).png-9e551cec9ff3f4cfe437dd71fb5a85f5.ctex"]
 
 [params]
 

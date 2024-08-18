@@ -1,0 +1,46 @@
+[gd_scene load_steps=12 format=4 uid="uid://c5v2x25cemcmw"]
+
+[ext_resource type="Texture2D" uid="uid://dp2f8l1c0afn0" path="res://assets/tower/Towertiles/Balcony Tower 1.png" id="1_scbdx"]
+[ext_resource type="Texture2D" uid="uid://c37q5q0dlctef" path="res://assets/tower/Towertiles/Blank Stone Wall 1.png" id="2_vkhkb"]
+[ext_resource type="Texture2D" uid="uid://b5bnhgpub7g8h" path="res://assets/tower/Towertiles/Ivy Tower 1.png" id="3_027gt"]
+[ext_resource type="Texture2D" uid="uid://bek7jbxbq0v8b" path="res://assets/tower/Towertiles/Tower Base 1.png" id="4_s3oa3"]
+[ext_resource type="Texture2D" uid="uid://h8e3ifypiy64" path="res://assets/tower/Towertiles/Blank Stone Wall with Pink graffiti-1.png(1).png" id="5_o6iqh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3guxw"]
+texture = ExtResource("1_scbdx")
+texture_region_size = Vector2i(384, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fplqd"]
+texture = ExtResource("2_vkhkb")
+texture_region_size = Vector2i(384, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_um5or"]
+texture = ExtResource("3_027gt")
+texture_region_size = Vector2i(384, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2y1il"]
+texture = ExtResource("4_s3oa3")
+texture_region_size = Vector2i(384, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wtwu8"]
+texture = ExtResource("5_o6iqh")
+texture_region_size = Vector2i(384, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ojakd"]
+sources/0 = SubResource("TileSetAtlasSource_3guxw")
+sources/1 = SubResource("TileSetAtlasSource_fplqd")
+sources/2 = SubResource("TileSetAtlasSource_um5or")
+sources/3 = SubResource("TileSetAtlasSource_2y1il")
+sources/4 = SubResource("TileSetAtlasSource_wtwu8")
+
+[node name="tower" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-296, -522)
+tile_map_data = PackedByteArray("AAASAOT/AAAAAAAAAAASAOz/AQAAAAAAAAASAPz/BAAAAAAAAAASAAQAAgAAAAAAAAASAAwAAQAAAAAAAAASABQAAAAAAAAAAAASABwAAwAAAAAAAAASANz/AQAAAAAAAAASANT/AQAAAAAAAAASAMz/AQAAAAAAAAASAMT/BAAAAAAAAAASALz/AgAAAAAAAAASAPT/AQAAAAAAAAASALT/AQAAAAAAAAASAKz/AAAAAAAAAAASAKT/AQAAAAAAAAASAJz/AQAAAAAAAAASAJT/AQAAAAAAAAASAIz/AgAAAAAAAAASAIT/AAAAAAAAAAASAHz/AQAAAAAAAAASAHT/AQAAAAAAAAASAGz/AQAAAAAAAAASAGT/AQAAAAAAAAASAFz/AQAAAAAAAAASAFT/AAAAAAAAAAASAEz/AQAAAAAAAAASAET/AQAAAAAAAAASADz/AQAAAAAAAAASADT/AQAAAAAAAAASACz/BAAAAAAAAAASACT/AQAAAAAAAAASABz/AQAAAAAAAAASABT/AQAAAAAAAAASAAz/AAAAAAAAAAASAAT/AQAAAAAAAAA=")
+tile_set = SubResource("TileSet_ojakd")

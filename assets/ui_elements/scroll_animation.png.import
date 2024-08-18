@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cftg773qbpjyw"
-path="res://.godot/imported/Left Tower 1-1.png.png-beafcf6471aab573f3bed82abca1928c.ctex"
+uid="uid://pmyjhqrij7le"
+path="res://.godot/imported/scroll_animation.png-e619542af6326d03820b015afd8d5cac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tower/Left Tower 1-1.png.png"
-dest_files=["res://.godot/imported/Left Tower 1-1.png.png-beafcf6471aab573f3bed82abca1928c.ctex"]
+source_file="res://assets/ui_elements/scroll_animation.png"
+dest_files=["res://.godot/imported/scroll_animation.png-e619542af6326d03820b015afd8d5cac.ctex"]
 
 [params]
 

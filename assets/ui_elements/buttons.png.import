@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2yylojmll88w"
-path="res://.godot/imported/StopWatch Base-1.png.png-36180daef9078095bc1466b22a0dda9c.ctex"
+uid="uid://c7p00d6hu4tte"
+path="res://.godot/imported/buttons.png-d2204f884e81edfa198995b018c6b882.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tower/StopWatch Base-1.png.png"
-dest_files=["res://.godot/imported/StopWatch Base-1.png.png-36180daef9078095bc1466b22a0dda9c.ctex"]
+source_file="res://assets/ui_elements/buttons.png"
+dest_files=["res://.godot/imported/buttons.png-d2204f884e81edfa198995b018c6b882.ctex"]
 
 [params]
 

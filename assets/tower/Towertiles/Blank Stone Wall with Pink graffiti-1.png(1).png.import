@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6qarpva47v5u"
-path="res://.godot/imported/Tower Base-1.png(1).png-dd540f10a6504dd7fd3fe00a290be74c.ctex"
+uid="uid://h8e3ifypiy64"
+path="res://.godot/imported/Blank Stone Wall with Pink graffiti-1.png(1).png-b20620e5bb1c70bfba8b37cd669a5e12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tower/Towertiles/Tower Base-1.png(1).png"
-dest_files=["res://.godot/imported/Tower Base-1.png(1).png-dd540f10a6504dd7fd3fe00a290be74c.ctex"]
+source_file="res://assets/tower/Towertiles/Blank Stone Wall with Pink graffiti-1.png(1).png"
+dest_files=["res://.godot/imported/Blank Stone Wall with Pink graffiti-1.png(1).png-b20620e5bb1c70bfba8b37cd669a5e12.ctex"]
 
 [params]
 
