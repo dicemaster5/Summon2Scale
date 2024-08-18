@@ -1,10 +1,13 @@
 class_name DraggableBlock extends StaticBody2D
 
+@export var movable := true
+@export var cobweb := false
+
 var random_rotation: bool = true
 
 var rotatioins: Array[int] = [0, 90, 180, 270]
 var held := false
-@export var movable := true
+
 var initial_position: int
 
 # rotate when in block selector
@@ -50,8 +53,8 @@ func pick_up():
 	held = true
 	movable = false
 
-	if random_rotation:
-		global_rotation_degrees = rotatioins.pick_random()
+	#if random_rotation:
+		#global_rotation_degrees = rotatioins.pick_random()
 
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_IN)
@@ -63,3 +66,5 @@ func pick_up():
 	
 func drop():
 	held = false
+	if cobweb:
+		remove_child(get_child(1))
