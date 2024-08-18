@@ -11,8 +11,8 @@ scoreboardentry_vbox = NodePath("scores")
 http_request_scores = NodePath("GET scores")
 status_label = NodePath("status label")
 button_time_daily = NodePath("HBoxContainer/button time daily/TextureButton")
-button_time_weekly = NodePath("HBoxContainer/button time weekly")
-button_time_alltime = NodePath("HBoxContainer/button time alltime")
+button_time_weekly = NodePath("HBoxContainer/button time weekly/TextureButton")
+button_time_alltime = NodePath("HBoxContainer/button time alltime/TextureButton")
 http_request_submit = NodePath("POST score")
 
 [node name="Label" type="Label" parent="."]
@@ -26,13 +26,17 @@ layout_mode = 2
 [node name="button time daily" parent="HBoxContainer" instance=ExtResource("3_8os6o")]
 layout_mode = 2
 
-[node name="button time weekly" type="Button" parent="HBoxContainer"]
+[node name="button time weekly" parent="HBoxContainer" instance=ExtResource("3_8os6o")]
 layout_mode = 2
+
+[node name="Label" parent="HBoxContainer/button time weekly/TextureButton" index="0"]
 text = "WEEKLY"
 
-[node name="button time alltime" type="Button" parent="HBoxContainer"]
+[node name="button time alltime" parent="HBoxContainer" instance=ExtResource("3_8os6o")]
 layout_mode = 2
-text = "ALL  TIME"
+
+[node name="Label" parent="HBoxContainer/button time alltime/TextureButton" index="0"]
+text = "ALL TIME"
 
 [node name="status label" type="Label" parent="."]
 layout_mode = 2
@@ -53,3 +57,5 @@ text = "submit fake score"
 layout_mode = 2
 
 [editable path="HBoxContainer/button time daily"]
+[editable path="HBoxContainer/button time weekly"]
+[editable path="HBoxContainer/button time alltime"]
