@@ -53,8 +53,8 @@ func pick_up():
 	held = true
 	movable = false
 
-	#if random_rotation:
-		#global_rotation_degrees = rotatioins.pick_random()
+	if random_rotation:
+		global_rotation_degrees = rotatioins.pick_random()
 
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_IN)
