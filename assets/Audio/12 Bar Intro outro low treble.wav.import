@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2p3ac6old6cy"
+path="res://.godot/imported/12 Bar Intro outro low treble.wav-07da26d58a5b523bbb1eb0f932cae28a.sample"
+
+[deps]
+
+source_file="res://assets/Audio/12 Bar Intro outro low treble.wav"
+dest_files=["res://.godot/imported/12 Bar Intro outro low treble.wav-07da26d58a5b523bbb1eb0f932cae28a.sample"]
+
+[params]
+
+force/8_bit=true
+force/mono=true
+force/max_rate=true
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=1

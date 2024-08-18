@@ -1,8 +1,8 @@
-[gd_scene load_steps=57 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=59 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
 [ext_resource type="Texture2D" uid="uid://dfxr3oc86bqce" path="res://assets/Parallax Sprites/Clouds 1.png" id="1_m6ykv"]
-[ext_resource type="PackedScene" uid="uid://bnoarrn5efc8c" path="res://scenes/tower.tscn" id="1_r70rj"]
+[ext_resource type="PackedScene" uid="uid://c5v2x25cemcmw" path="res://scenes/tower.tscn" id="1_r70rj"]
 [ext_resource type="PackedScene" uid="uid://k3xhnojhg2vg" path="res://scenes/player.tscn" id="1_ucno6"]
 [ext_resource type="PackedScene" uid="uid://cv6onxigv60s7" path="res://scenes/mainmenu.tscn" id="2_3djux"]
 [ext_resource type="Texture2D" uid="uid://c5k823ptci6qx" path="res://assets/Parallax Sprites/Foreground hills 1.png" id="2_cr3hu"]
@@ -16,31 +16,30 @@
 [ext_resource type="Texture2D" uid="uid://cxtunhe6p13h8" path="res://assets/tower/ground.png" id="7_56t36"]
 [ext_resource type="Script" path="res://systems/cursor.gd" id="8_a2omg"]
 [ext_resource type="Texture2D" uid="uid://bt3u8ltfkj0w6" path="res://assets/tower/crowd.png" id="8_w0b8g"]
-[ext_resource type="PackedScene" uid="uid://ceth0hvplbti7" path="res://assets/real_blocks/bronze_wide_block_city.tscn" id="9_8nl5q"]
+[ext_resource type="PackedScene" uid="uid://ckedd87ldno8f" path="res://assets/real_blocks/bronze_wide_block_city.tscn" id="9_8nl5q"]
 [ext_resource type="Texture2D" uid="uid://dgbteoggr04ld" path="res://assets/ui_elements/scroll.png" id="10_gl0ha"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_skulls.tscn" id="10_hf14v"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_sky.tscn" id="11_ffo8g"]
+[ext_resource type="PackedScene" uid="uid://dlqtnupbvvy2v" path="res://assets/real_blocks/bronze_wide_block_skulls.tscn" id="10_hf14v"]
+[ext_resource type="PackedScene" uid="uid://m75t4eji38f0" path="res://assets/real_blocks/bronze_wide_block_sky.tscn" id="11_ffo8g"]
 [ext_resource type="Script" path="res://scenes/scale_tower_button.gd" id="11_ip2vg"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_black.tscn" id="12_uyefo"]
+[ext_resource type="PackedScene" uid="uid://c4f321dxwjqcc" path="res://assets/real_blocks/cauldren_black.tscn" id="12_uyefo"]
 [ext_resource type="Script" path="res://systems/tower_area.gd" id="13_163k7"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_green.tscn" id="13_dutyy"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_purple.tscn" id="14_hgi4b"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_red.tscn" id="15_63ipp"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="16_6pbn7"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_sky.tscn" id="18_8gps5"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/square_candles.tscn" id="19_j4tuq"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/square_tower.tscn" id="22_kdmlc"]
+[ext_resource type="PackedScene" uid="uid://dc0v6y76xmx6m" path="res://assets/real_blocks/cauldren_green.tscn" id="13_dutyy"]
+[ext_resource type="PackedScene" uid="uid://cvs4et2uw3itk" path="res://assets/real_blocks/cauldren_purple.tscn" id="14_hgi4b"]
+[ext_resource type="PackedScene" uid="uid://mj3sr5kiixmf" path="res://assets/real_blocks/cauldren_red.tscn" id="15_63ipp"]
+[ext_resource type="PackedScene" uid="uid://dcpw3wbf0yb1l" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="16_6pbn7"]
+[ext_resource type="PackedScene" uid="uid://c624ewyoyed2e" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
+[ext_resource type="PackedScene" uid="uid://crtgo2pu2d4nf" path="res://assets/real_blocks/ice_wide_block_sky.tscn" id="18_8gps5"]
+[ext_resource type="PackedScene" uid="uid://b1nni54dkjkdj" path="res://assets/real_blocks/square_candles.tscn" id="19_j4tuq"]
+[ext_resource type="PackedScene" uid="uid://c0bul51s4yawv" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
+[ext_resource type="PackedScene" uid="uid://do8asj77g3t0m" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
+[ext_resource type="PackedScene" uid="uid://mf7dacxre1uj" path="res://assets/real_blocks/square_tower.tscn" id="22_kdmlc"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/slope_block_bronze.tscn" id="22_t6rpc"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/slope_block_green.tscn" id="23_l282h"]
 [ext_resource type="PackedScene" uid="uid://spa6knrjc32h" path="res://scenes/countdowntimer.tscn" id="24_6ap04"]
 [ext_resource type="FontFile" uid="uid://dsjmvmgulm6ym" path="res://assets/ui_elements/LilitaOne-Regular.ttf" id="32_rn37u"]
 [ext_resource type="Texture2D" uid="uid://bvgr4su3rntd3" path="res://assets/opening_number/distance scene.png" id="33_8pagj"]
-[ext_resource type="Script" path="res://systems/intro_layer.gd" id="38_0psk0"]
 [ext_resource type="Texture2D" uid="uid://c0wjql2bkmf5a" path="res://assets/opening_number/lookup scene.png" id="39_lwx8f"]
-[ext_resource type="PackedScene" uid="uid://dtbgo8h2hc5jn" path="res://scenes/fancy_button.tscn" id="41_ue23d"]
+[ext_resource type="Texture2D" uid="uid://dysost5cvoxck" path="res://assets/GRUMBO/GRUMBO.png" id="40_li268"]
 
 [sub_resource type="Gradient" id="Gradient_mjvv7"]
 colors = PackedColorArray(0.0776302, 0.102834, 0.327013, 1, 0.421007, 0.493041, 0.631455, 1)
@@ -107,6 +106,28 @@ animations = [{
 }]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_y32xs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7crka"]
+atlas = ExtResource("40_li268")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i1xt"]
+atlas = ExtResource("40_li268")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aovkh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7crka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5i1xt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node2D"]
 
@@ -357,32 +378,12 @@ shape = SubResource("RectangleShape2D_073lb")
 
 [node name="BlocksContianer" type="Node2D" parent="."]
 
-[node name="IntroLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("mainmenu", "fader", "animated_splash", "static_splash")]
+[node name="IntroLayer" type="CanvasLayer" parent="."]
 layer = 128
 visible = false
 follow_viewport_enabled = true
-script = ExtResource("38_0psk0")
-mainmenu = NodePath("../UserInterfaceManager/Main Menu")
-fader = NodePath("Fader")
-animated_splash = NodePath("animated splash")
-static_splash = NodePath("static splash")
 
-[node name="static splash" type="Sprite2D" parent="IntroLayer"]
-texture = ExtResource("39_lwx8f")
-
-[node name="Fancy Button" parent="IntroLayer" instance=ExtResource("41_ue23d")]
-custom_minimum_size = Vector2(192, 104)
-offset_left = -99.0
-offset_top = 204.0
-offset_right = 93.0
-offset_bottom = 308.0
-size_flags_horizontal = 4
-
-[node name="Label" parent="IntroLayer/Fancy Button/TextureButton" index="0"]
-theme_override_font_sizes/font_size = 40
-text = "SCALE"
-
-[node name="animated splash" type="AnimatedSprite2D" parent="IntroLayer"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="IntroLayer"]
 sprite_frames = SubResource("SpriteFrames_0vcmn")
 autoplay = "default"
 
@@ -391,7 +392,15 @@ modulate = Color(0, 0, 0, 1)
 scale = Vector2(2000, 1000)
 texture = SubResource("CanvasTexture_y32xs")
 
+[node name="Sprite2D" type="Sprite2D" parent="IntroLayer"]
+visible = false
+texture = ExtResource("39_lwx8f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(340, -59)
+sprite_frames = SubResource("SpriteFrames_aovkh")
+frame_progress = 0.183103
+speed_scale = 0.5
+
 [connection signal="body_entered" from="UserInterfaceManager/Buildscreen/Cursor/CursorArea" to="UserInterfaceManager/Buildscreen/Cursor" method="_on_cursor_area_body_entered"]
 [connection signal="body_exited" from="UserInterfaceManager/Buildscreen/Cursor/CursorArea" to="UserInterfaceManager/Buildscreen/Cursor" method="_on_cursor_area_body_exited"]
-
-[editable path="IntroLayer/Fancy Button"]

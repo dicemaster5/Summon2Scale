@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0qalq7bfxai5"]
+
+[ext_resource type="Script" path="res://systems/music_player.gd" id="1_mhclf"]
+[ext_resource type="AudioStream" uid="uid://d2p3ac6old6cy" path="res://assets/Audio/12 Bar Intro outro low treble.wav" id="2_knmn3"]
+[ext_resource type="AudioStream" uid="uid://bqj5ctq83abss" path="res://assets/Audio/Menu Loop low treble.wav" id="3_ob2v8"]
+[ext_resource type="AudioStream" uid="uid://s1nvvvhq3diq" path="res://assets/Audio/Gameplay 1min low treble.wav" id="4_b138r"]
+[ext_resource type="AudioStream" uid="uid://cyar0qti0gfts" path="res://assets/Audio/Outro_low_treble_simple.wav" id="5_wllvn"]
+
+[node name="MusicPlayer" type="Node2D" node_paths=PackedStringArray("audiostreamplayer2D", "audiostreamlistener2D")]
+script = ExtResource("1_mhclf")
+audiostreamplayer2D = NodePath("AudioStreamPlayer2D")
+audiostreamlistener2D = NodePath("AudioListener2D")
+music_list = Array[AudioStream]([ExtResource("2_knmn3"), ExtResource("3_ob2v8"), ExtResource("4_b138r"), ExtResource("5_wllvn")])
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -5.0
+autoplay = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
