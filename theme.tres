@@ -2,6 +2,9 @@
 
 [ext_resource type="FontFile" uid="uid://dmbu3dop65r7p" path="res://assets/ui_elements/BogFace.ttf" id="1_67lso"]
 
+[sub_resource type="FontVariation" id="FontVariation_pwrfh"]
+
 [resource]
-Label/colors/font_color = Color(0.38364, 0.000100738, 0.383637, 1)
+default_font = SubResource("FontVariation_pwrfh")
+Label/colors/font_color = Color(0.0509804, 0.027451, 0.160784, 1)
 Label/fonts/font = ExtResource("1_67lso")

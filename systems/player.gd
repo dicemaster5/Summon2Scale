@@ -1,4 +1,11 @@
-class_name  Player extends CharacterBody2D
+class_name Player extends CharacterBody2D
+
+enum STATUSEFFECT {
+	SLOW = 1,
+	FAST = 2,
+	SMALLJUMP = 4,
+	BIGJUMP = 8
+}
 
 @export var walk_speed: float = 300.0
 @export var run_speed: float = 500.0
@@ -21,6 +28,7 @@ var can_jump: bool
 var can_move: bool = true
 var jump_force: float
 var holding_jump: bool
+var status_effects: int = 0
 
 var coyote := false  # Track whether we're in coyote time or not
 var last_floor := false  # Last frame's on-floor state
@@ -63,7 +71,7 @@ func _ready() -> void:
 	height_label.text = "%.2f m" %[max_height_reached]
 	animator.play()
 	coyote_timer.wait_time = coyote_frames / 60.0
-	move_speed = walk_speed
+	calculate_speed(walk_speed)
 	start_height_offset = global_position.y
 	
 	if DEBUG:
@@ -118,10 +126,10 @@ func _physics_process(delta: float) -> void:
 		jumped = false
 		if direction != 0 && can_move:
 			if Input.is_action_pressed("run"):
-				move_speed = run_speed
+				calculate_speed(run_speed)
 				animator.play("run")
 			else:
-				move_speed = walk_speed
+				calculate_speed(walk_speed)
 				animator.play("walk")
 		else:
 			animator.play("Idle")
@@ -256,3 +264,24 @@ func check_and_grab() -> bool:
 	climb_to = resultfloor.position + fd * Vector2(10,0)
 	velocity = Vector2.ZERO
 	return true
+	
+func check_status_effect(status: STATUSEFFECT):
+	var current_value = status_effects
+	var bits = [0, 0, 0, 0, 0, 0, 0, 0]
+	var bit = 7
+	while current_value > 0:
+		bits[bit] = (current_value % 2)
+		current_value /= 2
+		bit -= 1
+	
+	if bits[8 - status] == 1:
+		return true
+	else:
+		return false
+
+func calculate_speed(speed: float):
+	move_speed = speed
+	if check_status_effect(STATUSEFFECT.SLOW):
+		move_speed -= 190
+	if check_status_effect(STATUSEFFECT.FAST):
+		move_speed += 200
