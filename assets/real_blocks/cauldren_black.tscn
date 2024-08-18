@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4f321dxwjqcc"]
+[gd_scene load_steps=6 format=3 uid="uid://c4f321dxwjqcc"]
 
 [ext_resource type="Script" path="res://systems/draggable_block.gd" id="1_r0m3v"]
 [ext_resource type="Texture2D" uid="uid://conwx1x4pfwjm" path="res://assets/real_blocks/cauldren_set.png" id="2_g6x24"]
+[ext_resource type="Script" path="res://systems/area_effect.gd" id="3_utnx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jnevd"]
 size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxxll"]
+size = Vector2(40, 17)
 
 [node name="Block" type="StaticBody2D"]
 input_pickable = true
@@ -20,3 +24,14 @@ texture = ExtResource("2_g6x24")
 hframes = 2
 vframes = 2
 frame = 3
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_utnx8")
+status_effects = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -28.5)
+shape = SubResource("RectangleShape2D_kxxll")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcfg5hkor2xtl"]
+
+[ext_resource type="FontFile" uid="uid://dsjmvmgulm6ym" path="res://assets/ui_elements/LilitaOne-Regular.ttf" id="1_jwocv"]
+
+[node name="HeightTrackerLabel" type="Label"]
+custom_minimum_size = Vector2(0, 80)
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_jwocv")
+theme_override_font_sizes/font_size = 60
+text = "142.42 m"
+horizontal_alignment = 3
+vertical_alignment = 2

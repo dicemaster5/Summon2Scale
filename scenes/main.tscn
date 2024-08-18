@@ -1,10 +1,9 @@
-[gd_scene load_steps=55 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=57 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
 [ext_resource type="Texture2D" uid="uid://dfxr3oc86bqce" path="res://assets/Parallax Sprites/Clouds 1.png" id="1_m6ykv"]
-[ext_resource type="PackedScene" path="res://scenes/tower.tscn" id="1_r70rj"]
+[ext_resource type="PackedScene" uid="uid://bnoarrn5efc8c" path="res://scenes/tower.tscn" id="1_r70rj"]
 [ext_resource type="PackedScene" uid="uid://k3xhnojhg2vg" path="res://scenes/player.tscn" id="1_ucno6"]
-[ext_resource type="PackedScene" uid="uid://c0qalq7bfxai5" path="res://scenes/music_player.tscn" id="1_yqg5n"]
 [ext_resource type="PackedScene" uid="uid://cv6onxigv60s7" path="res://scenes/mainmenu.tscn" id="2_3djux"]
 [ext_resource type="Texture2D" uid="uid://c5k823ptci6qx" path="res://assets/Parallax Sprites/Foreground hills 1.png" id="2_cr3hu"]
 [ext_resource type="Texture2D" uid="uid://cthis376dbthx" path="res://assets/Parallax Sprites/Foreground hills 3.png" id="2_mkwi7"]
@@ -17,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cxtunhe6p13h8" path="res://assets/tower/ground.png" id="7_56t36"]
 [ext_resource type="Script" path="res://systems/cursor.gd" id="8_a2omg"]
 [ext_resource type="Texture2D" uid="uid://bt3u8ltfkj0w6" path="res://assets/tower/crowd.png" id="8_w0b8g"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_city.tscn" id="9_8nl5q"]
+[ext_resource type="PackedScene" uid="uid://ceth0hvplbti7" path="res://assets/real_blocks/bronze_wide_block_city.tscn" id="9_8nl5q"]
 [ext_resource type="Texture2D" uid="uid://dgbteoggr04ld" path="res://assets/ui_elements/scroll.png" id="10_gl0ha"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_skulls.tscn" id="10_hf14v"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_sky.tscn" id="11_ffo8g"]
@@ -36,9 +35,12 @@
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_tower.tscn" id="22_kdmlc"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/slope_block_bronze.tscn" id="22_t6rpc"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/slope_block_green.tscn" id="23_l282h"]
-[ext_resource type="PackedScene" uid="uid://cgc7s8d78kfb8" path="res://scenes/countdowntimer.tscn" id="24_6ap04"]
-[ext_resource type="FontFile" uid="uid://dmbu3dop65r7p" path="res://assets/ui_elements/BogFace.ttf" id="32_06klo"]
+[ext_resource type="PackedScene" uid="uid://spa6knrjc32h" path="res://scenes/countdowntimer.tscn" id="24_6ap04"]
+[ext_resource type="FontFile" uid="uid://dsjmvmgulm6ym" path="res://assets/ui_elements/LilitaOne-Regular.ttf" id="32_rn37u"]
 [ext_resource type="Texture2D" uid="uid://bvgr4su3rntd3" path="res://assets/opening_number/distance scene.png" id="33_8pagj"]
+[ext_resource type="Script" path="res://systems/intro_layer.gd" id="38_0psk0"]
+[ext_resource type="Texture2D" uid="uid://c0wjql2bkmf5a" path="res://assets/opening_number/lookup scene.png" id="39_lwx8f"]
+[ext_resource type="PackedScene" uid="uid://dtbgo8h2hc5jn" path="res://scenes/fancy_button.tscn" id="41_ue23d"]
 
 [sub_resource type="Gradient" id="Gradient_mjvv7"]
 colors = PackedColorArray(0.0776302, 0.102834, 0.327013, 1, 0.421007, 0.493041, 0.631455, 1)
@@ -180,8 +182,6 @@ follow_target = NodePath("../Player")
 follow_speed = 3.5
 move_speed = 800.0
 
-[node name="MusicPlayer" parent="Game Camera" instance=ExtResource("1_yqg5n")]
-
 [node name="UserInterfaceManager" type="CanvasLayer" parent="." node_paths=PackedStringArray("game_timer", "build_screen", "main_menu", "tutorial_menu", "end_menu", "height_tracker_label")]
 script = ExtResource("3_0wqh7")
 game_timer = NodePath("GameTimer")
@@ -189,7 +189,7 @@ build_screen = NodePath("Buildscreen")
 main_menu = NodePath("Main Menu")
 tutorial_menu = NodePath("tutorial menu")
 end_menu = NodePath("EndMenu")
-height_tracker_label = NodePath("HeightTrackerLabel")
+height_tracker_label = NodePath("BoxContainer/HeightTrackerLabel")
 
 [node name="Main Menu" parent="UserInterfaceManager" node_paths=PackedStringArray("menu_tutorial") instance=ExtResource("2_3djux")]
 size_flags_horizontal = 4
@@ -266,20 +266,30 @@ offset_right = 12.0
 [node name="EndMenu" parent="UserInterfaceManager" instance=ExtResource("5_yanaa")]
 visible = false
 
-[node name="HeightTrackerLabel" type="Label" parent="UserInterfaceManager"]
-visible = false
-offset_left = 7.0
-offset_top = 165.0
-offset_right = 187.0
-offset_bottom = 203.0
-theme_override_fonts/font = ExtResource("32_06klo")
-theme_override_font_sizes/font_size = 21
-text = "Max Height Reached"
+[node name="BoxContainer" type="BoxContainer" parent="UserInterfaceManager"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -91.5
+offset_right = 91.5
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="HeightTrackerLabel" type="Label" parent="UserInterfaceManager/BoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("32_rn37u")
+theme_override_font_sizes/font_size = 60
+text = "142.42 m"
 horizontal_alignment = 3
+vertical_alignment = 2
 
 [node name="Player" parent="." node_paths=PackedStringArray("height_label") instance=ExtResource("1_ucno6")]
 position = Vector2(0, 124)
-height_label = NodePath("../UserInterfaceManager/HeightTrackerLabel")
+height_label = NodePath("../UserInterfaceManager/BoxContainer/HeightTrackerLabel")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 128)
@@ -347,15 +357,34 @@ shape = SubResource("RectangleShape2D_073lb")
 
 [node name="BlocksContianer" type="Node2D" parent="."]
 
-[node name="IntroLayer" type="CanvasLayer" parent="."]
+[node name="IntroLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("mainmenu", "fader", "animated_splash", "static_splash")]
 layer = 128
 visible = false
 follow_viewport_enabled = true
+script = ExtResource("38_0psk0")
+mainmenu = NodePath("../UserInterfaceManager/Main Menu")
+fader = NodePath("Fader")
+animated_splash = NodePath("animated splash")
+static_splash = NodePath("static splash")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="IntroLayer"]
+[node name="static splash" type="Sprite2D" parent="IntroLayer"]
+texture = ExtResource("39_lwx8f")
+
+[node name="Fancy Button" parent="IntroLayer" instance=ExtResource("41_ue23d")]
+custom_minimum_size = Vector2(192, 104)
+offset_left = -99.0
+offset_top = 204.0
+offset_right = 93.0
+offset_bottom = 308.0
+size_flags_horizontal = 4
+
+[node name="Label" parent="IntroLayer/Fancy Button/TextureButton" index="0"]
+theme_override_font_sizes/font_size = 40
+text = "SCALE"
+
+[node name="animated splash" type="AnimatedSprite2D" parent="IntroLayer"]
 sprite_frames = SubResource("SpriteFrames_0vcmn")
 autoplay = "default"
-frame_progress = 0.16769
 
 [node name="Fader" type="Sprite2D" parent="IntroLayer"]
 modulate = Color(0, 0, 0, 1)
@@ -364,3 +393,5 @@ texture = SubResource("CanvasTexture_y32xs")
 
 [connection signal="body_entered" from="UserInterfaceManager/Buildscreen/Cursor/CursorArea" to="UserInterfaceManager/Buildscreen/Cursor" method="_on_cursor_area_body_entered"]
 [connection signal="body_exited" from="UserInterfaceManager/Buildscreen/Cursor/CursorArea" to="UserInterfaceManager/Buildscreen/Cursor" method="_on_cursor_area_body_exited"]
+
+[editable path="IntroLayer/Fancy Button"]
