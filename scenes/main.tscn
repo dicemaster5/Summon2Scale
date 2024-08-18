@@ -55,7 +55,7 @@ gradient = SubResource("Gradient_10xlx")
 fill_to = Vector2(0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_073lb"]
-size = Vector2(258, 3902.5)
+size = Vector2(272, 3908.5)
 
 [node name="Main" type="Node2D"]
 
