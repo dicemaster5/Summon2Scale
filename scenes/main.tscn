@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=64 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
 [ext_resource type="Texture2D" uid="uid://dfxr3oc86bqce" path="res://assets/Parallax Sprites/Clouds 1.png" id="1_m6ykv"]
@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://dysost5cvoxck" path="res://assets/GRUMBO/GRUMBO.png" id="40_li268"]
 [ext_resource type="FontFile" uid="uid://dmbu3dop65r7p" path="res://assets/ui_elements/BogFace.ttf" id="41_7oynn"]
 [ext_resource type="PackedScene" path="res://scenes/fancy_button.tscn" id="41_ue23d"]
+[ext_resource type="Script" path="res://scenes/animated_sprite_grumbo.gd" id="44_fkct0"]
 
 [sub_resource type="Gradient" id="Gradient_mjvv7"]
 colors = PackedColorArray(0.0776302, 0.102834, 0.327013, 1, 0.421007, 0.493041, 0.631455, 1)
@@ -410,13 +411,14 @@ modulate = Color(0, 0, 0, 1)
 scale = Vector2(2000, 1000)
 texture = SubResource("CanvasTexture_y32xs")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSpriteGrumbo" type="AnimatedSprite2D" parent="."]
 position = Vector2(163, 111)
 sprite_frames = SubResource("SpriteFrames_aovkh")
 frame_progress = 0.183103
 speed_scale = 0.5
+script = ExtResource("44_fkct0")
 
-[node name="Label" type="Label" parent="AnimatedSprite2D"]
+[node name="Label" type="Label" parent="AnimatedSpriteGrumbo"]
 offset_left = -24.0
 offset_top = -89.0
 offset_right = 86.0
