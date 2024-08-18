@@ -39,16 +39,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func clear_button_styles():
-	button_time_daily.remove_theme_stylebox_override("normal")
-	button_time_weekly.remove_theme_stylebox_override("normal")
-	button_time_alltime.remove_theme_stylebox_override("normal")
+func clear_button_styles():	
+	button_time_daily.get_child(0).label_settings = LabelSettings.new()
+	button_time_weekly.get_child(0).label_settings = LabelSettings.new()
+	button_time_alltime.get_child(0).label_settings = LabelSettings.new()
 	pass
 
 func highlight_button(button: BaseButton):
-	var stylebox = StyleBoxFlat.new()
-	stylebox.bg_color = "#ff0000"
-	button.add_theme_stylebox_override("normal", stylebox)
+	var label: Label = button.get_child(0)
+	label.label_settings = LabelSettings.new()
+	label.label_settings.font_color = "#faf"
+	#label.add_theme_color_override("font colour", "#faf")
 
 func update_board_to(timeframe: String) -> void:
 	current_board = timeframe
@@ -106,11 +107,13 @@ func _fetch_completed(result, response_code, headers, body):
 		status_label.text = "no scores!..."
 		return
 
-	for score in scores:
+	for score_index in scores.size():
+		var score = scores[score_index]
 		var name: String = score["name"]
 		var max_height: float = score["max_height"]
 		print("%s got %s" % [name, max_height])
 		var scoreboardentry: ScoreboardEntry = scoreboardentry_scene.instantiate()
+		scoreboardentry.ordinal = "%s." % (score_index + 1)
 		scoreboardentry.username = name
 		scoreboardentry.score = "%.2f" % max_height
 		scoreboardentry_vbox.add_child(scoreboardentry)
