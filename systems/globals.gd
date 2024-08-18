@@ -14,6 +14,7 @@ signal block_clicked
 signal gamemode_changed
 
 var mouse_in_tower_area: bool = false
+var max_height: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
