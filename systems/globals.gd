@@ -1,9 +1,10 @@
 extends Node
 
 enum GAMEMODE {
+	INTRO,
+	START,
 	BUILDER,
 	PLAYER,
-	START,
 	FINISHED,
 }
 
