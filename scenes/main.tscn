@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=41 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
 [ext_resource type="Texture2D" uid="uid://fd10ymbmrxc2" path="res://assets/tower/Tower Base-1.png(1).png" id="1_s1gq3"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cxtunhe6p13h8" path="res://assets/tower/ground.png" id="7_56t36"]
 [ext_resource type="Script" path="res://systems/cursor.gd" id="8_a2omg"]
 [ext_resource type="Texture2D" uid="uid://bt3u8ltfkj0w6" path="res://assets/tower/crowd.png" id="8_w0b8g"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_city.tscn" id="9_8nl5q"]
+[ext_resource type="PackedScene" uid="uid://bxgsxnf1icc5o" path="res://assets/real_blocks/bronze_wide_block_city.tscn" id="9_8nl5q"]
 [ext_resource type="Texture2D" uid="uid://dgbteoggr04ld" path="res://assets/ui_elements/scroll.png" id="10_gl0ha"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_skulls.tscn" id="10_hf14v"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/bronze_wide_block_sky.tscn" id="11_ffo8g"]
@@ -22,13 +22,15 @@
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_green.tscn" id="13_dutyy"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_purple.tscn" id="14_hgi4b"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_red.tscn" id="15_63ipp"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="16_6pbn7"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
+[ext_resource type="PackedScene" uid="uid://d175jaktk5417" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="16_6pbn7"]
+[ext_resource type="PackedScene" uid="uid://wr6x4764aexf" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_sky.tscn" id="18_8gps5"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_candles.tscn" id="19_j4tuq"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_tower.tscn" id="22_kdmlc"]
+[ext_resource type="PackedScene" uid="uid://lc8p2eatyg1s" path="res://assets/real_blocks/slope_block_bronze.tscn" id="22_t6rpc"]
+[ext_resource type="PackedScene" uid="uid://dmh6ixlwheujk" path="res://assets/real_blocks/slope_block_green.tscn" id="23_l282h"]
 [ext_resource type="PackedScene" uid="uid://spa6knrjc32h" path="res://scenes/countdowntimer.tscn" id="24_6ap04"]
 
 [sub_resource type="Gradient" id="Gradient_mjvv7"]
@@ -118,7 +120,7 @@ shape = SubResource("CircleShape2D_c7x32")
 top_level = true
 position = Vector2(952, 324)
 script = ExtResource("5_qduty")
-blocks = Array[PackedScene]([ExtResource("9_8nl5q"), ExtResource("10_hf14v"), ExtResource("11_ffo8g"), ExtResource("12_uyefo"), ExtResource("13_dutyy"), ExtResource("14_hgi4b"), ExtResource("15_63ipp"), ExtResource("16_6pbn7"), ExtResource("17_3csh1"), ExtResource("18_8gps5"), ExtResource("19_j4tuq"), ExtResource("20_81kgl"), ExtResource("21_fh6l5"), ExtResource("22_kdmlc")])
+blocks = Array[PackedScene]([ExtResource("9_8nl5q"), ExtResource("10_hf14v"), ExtResource("11_ffo8g"), ExtResource("12_uyefo"), ExtResource("13_dutyy"), ExtResource("14_hgi4b"), ExtResource("15_63ipp"), ExtResource("16_6pbn7"), ExtResource("17_3csh1"), ExtResource("18_8gps5"), ExtResource("19_j4tuq"), ExtResource("20_81kgl"), ExtResource("21_fh6l5"), ExtResource("22_kdmlc"), ExtResource("22_t6rpc"), ExtResource("23_l282h")])
 positions = [NodePath("Position 1"), NodePath("Position 2"), NodePath("Position 3"), NodePath("Position 4")]
 
 [node name="Sprite2D" type="Sprite2D" parent="UserInterfaceManager/Buildscreen/BlockContainerArea"]

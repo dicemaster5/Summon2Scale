@@ -34,6 +34,7 @@ var time_spent_scaling: float = 0
 func _ready() -> void:
 	animator.play()
 	coyote_timer.wait_time = coyote_frames / 60.0
+	move_speed = walk_speed
 
 func _process(_delta: float) -> void:
 	current_height = global_position.y

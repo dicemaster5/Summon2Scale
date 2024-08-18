@@ -235,6 +235,7 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 physics_interpolation_mode = 1
 floor_constant_speed = true
+floor_snap_length = 10.0
 script = ExtResource("1_ydmqw")
 walk_speed = 200.0
 run_speed = 275.0
