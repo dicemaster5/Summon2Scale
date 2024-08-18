@@ -71,7 +71,7 @@ func _ready() -> void:
 	height_label.text = "%.2f m" %[max_height_reached]
 	animator.play()
 	coyote_timer.wait_time = coyote_frames / 60.0
-	move_speed = walk_speed
+	calculate_speed(walk_speed)
 	start_height_offset = global_position.y
 	
 	if DEBUG:
@@ -126,10 +126,10 @@ func _physics_process(delta: float) -> void:
 		jumped = false
 		if direction != 0 && can_move:
 			if Input.is_action_pressed("run"):
-				move_speed = run_speed
+				calculate_speed(run_speed)
 				animator.play("run")
 			else:
-				move_speed = walk_speed
+				calculate_speed(walk_speed)
 				animator.play("walk")
 		else:
 			animator.play("Idle")
@@ -266,13 +266,22 @@ func check_and_grab() -> bool:
 	return true
 	
 func check_status_effect(status: STATUSEFFECT):
+	var current_value = status_effects
 	var bits = [0, 0, 0, 0, 0, 0, 0, 0]
 	var bit = 7
-	while status_effects > 0:
-		bits[bit] = (status_effects % 2)
-		status_effects /= 2
+	while current_value > 0:
+		bits[bit] = (current_value % 2)
+		current_value /= 2
 		bit -= 1
+	
 	if bits[8 - status] == 1:
 		return true
 	else:
 		return false
+
+func calculate_speed(speed: float):
+	move_speed = speed
+	if check_status_effect(STATUSEFFECT.SLOW):
+		move_speed -= 190
+	if check_status_effect(STATUSEFFECT.FAST):
+		move_speed += 200

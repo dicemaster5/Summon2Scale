@@ -1,7 +1,7 @@
 extends Area2D
 
 
-@export_flags("SLOW","FAST","LITTLEJUMP","BIGJUMP") var status_effects: int
+@export_flags("SLOW:1","FAST:2","LITTLEJUMP:4","BIGJUMP:8") var status_effects: int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,7 +13,9 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	print("is body  entered")
 	if Globals.current_gamemode == Globals.GAMEMODE.PLAYER and body is Player:
+		print("status_effect:", status_effects)
 		body.status_effects = status_effects
 
 
