@@ -236,7 +236,7 @@ func check_and_grab() -> bool:
 	if facing_direction.x == 1: check_holding = "move_right"
 	else: check_holding = "move_left"
 	var pushing_against = Input.is_action_pressed(check_holding)
-	if not pushing_against and is_on_floor():
+	if not pushing_against or is_on_floor():
 		if DEBUG: label.text = "no grab"
 		return false
 		
