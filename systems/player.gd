@@ -90,6 +90,8 @@ func height_calculation() -> void:
 		max_height_reached = current_height
 		height_label.text = "%.2f m" %[max_height_reached]
 
+		Globals.new_height_reached.emit()
+
 func _physics_process(delta: float) -> void:
 	if Globals.current_gamemode != Globals.GAMEMODE.PLAYER: return
 	

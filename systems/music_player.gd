@@ -7,7 +7,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	music_change(Globals.GAMEMODE.START)
+	music_change(Globals.GAMEMODE.INTRO)
 	Globals.gamemode_changed.connect(music_change)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
