@@ -115,7 +115,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/share text button/TextureButton" index="0"]
-text = "Share text"
+text = "Share score"
 
 [node name="share image button" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_b1pnp")]
 custom_minimum_size = Vector2(144, 78)
@@ -123,7 +123,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/share image button/TextureButton" index="0"]
-text = "Share image"
+text = "Save image"
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)

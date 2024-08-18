@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://cv6onxigv60s7"]
+[gd_scene load_steps=21 format=3 uid="uid://cv6onxigv60s7"]
 
 [ext_resource type="Script" path="res://systems/mainmenu.gd" id="1_8qncb"]
 [ext_resource type="PackedScene" uid="uid://ctsy6kgah056y" path="res://scenes/scoreboard.tscn" id="1_gs2js"]
 [ext_resource type="Texture2D" uid="uid://dqs1ils1l7u2u" path="res://assets/wizard_witch/main_character.png" id="2_ea4cg"]
 [ext_resource type="Theme" uid="uid://b7yk4lxn6npo8" path="res://theme.tres" id="4_2ye8u"]
 [ext_resource type="Texture2D" uid="uid://pmyjhqrij7le" path="res://assets/ui_elements/scroll_animation.png" id="4_hl4dm"]
+[ext_resource type="PackedScene" uid="uid://dtbgo8h2hc5jn" path="res://scenes/fancy_button.tscn" id="5_1py6o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jeswi"]
 atlas = ExtResource("4_hl4dm")
@@ -127,7 +128,7 @@ theme = ExtResource("4_2ye8u")
 script = ExtResource("1_8qncb")
 magical_scroll = NodePath("magical scroll container")
 menu_container = NodePath("UI Container")
-button_play = NodePath("UI Container/CenterContainer/VBoxContainer/Play Button")
+button_play = NodePath("UI Container/CenterContainer/VBoxContainer/Fancy Button/TextureButton")
 textedit_username = NodePath("UI Container/CenterContainer/VBoxContainer/HBoxContainer/LineEdit")
 
 [node name="magical scroll container" type="AnimatedSprite2D" parent="."]
@@ -178,10 +179,12 @@ theme = ExtResource("4_2ye8u")
 placeholder_text = "name"
 max_length = 20
 
-[node name="Play Button" type="Button" parent="UI Container/CenterContainer/VBoxContainer"]
+[node name="Fancy Button" parent="UI Container/CenterContainer/VBoxContainer" instance=ExtResource("5_1py6o")]
 layout_mode = 2
-disabled = true
-text = "CLIMB!"
+size_flags_horizontal = 4
+
+[node name="Label" parent="UI Container/CenterContainer/VBoxContainer/Fancy Button/TextureButton" index="0"]
+text = "Climb!"
 
 [node name="VSeparator" type="VSeparator" parent="UI Container"]
 custom_minimum_size = Vector2(100, 0)
@@ -205,3 +208,5 @@ offset_bottom = 235.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_bwx7t")
+
+[editable path="UI Container/CenterContainer/VBoxContainer/Fancy Button"]

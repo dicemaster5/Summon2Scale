@@ -14,7 +14,7 @@ label = NodePath("TextureRect/Label")
 watch_hand = NodePath("TextureRect/WatchHand")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 180.0
+wait_time = 120.0
 one_shot = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -39,6 +39,8 @@ offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_37ol4")
 theme_override_font_sizes/font_size = 25
 text = "01:00:00"

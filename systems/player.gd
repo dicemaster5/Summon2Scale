@@ -60,6 +60,7 @@ var jump_counter: int = 0
 var time_spent_scaling: float = 0
 
 func _ready() -> void:
+	height_label.text = "%.2f m" %[max_height_reached]
 	animator.play()
 	coyote_timer.wait_time = coyote_frames / 60.0
 	move_speed = walk_speed
@@ -79,7 +80,7 @@ func height_calculation() -> void:
 	current_height = (-global_position.y - -start_height_offset) / METER_SCALE
 	if current_height >  max_height_reached:
 		max_height_reached = current_height
-		height_label.text = "%.2f - meters" %[max_height_reached]
+		height_label.text = "%.2f m" %[max_height_reached]
 
 func _physics_process(delta: float) -> void:
 	if Globals.current_gamemode != Globals.GAMEMODE.PLAYER: return
@@ -244,7 +245,6 @@ func check_and_grab() -> bool:
 	var climb_to_local = to_local(resultfloor.position) + fd * Vector2(12,-1)
 	areachecker.position = climb_to_local + Vector2(0, -15) # as player is shifted up by 15 px
 	var overlaps = areachecker.get_overlapping_bodies()
-	print(overlaps)
 	if len(overlaps) > 0:
 		if DEBUG: label.text = "no grab"
 		return false
