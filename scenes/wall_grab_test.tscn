@@ -28,6 +28,7 @@ height_label = NodePath("../Label")
 ledge_grab_debug_node = NodePath("ledge grab debug")
 
 [node name="ledge grab debug" type="Node2D" parent="Player"]
+visible = false
 
 [node name="top ray" type="Line2D" parent="Player/ledge grab debug"]
 points = PackedVector2Array(0, 0, 20, 0)

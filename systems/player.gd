@@ -27,6 +27,7 @@ var last_floor := false  # Last frame's on-floor state
 var gravity_enabled := true
 
 # LEDGE GRABBING
+const DEBUG = false
 # top ray
 var ledge_grab_top_from = Vector2(0,-15)
 var ledge_grab_top_to = Vector2(13,-15)
@@ -40,7 +41,7 @@ var facing_direction = Vector2(1,1) # 1 right, -1 left
 # climbing
 var climbing: bool = false
 var climb_to: Vector2
-const CLIMB_SPEED = 40
+const CLIMB_SPEED = 60
 # debug visuals
 @export var ledge_grab_debug_node: Node2D
 var topline: Line2D
@@ -64,11 +65,12 @@ func _ready() -> void:
 	move_speed = walk_speed
 	start_height_offset = global_position.y
 	
-	topline = ledge_grab_debug_node.get_child(0)
-	bottomline = ledge_grab_debug_node.get_child(1)
-	label = ledge_grab_debug_node.get_child(2)
-	upline = ledge_grab_debug_node.get_child(3)
-	point = ledge_grab_debug_node.get_child(4)
+	if DEBUG:
+		topline = ledge_grab_debug_node.get_child(0)
+		bottomline = ledge_grab_debug_node.get_child(1)
+		label = ledge_grab_debug_node.get_child(2)
+		upline = ledge_grab_debug_node.get_child(3)
+		point = ledge_grab_debug_node.get_child(4)
 
 func _process(_delta: float) -> void:
 	height_calculation()
@@ -83,6 +85,7 @@ func _physics_process(delta: float) -> void:
 	if Globals.current_gamemode != Globals.GAMEMODE.PLAYER: return
 	
 	if climbing:
+		animator.play("grab")
 		global_position = global_position.move_toward(
 			climb_to,
 			delta * CLIMB_SPEED
@@ -170,11 +173,11 @@ func check_and_grab() -> bool:
 	var space_state = get_world_2d().direct_space_state
 	var fd = facing_direction
 	# debug lines
-	topline.points[0] = fd * ledge_grab_top_from
-	topline.points[1] = fd * ledge_grab_top_to
-	bottomline.points[0] = fd * ledge_grab_bottom_from
-	bottomline.points[1] = fd * ledge_grab_bottom_to
-	upline.default_color = "#ff0000"
+	if DEBUG: topline.points[0] = fd * ledge_grab_top_from
+	if DEBUG: 	topline.points[1] = fd * ledge_grab_top_to
+	if DEBUG: bottomline.points[0] = fd * ledge_grab_bottom_from
+	if DEBUG: bottomline.points[1] = fd * ledge_grab_bottom_to
+	if DEBUG: upline.default_color = "#ff0000"
 	
 	# top ray
 	var querytop = PhysicsRayQueryParameters2D.create(
@@ -182,20 +185,24 @@ func check_and_grab() -> bool:
 		position + fd * ledge_grab_top_to
 	)
 	var resulttop = space_state.intersect_ray(querytop)
-	if len(resulttop) > 1: topline.default_color = "#ffffff"
-	else: topline.default_color = "#00ff00"
+	if len(resulttop) > 1:
+		if DEBUG: topline.default_color = "#ffffff"
+	else:
+		if DEBUG: topline.default_color = "#00ff00"
 	# bottom ray
 	var querybottom = PhysicsRayQueryParameters2D.create(
 		position + fd * ledge_grab_bottom_from,
 		position + fd * ledge_grab_bottom_to
 	)
 	var resultbottom = space_state.intersect_ray(querybottom)
-	if len(resultbottom) > 1: bottomline.default_color = "#ffffff"
-	else: bottomline.default_color = "#ff00ff"
+	if len(resultbottom) > 1:
+		if DEBUG: bottomline.default_color = "#ffffff"
+	else:
+		if DEBUG: bottomline.default_color = "#ff00ff"
 	
 	# if NOT(bottom hits and top doesn't)
 	if not (len(resulttop) == 0 and len(resultbottom) > 0):
-		label.text = "no grab"
+		if DEBUG: label.text = "no grab"
 		return false
 		
 	# ray cast from x where wall is, and from y between the raycasts
@@ -206,8 +213,8 @@ func check_and_grab() -> bool:
 	var from = Vector2(from_x, from_y)
 	var to = Vector2(to_x, to_y)
 	# debug line
-	upline.points[0] = from
-	upline.points[1] = to
+	if DEBUG: upline.points[0] = from
+	if DEBUG: upline.points[1] = to
 	# ray cast!
 	var queryfloor = PhysicsRayQueryParameters2D.create(
 		position + from,
@@ -217,20 +224,20 @@ func check_and_grab() -> bool:
 	# debug line
 	# if we do not hit (the floor)
 	if len(resultfloor) == 0:
-		label.text = "no grab"
+		if DEBUG: label.text = "no grab"
 		return false
-	point.points[0] = to_local(resultfloor.position) + + Vector2(0,2)
-	point.points[1] = to_local(resultfloor.position) + Vector2(0,-2)
+	if DEBUG: point.points[0] = to_local(resultfloor.position) + + Vector2(0,2)
+	if DEBUG: point.points[1] = to_local(resultfloor.position) + Vector2(0,-2)
 		
 	
-	upline.default_color = "#ffffff"
+	if DEBUG: upline.default_color = "#ffffff"
 	#var colliding = get_last_slide_collision()
 	var check_holding
 	if facing_direction.x == 1: check_holding = "move_right"
 	else: check_holding = "move_left"
 	var pushing_against = Input.is_action_pressed(check_holding)
 	if not pushing_against and is_on_floor():
-		label.text = "no grab"
+		if DEBUG: label.text = "no grab"
 		return false
 		
 	# can we fit?
@@ -239,12 +246,12 @@ func check_and_grab() -> bool:
 	var overlaps = areachecker.get_overlapping_bodies()
 	print(overlaps)
 	if len(overlaps) > 0:
-		label.text = "no grab"
+		if DEBUG: label.text = "no grab"
 		return false
 	
 	
 	# grab !!!
-	label.text = "grab"
+	if DEBUG: label.text = "grab"
 	# set climb_to
 	climb_to = resultfloor.position + fd * Vector2(10,0)
 	velocity = Vector2.ZERO
