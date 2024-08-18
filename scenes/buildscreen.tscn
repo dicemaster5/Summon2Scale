@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://c5k6uux421mgn"]
 
 [ext_resource type="Script" path="res://scenes/block_container_area.gd" id="1_50s23"]
-[ext_resource type="PackedScene" path="res://assets/blocks/deafault_block/block.tscn" id="2_n24mn"]
-[ext_resource type="PackedScene" path="res://assets/blocks/stone_block/stone_block.tscn" id="3_2gu3b"]
+[ext_resource type="PackedScene" uid="uid://cgmhxvijem8h5" path="res://assets/blocks/deafault_block/block.tscn" id="2_n24mn"]
+[ext_resource type="PackedScene" uid="uid://d1lwxctf8vbke" path="res://assets/blocks/stone_block/stone_block.tscn" id="3_2gu3b"]
 [ext_resource type="Script" path="res://systems/cursor.gd" id="4_5liyy"]
 [ext_resource type="Texture2D" uid="uid://dxi2g8qel7o4i" path="res://icon.svg" id="5_0ukei"]
 [ext_resource type="Texture2D" uid="uid://dgbteoggr04ld" path="res://assets/ui_elements/scroll.png" id="7_x7n52"]
