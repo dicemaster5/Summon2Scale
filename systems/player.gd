@@ -19,6 +19,7 @@ enum STATUSEFFECT {
 @onready var areachecker: Area2D = $AreaChecker
 
 @export var height_label: Label
+@export var sfx_player: AudioStreamPlayer
 
 var gravity_value: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player_gravity: Vector2
@@ -152,6 +153,7 @@ func _physics_process(delta: float) -> void:
 	# Variable jumping.
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or coyote):
 		velocity.y = max_jump_velocity
+		sfx_player.play()
 		jumped = true
 		holding_jump = true
 		jump_counter += 1
