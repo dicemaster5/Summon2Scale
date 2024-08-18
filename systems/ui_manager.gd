@@ -20,7 +20,11 @@ func _process(delta: float) -> void:
 
 func gamemode_check(new_gamemode: Globals.GAMEMODE) -> void:
 	match new_gamemode:
+		Globals.GAMEMODE.INTRO:
+			pass
 		Globals.GAMEMODE.START:
+			main_menu.show()
+			main_menu.open()
 			pass
 		Globals.GAMEMODE.BUILDER:
 			main_menu.hide()
