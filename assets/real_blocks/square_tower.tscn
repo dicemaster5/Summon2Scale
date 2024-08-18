@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://mf7dacxre1uj"]
+[gd_scene load_steps=4 format=3 uid="uid://nwbi51qi5xxh"]
 
 [ext_resource type="Script" path="res://systems/draggable_block.gd" id="1_ewvlu"]
 [ext_resource type="Texture2D" uid="uid://bg5b2ma36tb2k" path="res://assets/real_blocks/square_set.png" id="2_l2wtr"]

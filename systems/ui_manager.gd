@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @export var game_timer: GameTimer
+@export var intro_screen: CanvasLayer
 @export var build_screen: Node2D
 @export var main_menu: Control
 @export var tutorial_menu: Control
@@ -21,12 +22,16 @@ func _process(delta: float) -> void:
 func gamemode_check(new_gamemode: Globals.GAMEMODE) -> void:
 	match new_gamemode:
 		Globals.GAMEMODE.INTRO:
+			intro_screen.show()
+			intro_screen.play_intro()
 			pass
 		Globals.GAMEMODE.START:
+			intro_screen.hide()
 			main_menu.show()
 			main_menu.open()
 			pass
 		Globals.GAMEMODE.BUILDER:
+			intro_screen.hide()
 			main_menu.hide()
 			tutorial_menu.hide()
 			build_screen.show()
@@ -34,12 +39,14 @@ func gamemode_check(new_gamemode: Globals.GAMEMODE) -> void:
 			game_timer.start_timer()
 			pass
 		Globals.GAMEMODE.PLAYER:
+			intro_screen.hide()
 			main_menu.hide()
 			tutorial_menu.hide()
 			height_tracker_label.show()
 			build_screen.hide()
 			pass
 		Globals.GAMEMODE.FINISHED:
+			intro_screen.hide()
 			end_menu.show()
 			pass
 		_:

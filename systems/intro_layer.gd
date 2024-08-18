@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @export var do_intro: bool = true
 @export var mainmenu: Control
+@export var start_game_button: BaseButton
 
 @export var fader: Sprite2D
 @export var animated_splash: AnimatedSprite2D
@@ -10,6 +11,7 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_watch_gamemode(Globals.GAMEMODE.INTRO)
+	start_game_button.pressed.connect(start_game)
 	Globals.gamemode_changed.connect(_watch_gamemode)
 
 func _watch_gamemode(gm):
@@ -28,10 +30,14 @@ func _process(delta: float) -> void:
 	pass
 
 func start_game():
+	hide()
 	Globals.change_gamemode(Globals.GAMEMODE.START)
-	queue_free()
 
 func play_intro():
+	show()
+	static_splash.hide()
+	animated_splash.hide()
+	fader.show()
 	# initial timer
 	await get_tree().create_timer(1).timeout
 	# fade in animated splash
@@ -55,9 +61,3 @@ func play_intro():
 	tween.play()
 	await tween.finished
 	return true
-
-func _input(event):
-	if Globals.current_gamemode != Globals.GAMEMODE.INTRO:
-		return
-	if event is not InputEventMouseMotion:
-		start_game()
