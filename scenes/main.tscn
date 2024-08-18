@@ -1,10 +1,14 @@
-[gd_scene load_steps=49 format=3 uid="uid://dqjwfb7v30oht"]
+[gd_scene load_steps=53 format=3 uid="uid://dqjwfb7v30oht"]
 
 [ext_resource type="Script" path="res://systems/follow_cam.gd" id="1_k2bgo"]
-[ext_resource type="PackedScene" path="res://scenes/tower.tscn" id="1_r70rj"]
+[ext_resource type="Texture2D" uid="uid://dfxr3oc86bqce" path="res://assets/Parallax Sprites/Clouds 1.png" id="1_m6ykv"]
+[ext_resource type="PackedScene" uid="uid://c5v2x25cemcmw" path="res://scenes/tower.tscn" id="1_r70rj"]
 [ext_resource type="PackedScene" uid="uid://k3xhnojhg2vg" path="res://scenes/player.tscn" id="1_ucno6"]
 [ext_resource type="PackedScene" uid="uid://cv6onxigv60s7" path="res://scenes/mainmenu.tscn" id="2_3djux"]
+[ext_resource type="Texture2D" uid="uid://c5k823ptci6qx" path="res://assets/Parallax Sprites/Foreground hills 1.png" id="2_cr3hu"]
+[ext_resource type="Texture2D" uid="uid://cthis376dbthx" path="res://assets/Parallax Sprites/Foreground hills 3.png" id="2_mkwi7"]
 [ext_resource type="Script" path="res://systems/ui_manager.gd" id="3_0wqh7"]
+[ext_resource type="Texture2D" uid="uid://d3s705xdgw12s" path="res://assets/Parallax Sprites/Foreground hills 2.png" id="3_cy6xr"]
 [ext_resource type="PackedScene" uid="uid://d3tiwo8ub427f" path="res://scenes/tutorialmenu.tscn" id="3_rtmu4"]
 [ext_resource type="Script" path="res://scenes/block_container_area.gd" id="5_qduty"]
 [ext_resource type="PackedScene" uid="uid://b2qeydgwpvtr2" path="res://scenes/winscreen.tscn" id="5_yanaa"]
@@ -22,15 +26,15 @@
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_green.tscn" id="13_dutyy"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_purple.tscn" id="14_hgi4b"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_red.tscn" id="15_63ipp"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="16_6pbn7"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
+[ext_resource type="PackedScene" uid="uid://d175jaktk5417" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="16_6pbn7"]
+[ext_resource type="PackedScene" uid="uid://wr6x4764aexf" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_sky.tscn" id="18_8gps5"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_candles.tscn" id="19_j4tuq"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
+[ext_resource type="PackedScene" uid="uid://rtg0mmmjxe7d" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
+[ext_resource type="PackedScene" uid="uid://c6sxq43s0f8o0" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_tower.tscn" id="22_kdmlc"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/slope_block_bronze.tscn" id="22_t6rpc"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/slope_block_green.tscn" id="23_l282h"]
+[ext_resource type="PackedScene" uid="uid://lc8p2eatyg1s" path="res://assets/real_blocks/slope_block_bronze.tscn" id="22_t6rpc"]
+[ext_resource type="PackedScene" uid="uid://dmh6ixlwheujk" path="res://assets/real_blocks/slope_block_green.tscn" id="23_l282h"]
 [ext_resource type="PackedScene" uid="uid://spa6knrjc32h" path="res://scenes/countdowntimer.tscn" id="24_6ap04"]
 [ext_resource type="Texture2D" uid="uid://bvgr4su3rntd3" path="res://assets/opening_number/distance scene.png" id="33_8pagj"]
 
@@ -50,11 +54,11 @@ radius = 52.0865
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p1rrr"]
 
-[sub_resource type="Gradient" id="Gradient_f0umn"]
+[sub_resource type="Gradient" id="Gradient_10xlx"]
 colors = PackedColorArray(0.92549, 0.776471, 0.454902, 1, 0.590315, 0.466917, 0.181511, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gmbwd"]
-gradient = SubResource("Gradient_f0umn")
+gradient = SubResource("Gradient_10xlx")
 fill_to = Vector2(0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t3ajl"]
@@ -102,13 +106,67 @@ animations = [{
 
 [node name="Main" type="Node2D"]
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.5, 0.5)
+[node name="ParalaxedBackground" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(23, -866)
-scale = Vector2(142.094, 21.1875)
+[node name="Sky" type="Parallax2D" parent="ParalaxedBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParalaxedBackground/Sky"]
+position = Vector2(23, -1364.5)
+scale = Vector2(142.094, 35.1172)
 texture = SubResource("GradientTexture2D_f0iah")
+
+[node name="Clouds" type="Parallax2D" parent="ParalaxedBackground"]
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(0, -498)
+autoscroll = Vector2(2000, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="ParalaxedBackground/Clouds"]
+texture_repeat = 2
+position = Vector2(0, -949)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_m6ykv")
+region_enabled = true
+region_rect = Rect2(-3162.49, 2688.85, 9861.16, 2567.3)
+
+[node name="Foreground 3" type="Parallax2D" parent="ParalaxedBackground"]
+scale = Vector2(0.75, 0.75)
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(0, -25)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParalaxedBackground/Foreground 3"]
+texture_repeat = 2
+position = Vector2(0, -57)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_mkwi7")
+region_enabled = true
+region_rect = Rect2(-4573.66, 4823.69, 12683.5, 1802.21)
+
+[node name="Foreground 2" type="Parallax2D" parent="ParalaxedBackground"]
+scale = Vector2(0.75, 0.75)
+scroll_scale = Vector2(0.75, 0.75)
+scroll_offset = Vector2(0, -25)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParalaxedBackground/Foreground 2"]
+texture_repeat = 2
+position = Vector2(0, -57)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_cy6xr")
+region_enabled = true
+region_rect = Rect2(-4573.66, 4823.69, 12683.5, 1802.21)
+
+[node name="Foreground 1" type="Parallax2D" parent="ParalaxedBackground"]
+scale = Vector2(0.75, 0.75)
+scroll_scale = Vector2(0.9, 0.9)
+scroll_offset = Vector2(0, -25)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParalaxedBackground/Foreground 1"]
+texture_repeat = 2
+position = Vector2(0, -57)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cr3hu")
+region_enabled = true
+region_rect = Rect2(-4573.66, 4823.69, 12683.5, 1802.21)
 
 [node name="tower" parent="." instance=ExtResource("1_r70rj")]
 position = Vector2(0, 132)
@@ -139,6 +197,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
+size_flags_horizontal = 4
 
 [node name="Buildscreen" type="Node2D" parent="UserInterfaceManager"]
 visible = false
@@ -207,39 +266,9 @@ offset_right = 221.0
 offset_bottom = 220.0
 text = "This is the height reached lol"
 
-[node name="Player" parent="." node_paths=PackedStringArray("height_label", "ledge_grab_debug_node") instance=ExtResource("1_ucno6")]
+[node name="Player" parent="." node_paths=PackedStringArray("height_label") instance=ExtResource("1_ucno6")]
 position = Vector2(0, 124)
 height_label = NodePath("../UserInterfaceManager/Label")
-ledge_grab_debug_node = NodePath("ledge grab debug")
-
-[node name="ledge grab debug" type="Node2D" parent="Player"]
-visible = false
-
-[node name="top ray" type="Line2D" parent="Player/ledge grab debug"]
-points = PackedVector2Array(0, 0, 20, 0)
-width = 2.0
-default_color = Color(1, 0.105882, 1, 1)
-
-[node name="bottom ray" type="Line2D" parent="Player/ledge grab debug"]
-points = PackedVector2Array(0, 10, 20, 10)
-width = 2.0
-default_color = Color(1, 0.105882, 1, 1)
-
-[node name="Label" type="Label" parent="Player/ledge grab debug"]
-offset_left = -22.0
-offset_top = -45.0
-offset_right = 38.0
-offset_bottom = -22.0
-text = "no grab"
-
-[node name="rayup" type="Line2D" parent="Player/ledge grab debug"]
-points = PackedVector2Array(20, 10, 20, -30)
-width = 2.0
-
-[node name="point" type="Line2D" parent="Player/ledge grab debug"]
-points = PackedVector2Array(20, -10, 20, -12)
-width = 4.0
-default_color = Color(1, 0.376471, 0, 1)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 128)
