@@ -26,20 +26,20 @@
 [ext_resource type="Script" path="res://systems/tower_area.gd" id="13_163k7"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_green.tscn" id="13_dutyy"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_purple.tscn" id="14_hgi4b"]
-[ext_resource type="PackedScene" path="res://assets/real_blocks/cauldren_red.tscn" id="15_63ipp"]
-[ext_resource type="PackedScene" uid="uid://d175jaktk5417" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="16_6pbn7"]
-[ext_resource type="PackedScene" uid="uid://wr6x4764aexf" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
+[ext_resource type="PackedScene" uid="uid://mj3sr5kiixmf" path="res://assets/real_blocks/cauldren_red.tscn" id="15_63ipp"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_city.tscn" id="16_6pbn7"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_skulls.tscn" id="17_3csh1"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/ice_wide_block_sky.tscn" id="18_8gps5"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/square_candles.tscn" id="19_j4tuq"]
-[ext_resource type="PackedScene" uid="uid://rtg0mmmjxe7d" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
-[ext_resource type="PackedScene" uid="uid://c6sxq43s0f8o0" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
-[ext_resource type="PackedScene" uid="uid://nwbi51qi5xxh" path="res://assets/real_blocks/square_tower.tscn" id="22_kdmlc"]
-[ext_resource type="PackedScene" uid="uid://lc8p2eatyg1s" path="res://assets/real_blocks/slope_block_bronze.tscn" id="22_t6rpc"]
-[ext_resource type="PackedScene" uid="uid://dmh6ixlwheujk" path="res://assets/real_blocks/slope_block_green.tscn" id="23_l282h"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hat.tscn" id="20_81kgl"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/square_hourglass.tscn" id="21_fh6l5"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/square_tower.tscn" id="22_kdmlc"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/slope_block_bronze.tscn" id="22_t6rpc"]
+[ext_resource type="PackedScene" path="res://assets/real_blocks/slope_block_green.tscn" id="23_l282h"]
 [ext_resource type="PackedScene" uid="uid://spa6knrjc32h" path="res://scenes/countdowntimer.tscn" id="24_6ap04"]
 [ext_resource type="PackedScene" path="res://assets/real_blocks/cobweb.tscn" id="28_jmib6"]
 [ext_resource type="Texture2D" uid="uid://bvgr4su3rntd3" path="res://assets/opening_number/distance scene.png" id="33_8pagj"]
-[ext_resource type="PackedScene" uid="uid://bcfg5hkor2xtl" path="res://scenes/height_tracker_label.tscn" id="33_y5ad0"]
+[ext_resource type="PackedScene" path="res://scenes/height_tracker_label.tscn" id="33_y5ad0"]
 [ext_resource type="Script" path="res://systems/intro_layer.gd" id="38_0psk0"]
 [ext_resource type="Texture2D" uid="uid://c0wjql2bkmf5a" path="res://assets/opening_number/lookup scene.png" id="39_lwx8f"]
 [ext_resource type="Texture2D" uid="uid://dysost5cvoxck" path="res://assets/GRUMBO/GRUMBO.png" id="40_li268"]
@@ -287,6 +287,7 @@ offset_right = 1056.0
 offset_bottom = 597.0
 
 [node name="TextureButton" parent="UserInterfaceManager/Buildscreen/Fancy Button" index="0" node_paths=PackedStringArray("buildscreen")]
+texture_disabled = null
 script = ExtResource("11_ip2vg")
 buildscreen = NodePath("../..")
 
@@ -396,6 +397,9 @@ offset_left = -89.0
 offset_top = 201.0
 offset_right = 103.0
 offset_bottom = 305.0
+
+[node name="TextureButton" parent="IntroLayer/Fancy Button" index="0"]
+texture_disabled = null
 
 [node name="Label" parent="IntroLayer/Fancy Button/TextureButton" index="0"]
 theme_override_font_sizes/font_size = 40

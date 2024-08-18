@@ -163,6 +163,9 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 10
 
+[node name="TextureButton" parent="Container/VBoxContainer/HBoxContainer/countdown vbox/Fancy Button" index="0"]
+texture_disabled = null
+
 [node name="Label" parent="Container/VBoxContainer/HBoxContainer/countdown vbox/Fancy Button/TextureButton" index="0"]
 text = "Start now"
 
