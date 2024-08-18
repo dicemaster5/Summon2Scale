@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dqs1ils1l7u2u" path="res://assets/wizard_witch/main_character.png" id="2_ea4cg"]
 [ext_resource type="Theme" uid="uid://b7yk4lxn6npo8" path="res://theme.tres" id="4_2ye8u"]
 [ext_resource type="Texture2D" uid="uid://pmyjhqrij7le" path="res://assets/ui_elements/scroll_animation.png" id="4_hl4dm"]
-[ext_resource type="PackedScene" path="res://scenes/fancy_button.tscn" id="5_1py6o"]
+[ext_resource type="PackedScene" uid="uid://dtbgo8h2hc5jn" path="res://scenes/fancy_button.tscn" id="5_1py6o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jeswi"]
 atlas = ExtResource("4_hl4dm")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bnoarrn5efc8c"]
+[gd_scene load_steps=14 format=4 uid="uid://bnoarrn5efc8c"]
 
 [ext_resource type="Texture2D" uid="uid://dp2f8l1c0afn0" path="res://assets/tower/Towertiles/Balcony Tower 1.png" id="1_scbdx"]
 [ext_resource type="Texture2D" uid="uid://c37q5q0dlctef" path="res://assets/tower/Towertiles/Blank Stone Wall 1.png" id="2_vkhkb"]
