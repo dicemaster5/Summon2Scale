@@ -12,6 +12,7 @@ var current_gamemode: GAMEMODE
 
 signal block_clicked
 signal gamemode_changed
+signal new_height_reached
 
 var mouse_in_tower_area: bool = false
 var max_height: float = 0

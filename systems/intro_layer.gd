@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @export var do_intro: bool = true
 @export var mainmenu: Control
-@export var start_button: BaseButton
+@export var start_game_button: BaseButton
 
 @export var fader: Sprite2D
 @export var animated_splash: AnimatedSprite2D
@@ -10,7 +10,20 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	start_button.pressed.connect(start_game)
+	_watch_gamemode(Globals.GAMEMODE.INTRO)
+	start_game_button.pressed.connect(start_game)
+	Globals.gamemode_changed.connect(_watch_gamemode)
+
+func _watch_gamemode(gm):
+	print("new gamemode: %s" % gm)
+	if gm == Globals.GAMEMODE.INTRO:
+		show()
+		static_splash.hide()
+		animated_splash.hide()
+		fader.show()
+		play_intro()
+	else:
+		hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
