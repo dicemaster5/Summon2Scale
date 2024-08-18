@@ -12,6 +12,7 @@ point_count = 3
 curve = SubResource("Curve_hbb8v")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v57fj"]
+resource_local_to_scene = true
 lifetime_randomness = 0.2
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(2, 0.8, 1)
