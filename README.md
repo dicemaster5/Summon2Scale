@@ -17,7 +17,7 @@ Made as a team of 6 - [@alifeee] (myself), [@FreyaCon], [@dicemaster5], [@Jman90
 
 ## Scoreboard
 
-There is a networked scoreboard as part of the game, the repo is: <https://github.com/alifeee/gmtk_scoreboard>
+There is a networked scoreboard as part of the game, the repo is: <https://github.com/alifeee/summon2scale-scoreboard>
 
 ## Development
 
