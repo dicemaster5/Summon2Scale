@@ -4,7 +4,7 @@
 
 This is a game made in Godot as part of the [GMTK Game Jam 2024](https://itch.io/jam/gmtk-2024), where we gave ourselves 48 hours to make a game based on the theme "Roles Reversed".
 
-Made as a team of 6 - [@alifeee] (myself), [@FreyaCon], [@dicemaster5], [@Jman9092], [@roryferbrache], and [@kc-devacc]
+Made as a team of 6 - [@alifeee], [@FreyaCon], [@dicemaster5], [@Jman9092], [@roryferbrache], and [@kc-devacc]
 
 [@alifeee]: https://github.com/alifeee
 [@FreyaCon]: https://github.com/FreyaCon
