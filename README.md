@@ -15,6 +15,10 @@ Made as a team of 6 - [@alifeee] (myself), [@FreyaCon], [@dicemaster5], [@Jman90
 
 ![w1_Vgn](https://github.com/user-attachments/assets/946ec315-1a06-4a22-87ad-738b5eb43853)
 
+## Scoreboard
+
+There is a networked scoreboard as part of the game, the repo is: <https://github.com/alifeee/gmtk_scoreboard>
+
 ## Development
 
 | Requirement | Version |
